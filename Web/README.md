@@ -1,9 +1,8 @@
 # Global Semiconductor Supply Chain — Infrastructural Power & Structural Chokepoints
 
-**Working Paper · Rudraveera Sankuratri · Ahmedabad University · 2024**
-Supervised by Dr. Neelanjan Sircar
+**Working Paper · Sahasrik Rudraveera Ragani · Ahmedabad University · 2026**
 
-→ **[Live Visualisation](https://rudraveera.github.io/semiconductor-supply-chain)**
+→ **[Live Visualisation](https://chromadharma.github.io/semiconductor-supply-chain)**
 → **[Methodology](https://rudraveera.github.io/semiconductor-supply-chain/methodology.html)**
 → **[Findings Paper](findings.md)**
 
@@ -196,5 +195,5 @@ Analysis and written content: CC BY 4.0
 
 ## Contact
 
-Rudraveera Sankuratri · Ahmedabad University
-Research supervised by Dr. Neelanjan Sircar
+Sahasrik Rudraveera Ragani · Ahmedabad University
+sahasrik.ragani@gmail.com
