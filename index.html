@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Semiconductor Supply Chain — Infrastructural Power</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inconsolata:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+<script src="https://unpkg.com/deck.gl@8.9.35/dist.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #000;
+  --panel: #0a0a0a;
+  --border: #1c1c1c;
+  --border2: #2a2a2a;
+  --text: #bbb;
+  --dim: #555;
+  --bright: #fff;
+  --serif: 'EB Garamond', Georgia, serif;
+  --mono: 'Inconsolata', monospace;
+  /* Node role colours */
+  --exporter: #39ff14;
+  --importer: #ff3131;
+  --firm: #00ffff;
+  /* VIBGYOR layer colours */
+  --l1: #8B00FF;
+  --l2: #0055FF;
+  --l3: #00CC44;
+  --l4: #FFE600;
+  --l5: #FF7700;
+  --l6: #FF1111;
+}
+html, body { height:100%; background:#000; color:var(--text); font-family:var(--serif); overflow:hidden; }
+#app { position:relative; width:100vw; height:100vh; }
+#map, #deck-canvas { position:absolute; inset:0; }
+#deck-canvas { pointer-events:auto; }
+
+/* ── LEFT SIDEBAR ────────────────────────────────────────────── */
+#sidebar {
+  position:absolute; left:0; top:0; bottom:0; z-index:20;
+  width:260px; background:rgba(0,0,0,0.93);
+  border-right:1px solid var(--border);
+  display:flex; flex-direction:column;
+  backdrop-filter:blur(12px);
+  overflow:hidden;
+}
+#s-header { padding:15px 16px 12px; border-bottom:1px solid var(--border); flex-shrink:0; }
+.wp-badge {
+  font-family:var(--mono); font-size:8px; letter-spacing:2px;
+  text-transform:uppercase; color:#444;
+  display:flex; align-items:center; gap:5px; margin-bottom:8px;
+}
+.wp-badge::before { content:''; width:5px; height:5px; background:#fff; border-radius:50%; flex-shrink:0; }
+#s-header h1 { font-size:12.5px; font-weight:500; color:#fff; line-height:1.45; letter-spacing:.01em; }
+#s-header .tagline { font-size:10.5px; color:var(--dim); margin-top:4px; font-style:italic; line-height:1.4; }
+
+/* Section labels */
+.sec { font-family:var(--mono); font-size:7.5px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); padding:10px 16px 5px; border-top:1px solid var(--border); flex-shrink:0; }
+
+/* View mode */
+#view-row { display:flex; gap:4px; padding:0 10px 6px; flex-shrink:0; }
+.vbtn { flex:1; padding:5px 0; background:none; border:1px solid var(--border2); color:var(--dim); font-family:var(--mono); font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; transition:all .15s; border-radius:2px; }
+.vbtn:hover { color:#fff; border-color:#444; }
+.vbtn.on { color:#fff; border-color:#fff; background:rgba(255,255,255,.05); }
+
+/* Layer toggles */
+#layer-list { padding:0 8px 4px; flex-shrink:0; }
+.lrow {
+  display:flex; align-items:center; gap:8px;
+  padding:4px 8px; cursor:pointer; border-radius:2px;
+  transition:background .12s; user-select:none; margin-bottom:1px;
+}
+.lrow:hover { background:rgba(255,255,255,.04); }
+.lrow.on { background:rgba(255,255,255,.06); }
+.lrow:hover .lhover-dim { opacity:1 !important; }
+.lswatch { width:8px; height:8px; border-radius:1px; flex-shrink:0; transition:opacity .2s; }
+.lrow:not(.on) .lswatch { opacity:.2; }
+.lname { font-size:11.5px; color:var(--dim); transition:color .15s; flex:1; font-family:var(--serif); }
+.lrow.on .lname { color:#fff; }
+.lcount { font-family:var(--mono); font-size:7.5px; color:var(--dim); }
+#all-btn { margin:2px 8px 0; background:none; border:1px solid var(--border2); color:var(--dim); font-family:var(--mono); font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase; padding:5px 10px; cursor:pointer; width:calc(100% - 16px); transition:all .15s; }
+#all-btn:hover, #all-btn.on { border-color:#fff; color:#fff; background:rgba(255,255,255,.04); }
+
+/* Threshold slider */
+#threshold-wrap { padding:4px 16px 8px; flex-shrink:0; }
+#threshold-wrap label { font-family:var(--mono); font-size:7.5px; letter-spacing:1px; color:var(--dim); display:flex; justify-content:space-between; margin-bottom:5px; }
+#threshold-wrap label span { color:#888; }
+#threshold-slider {
+  width:100%; accent-color:#fff;
+  -webkit-appearance:none; appearance:none; height:1px; background:var(--border2); cursor:pointer; outline:none;
+}
+#threshold-slider::-webkit-slider-thumb { -webkit-appearance:none; width:12px; height:12px; border-radius:50%; background:#fff; cursor:pointer; }
+#threshold-slider::-moz-range-thumb { width:12px; height:12px; border-radius:50%; background:#fff; border:none; cursor:pointer; }
+
+/* Selected node panel */
+#selected-panel { flex-shrink:0; border-top:1px solid var(--border); background:rgba(0,0,0,.5); display:none; }
+#selected-panel.show { display:block; }
+#sp-inner { padding:12px 16px 10px; }
+#sp-clear { float:right; background:none; border:none; color:var(--dim); font-size:14px; cursor:pointer; padding:0 0 4px 8px; line-height:1; }
+#sp-clear:hover { color:#fff; }
+#sp-eyebrow { font-family:var(--mono); font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); margin-bottom:3px; }
+#sp-name { font-size:17px; font-weight:500; color:#fff; line-height:1.2; margin-bottom:3px; }
+#sp-sub  { font-family:var(--mono); font-size:8px; color:#555; margin-bottom:8px; }
+#sp-moat { background:rgba(255,255,255,.03); border:1px solid var(--border); padding:8px 10px; margin-bottom:8px; }
+#sp-moat-label { font-family:var(--mono); font-size:7px; letter-spacing:1.5px; text-transform:uppercase; color:#444; margin-bottom:4px; }
+#sp-bc-val { font-size:20px; font-weight:500; color:#fff; font-family:var(--mono); }
+#sp-bc-sub { font-size:10px; color:var(--dim); font-family:var(--mono); margin-top:1px; }
+#sp-note { font-size:10.5px; color:var(--text); line-height:1.55; font-style:italic; }
+#sp-layers { margin-top:8px; }
+.sp-layer-row { display:flex; justify-content:space-between; align-items:center; padding:3px 0; }
+.sp-layer-name { font-family:var(--mono); font-size:8px; color:var(--dim); }
+.sp-layer-bar-wrap { flex:1; margin:0 8px; height:1px; background:var(--border); }
+.sp-layer-bar { height:100%; }
+.sp-layer-val { font-family:var(--mono); font-size:8px; color:#666; }
+
+/* Centrality/value list */
+#rank-wrap { flex:1; overflow-y:auto; min-height:0; scrollbar-width:thin; scrollbar-color:var(--border2) transparent; }
+#rank-list { padding:0 8px 8px; }
+.ri { padding:7px 8px 5px; border-bottom:1px solid var(--border); cursor:pointer; transition:background .1s; }
+.ri:hover { background:rgba(255,255,255,.03); }
+.ri:last-child { border-bottom:none; }
+.ri-rank { font-family:var(--mono); font-size:7px; color:#444; letter-spacing:1px; margin-bottom:2px; }
+.ri-name { font-size:12px; color:#fff; line-height:1.3; margin-bottom:1px; }
+.ri-meta { font-family:var(--mono); font-size:7.5px; color:var(--dim); text-transform:uppercase; letter-spacing:.5px; margin-bottom:3px; }
+.ri-bar-track { height:1px; background:var(--border2); }
+.ri-bar-fill { height:100%; transition:width .4s cubic-bezier(.4,0,.2,1); }
+.ri-score { font-family:var(--mono); font-size:7.5px; color:var(--dim); margin-top:2px; }
+
+/* Footer links */
+#s-footer { padding:8px 14px; border-top:1px solid var(--border); flex-shrink:0; display:flex; gap:10px; }
+.f-link { font-family:var(--mono); font-size:7.5px; color:#444; letter-spacing:1px; text-transform:uppercase; text-decoration:none; transition:color .15s; }
+.f-link:hover { color:#fff; }
+
+/* ── RIGHT DETAIL PANEL ──────────────────────────────────────── */
+#detail {
+  position:absolute; right:0; top:0; bottom:0; z-index:20;
+  width:232px; background:rgba(0,0,0,.93);
+  border-left:1px solid var(--border); backdrop-filter:blur(12px);
+  display:flex; flex-direction:column; padding:15px 14px;
+  opacity:0; pointer-events:none;
+  transform:translateX(5px);
+  transition:opacity .2s, transform .2s;
+}
+#detail.show { opacity:1; pointer-events:all; transform:translateX(0); }
+#d-close { position:absolute; top:8px; right:10px; background:none; border:none; color:var(--dim); font-size:16px; cursor:pointer; line-height:1; padding:4px; }
+#d-close:hover { color:#fff; }
+#d-eye { font-family:var(--mono); font-size:7.5px; letter-spacing:2px; text-transform:uppercase; color:#444; margin-bottom:4px; }
+#d-name { font-size:18px; font-weight:500; color:#fff; line-height:1.2; margin-bottom:3px; }
+#d-sub  { font-family:var(--mono); font-size:8px; color:#555; margin-bottom:10px; }
+#d-note { font-size:10.5px; color:var(--text); line-height:1.6; font-style:italic; margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+#d-body { flex:1; overflow-y:auto; scrollbar-width:thin; scrollbar-color:var(--border2) transparent; }
+.dr { display:flex; justify-content:space-between; align-items:baseline; padding:5px 0; border-bottom:1px solid var(--border); }
+.dr:last-of-type { border-bottom:none; }
+.dk { font-family:var(--mono); font-size:7.5px; color:var(--dim); text-transform:uppercase; letter-spacing:.5px; }
+.dv { font-family:var(--serif); font-size:12px; color:#fff; font-style:italic; text-align:right; max-width:130px; }
+.d-bc-head { font-family:var(--mono); font-size:7.5px; letter-spacing:1px; text-transform:uppercase; color:#444; padding:9px 0 5px; }
+.d-bc-item { margin-bottom:6px; }
+.d-bc-lbl { display:flex; justify-content:space-between; font-family:var(--mono); font-size:7.5px; color:var(--dim); margin-bottom:3px; }
+.d-bc-track { height:1px; background:var(--border2); }
+.d-bc-bar { height:100%; }
+
+/* ── LEGEND ──────────────────────────────────────────────────── */
+#legend {
+  position:absolute; bottom:34px; left:272px; z-index:20;
+  background:rgba(0,0,0,.91); border:1px solid var(--border);
+  padding:10px 13px; backdrop-filter:blur(8px);
+  display:flex; gap:16px;
+}
+.leg-col { display:flex; flex-direction:column; gap:5px; }
+.leg-title { font-family:var(--mono); font-size:7px; letter-spacing:2px; text-transform:uppercase; color:#444; margin-bottom:2px; }
+.leg-row { display:flex; align-items:center; gap:7px; }
+.leg-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
+.leg-diamond { width:8px; height:8px; transform:rotate(45deg); border-radius:1px; flex-shrink:0; }
+.leg-line { height:2px; width:20px; flex-shrink:0; }
+.leg-lbl { font-family:var(--mono); font-size:7.5px; color:var(--dim); white-space:nowrap; }
+.leg-lbl.hov { cursor:pointer; transition:color .15s; }
+.leg-lbl.hov:hover { color:#fff; }
+
+/* ── TOOLTIP ─────────────────────────────────────────────────── */
+#tt {
+  position:fixed; z-index:200; display:none;
+  background:rgba(0,0,0,.97); border:1px solid #2a2a2a;
+  padding:8px 11px; pointer-events:none; max-width:210px;
+  box-shadow:0 4px 20px rgba(0,0,0,.8);
+}
+#tt-name { font-size:13px; font-weight:500; color:#fff; margin-bottom:2px; }
+#tt-sub  { font-family:var(--mono); font-size:7.5px; color:#555; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:5px; }
+.tt-r { font-size:11px; color:var(--dim); margin-bottom:1px; }
+.tt-v { color:var(--text); font-style:italic; }
+
+/* ── FOOTER ──────────────────────────────────────────────────── */
+#foot {
+  position:absolute; bottom:0; left:260px; right:0; z-index:20;
+  background:rgba(0,0,0,.9); border-top:1px solid var(--border);
+  padding:5px 16px; display:flex; align-items:center; gap:16px;
+  backdrop-filter:blur(4px);
+}
+.fs { font-family:var(--mono); font-size:7.5px; color:var(--dim); white-space:nowrap; }
+.fs b { color:#777; font-weight:400; }
+#reset-btn {
+  margin-left:auto; background:none; border:1px solid var(--border2);
+  color:var(--dim); font-family:var(--mono); font-size:7.5px;
+  letter-spacing:1px; text-transform:uppercase; padding:4px 10px;
+  cursor:pointer; transition:all .15s; display:none;
+}
+#reset-btn.show { display:block; }
+#reset-btn:hover { border-color:#fff; color:#fff; }
+
+/* Loading */
+#loading { position:fixed; inset:0; background:#000; z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
+.spin { width:22px; height:22px; border:1px solid #1a1a1a; border-top-color:#fff; border-radius:50%; animation:sp 1s linear infinite; }
+@keyframes sp { to { transform:rotate(360deg); } }
+#loading h2 { font-size:15px; font-weight:400; color:#fff; }
+#loading p  { font-family:var(--mono); font-size:8px; color:#444; letter-spacing:1.5px; }
+.maplibregl-ctrl-group { background:#0a0a0a !important; border:1px solid #1c1c1c !important; }
+.maplibregl-ctrl-group button { background:#0a0a0a !important; }
+.maplibregl-ctrl-icon { filter:invert(1) opacity(.4); }
+</style>
+</head>
+<body>
+<div id="loading">
+  <div class="spin"></div>
+  <h2>Semiconductor Supply Chain</h2>
+  <p>Initialising network · 39 nodes · 485 edges</p>
+</div>
+
+<div id="app">
+  <div id="map"></div>
+  <canvas id="deck-canvas"></canvas>
+
+  <!-- ══ LEFT SIDEBAR ══ -->
+  <div id="sidebar">
+    <div id="s-header">
+      <div class="wp-badge">Working Paper · 2026</div>
+      <h1>Global Semiconductor Supply Chain</h1>
+      <div class="tagline">Infrastructural Power &amp; Structural Chokepoints</div>
+    </div>
+
+    <!-- View mode -->
+    <div class="sec">View Mode</div>
+    <div id="view-row">
+      <button class="vbtn on" id="vbtn-bc"    onclick="setView('bc')">Betweenness</button>
+      <button class="vbtn"    id="vbtn-trade" onclick="setView('trade')">Trade Value</button>
+    </div>
+
+    <!-- Layer toggles -->
+    <div class="sec">Supply Chain Layer</div>
+    <div id="layer-list"></div>
+    <button id="all-btn" class="on" onclick="setLayer(null)">Show All Layers</button>
+
+    <!-- Threshold slider -->
+    <div class="sec">Dependency Threshold</div>
+    <div id="threshold-wrap">
+      <label>Min edge weight <span id="thresh-val">0.60</span></label>
+      <input type="range" id="threshold-slider" min="0" max="1" step="0.05" value="0.60"
+             oninput="setThreshold(this.value)">
+    </div>
+
+    <!-- Selected node structural moat -->
+    <div id="selected-panel">
+      <div id="sp-inner">
+        <button id="sp-clear" onclick="clearSelection()">×</button>
+        <div id="sp-eyebrow"></div>
+        <div id="sp-name"></div>
+        <div id="sp-sub"></div>
+        <div id="sp-moat">
+          <div id="sp-moat-label">Structural Moat — C_B(i)</div>
+          <div id="sp-bc-val"></div>
+          <div id="sp-bc-sub"></div>
+        </div>
+        <div id="sp-note"></div>
+        <div id="sp-layers"></div>
+      </div>
+    </div>
+
+    <!-- Ranking list -->
+    <div class="sec" id="rank-sec">Top Nodes · Betweenness Centrality</div>
+    <div id="rank-wrap"><div id="rank-list"></div></div>
+
+    <!-- Footer links -->
+    <div id="s-footer">
+      <a class="f-link" href="methodology.html" target="_blank">↗ Methodology</a>
+      <a class="f-link" href="https://github.com/technodharma/semiconductor-supply-chain" target="_blank">↗ GitHub</a>
+      <a class="f-link" href="findings.md" target="_blank">↗ Findings</a>
+    </div>
+  </div>
+
+  <!-- ══ RIGHT DETAIL PANEL ══ -->
+  <div id="detail">
+    <button id="d-close" onclick="closeDetail()">×</button>
+    <div id="d-eye"></div>
+    <div id="d-name"></div>
+    <div id="d-sub"></div>
+    <div id="d-note"></div>
+    <div id="d-body"></div>
+  </div>
+
+  <!-- ══ LEGEND ══ -->
+  <div id="legend">
+    <!-- Node roles -->
+    <div class="leg-col">
+      <div class="leg-title">Node Role</div>
+      <div class="leg-row"><div class="leg-dot" style="background:#39ff14"></div><span class="leg-lbl">Net Exporter</span></div>
+      <div class="leg-row"><div class="leg-dot" style="background:#ff3131"></div><span class="leg-lbl">Net Importer</span></div>
+      <div class="leg-row"><div class="leg-diamond" style="background:#00ffff"></div><span class="leg-lbl">Firm / Hub</span></div>
+    </div>
+    <!-- Node size -->
+    <div class="leg-col">
+      <div class="leg-title">Node Size</div>
+      <div class="leg-row"><div class="leg-dot" style="background:#fff;width:4px;height:4px"></div><span class="leg-lbl">Low score</span></div>
+      <div class="leg-row"><div class="leg-dot" style="background:#fff;width:10px;height:10px"></div><span class="leg-lbl">High score</span></div>
+    </div>
+    <!-- Layer arc colours -->
+    <div class="leg-col" id="leg-layers">
+      <div class="leg-title">Arc — Supply Chain Layer</div>
+    </div>
+    <!-- Arc weight -->
+    <div class="leg-col">
+      <div class="leg-title">Arc Weight</div>
+      <div class="leg-row"><div class="leg-line" style="background:#555;height:1px"></div><span class="leg-lbl">Weak</span></div>
+      <div class="leg-row"><div class="leg-line" style="background:#fff;height:3px"></div><span class="leg-lbl">Strong</span></div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <div id="foot">
+    <div class="fs">Nodes: <b id="s-nodes">—</b></div>
+    <div class="fs">Edges: <b id="s-edges">—</b></div>
+    <div class="fs">Threshold: <b id="s-thresh">0.60</b></div>
+    <div class="fs">Layer: <b id="s-layer">All</b></div>
+    <div class="fs">Mode: <b id="s-mode">Betweenness</b></div>
+    <button id="reset-btn" onclick="clearSelection()">✕ Clear Selection</button>
+  </div>
+</div>
+
+<!-- TOOLTIP -->
+<div id="tt">
+  <div id="tt-name"></div>
+  <div id="tt-sub"></div>
+  <div class="tt-r">Layer: <span class="tt-v" id="tt-layer"></span></div>
+  <div class="tt-r">Flow: <span class="tt-v" id="tt-flow"></span></div>
+  <div class="tt-r">Weight: <span class="tt-v" id="tt-wt"></span></div>
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════════════════
+// DATA & STATE
+// ══════════════════════════════════════════════════════════════════
+const FILES = { nodes:'nodes.json', edges:'edges.json', meta:'meta.json' };
+
+// VIBGYOR layer colours (RGB arrays for Deck.gl)
+const LCOLORS = {
+  1:[139,  0,255], // Violet  — Raw Extraction
+  2:[  0, 85,255], // Blue    — Refined Materials
+  3:[  0,200, 68], // Green   — Equipment
+  4:[255,230,  0], // Yellow  — Design & IP
+  5:[255,119,  0], // Orange  — Fabrication
+  6:[255, 17, 17], // Red     — Assembly & Packaging
+};
+
+// Node role colours (RGB)
+const NCOLORS = {
+  exporter:[57, 255, 20],
+  importer:[255, 49, 49],
+  firm:    [0, 255, 255],
+  hub:     [0, 255, 255],  // hubs treated same as firms visually
+};
+
+let NODES=[], EDGES=[], META={};
+let activeLayer = null;     // null = all layers
+let viewMode    = 'bc';     // 'bc' | 'trade'
+let threshold   = 0.60;
+let selectedNode = null;    // node object | null
+let hoveredLayer = null;    // layer id for legend hover dimming
+let deckInst=null, mapInst=null;
+
+// ══════════════════════════════════════════════════════════════════
+// GEOMETRY HELPERS
+// ══════════════════════════════════════════════════════════════════
+// Longitude unwrapping: ensure arcs take the short path across dateline
+function unwrapLon(srcLon, tgtLon) {
+  let t = tgtLon;
+  if (t - srcLon >  180) t -= 360;
+  if (srcLon - t >  180) t += 360;
+  return t;
+}
+
+function nodeColor(n) {
+  if (n.node_type === 'firm') return NCOLORS.firm;
+  return NCOLORS[n.node_role] || [180,180,180];
+}
+
+function nodeRadius(n, bcKey) {
+  if (viewMode === 'bc') {
+    const bc = n[bcKey] || 0;
+    return Math.max(3, bc * 14 + 3);   // pixels: 3–17px
+  } else {
+    const norm = n.dva_norm || 0;
+    return Math.max(3, norm * 14 + 3);
+  }
+}
+
+function arcAlpha(e, base) {
+  // If a layer is being hovered in the legend and this edge doesn't match → dim to 10%
+  if (hoveredLayer !== null && e.layer_id !== hoveredLayer) return Math.round(base * 0.10);
+  return base;
+}
+
+// ══════════════════════════════════════════════════════════════════
+// DECK.GL LAYERS
+// ══════════════════════════════════════════════════════════════════
+function buildDeckLayers() {
+  const lk = {};
+  NODES.forEach(n => lk[n.id] = n);
+  const bcKey = activeLayer ? `bc_l${activeLayer}` : 'bc_max';
+
+  // ── Edge filtering ────────────────────────────────────────────
+  let visEdges = EDGES.filter(e => {
+    if (!lk[e.source] || !lk[e.target]) return false;
+    if (activeLayer && e.layer_id !== activeLayer) return false;
+    return true;
+  });
+
+  if (selectedNode) {
+    // Ego-network: only edges touching selected node
+    visEdges = visEdges.filter(e =>
+      e.source === selectedNode.id || e.target === selectedNode.id
+    );
+  } else {
+    // Apply weight threshold
+    visEdges = visEdges.filter(e => e.final_weight >= threshold);
+  }
+
+  // ── Visible node set ──────────────────────────────────────────
+  const visIds = new Set([...visEdges.map(e=>e.source),...visEdges.map(e=>e.target)]);
+  const visNodes = NODES.filter(n => visIds.has(n.id));
+
+  // ── Arc layer ─────────────────────────────────────────────────
+  const arcs = new deck.ArcLayer({
+    id: 'arcs',
+    data: visEdges,
+    getSourcePosition: e => {
+      const n=lk[e.source]; return n ? [n.longitude, n.latitude] : [0,0];
+    },
+    getTargetPosition: e => {
+      const s=lk[e.source], t=lk[e.target];
+      if (!s||!t) return [0,0];
+      return [unwrapLon(s.longitude, t.longitude), t.latitude];
+    },
+    getSourceColor: e => {
+      const [r,g,b] = LCOLORS[e.layer_id] || [180,180,180];
+      return [r,g,b, arcAlpha(e, Math.round(e.final_weight * 200 + 40))];
+    },
+    getTargetColor: e => {
+      const [r,g,b] = LCOLORS[e.layer_id] || [180,180,180];
+      return [r,g,b, arcAlpha(e, Math.round(e.final_weight * 140 + 20))];
+    },
+    getWidth: e => Math.max(0.5, e.final_weight * 5),
+    getHeight: 0.35,
+    greatCircle: false,   // direction controlled via unwrapped lon
+    pickable: true,
+    autoHighlight: true,
+    highlightColor: [255,255,255,200],
+    onHover: onArcHover,
+    parameters: {
+      // Additive blending so overlapping arcs glow
+      blendColorOperation: 'add',
+      blendAlphaOperation: 'add',
+    },
+    updateTriggers: {
+      getSourceColor: [activeLayer, hoveredLayer, viewMode],
+      getTargetColor: [activeLayer, hoveredLayer, viewMode],
+      getWidth: [viewMode],
+    }
+  });
+
+  // ── Node scatter: countries (circles) ────────────────────────
+  const countries = visNodes.filter(n => n.node_type === 'country');
+  const firms     = visNodes.filter(n => n.node_type === 'firm');
+
+  const scatterCountry = new deck.ScatterplotLayer({
+    id: 'nodes-country',
+    data: countries,
+    getPosition: n => [n.longitude, n.latitude],
+    getRadius: n => nodeRadius(n, bcKey),
+    radiusUnits: 'pixels',
+    radiusMinPixels: 3,
+    radiusMaxPixels: 18,
+    getFillColor: n => {
+      const [r,g,b] = nodeColor(n);
+      return [r,g,b,220];
+    },
+    // Outer halo: same colour, very translucent, 2× radius
+    // We achieve this with a second ScatterplotLayer below
+    getLineColor: n => [...nodeColor(n), 60],
+    lineWidthMinPixels: 6,
+    stroked: true,
+    filled: true,
+    pickable: true,
+    autoHighlight: true,
+    highlightColor: [255,255,255,255],
+    onHover: onNodeHover,
+    onClick: ({ object }) => object && selectNode(object),
+    updateTriggers: { getRadius:[bcKey,viewMode,activeLayer], getFillColor:[bcKey,viewMode,activeLayer] }
+  });
+
+  // Halo layer (translucent outer ring, not pickable)
+  const haloCountry = new deck.ScatterplotLayer({
+    id: 'halo-country',
+    data: countries,
+    getPosition: n => [n.longitude, n.latitude],
+    getRadius: n => nodeRadius(n, bcKey) * 2.2,
+    radiusUnits: 'pixels',
+    radiusMinPixels: 6,
+    radiusMaxPixels: 36,
+    getFillColor: n => [...nodeColor(n), 18],
+    stroked: false,
+    filled: true,
+    pickable: false,
+    updateTriggers: { getRadius:[bcKey,viewMode,activeLayer], getFillColor:[bcKey,viewMode,activeLayer] }
+  });
+
+  // Firm nodes (same colour logic but diamond-ish via larger halo)
+  const scatterFirm = new deck.ScatterplotLayer({
+    id: 'nodes-firm',
+    data: firms,
+    getPosition: n => [n.longitude, n.latitude],
+    getRadius: n => nodeRadius(n, bcKey) * 1.2,
+    radiusUnits: 'pixels',
+    radiusMinPixels: 4,
+    radiusMaxPixels: 22,
+    getFillColor: n => [0, 255, 255, 230],
+    getLineColor: [0, 255, 255, 50],
+    lineWidthMinPixels: 8,
+    stroked: true,
+    filled: true,
+    pickable: true,
+    autoHighlight: true,
+    highlightColor: [255,255,255,255],
+    onHover: onNodeHover,
+    onClick: ({ object }) => object && selectNode(object),
+    updateTriggers: { getRadius:[bcKey,viewMode,activeLayer] }
+  });
+
+  const haloFirm = new deck.ScatterplotLayer({
+    id: 'halo-firm',
+    data: firms,
+    getPosition: n => [n.longitude, n.latitude],
+    getRadius: n => nodeRadius(n, bcKey) * 3,
+    radiusUnits: 'pixels',
+    radiusMinPixels: 8,
+    radiusMaxPixels: 44,
+    getFillColor: [0, 255, 255, 12],
+    stroked: false,
+    filled: true,
+    pickable: false,
+    updateTriggers: { getRadius:[bcKey,viewMode,activeLayer] }
+  });
+
+  // ── Labels ────────────────────────────────────────────────────
+  const labels = new deck.TextLayer({
+    id: 'labels',
+    data: visNodes,
+    getPosition: n => [n.longitude, n.latitude],
+    getText: n => n.node_type === 'firm' ? `◆ ${n.label}` : n.id,
+    getSize: n => {
+      const bc = n[bcKey] || 0;
+      const base = n.node_type==='firm' ? 11 : 10;
+      return Math.max(base, bc * 12 + base);
+    },
+    getColor: n => n.node_type === 'firm' ? [0,255,255,210] : [255,255,255,190],
+    getPixelOffset: [0, -20],
+    fontFamily: 'Inconsolata, monospace',
+    fontWeight: '400',
+    sizeScale: 1,
+    characterSet: 'auto',
+    pickable: false,
+    updateTriggers: { getSize:[bcKey,viewMode,activeLayer], getColor:[] }
+  });
+
+  return [haloCountry, haloFirm, arcs, scatterCountry, scatterFirm, labels];
+}
+
+function updateDeck() {
+  if (!deckInst) return;
+  deckInst.setProps({ layers: buildDeckLayers() });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// INTERACTION HANDLERS
+// ══════════════════════════════════════════════════════════════════
+function onArcHover({ object, x, y }) {
+  const tt = document.getElementById('tt');
+  if (!object) { tt.style.display='none'; return; }
+  const [r,g,b] = LCOLORS[object.layer_id] || [180,180,180];
+  document.getElementById('tt-name').textContent = `${object.source} → ${object.target}`;
+  document.getElementById('tt-name').style.color = `rgb(${r},${g},${b})`;
+  document.getElementById('tt-sub').textContent   = object.layer_name;
+  document.getElementById('tt-layer').textContent = object.layer_name;
+  document.getElementById('tt-flow').textContent  = `${object.source} supplies ${object.target}`;
+  document.getElementById('tt-wt').textContent    = `${object.final_weight.toFixed(3)} (normalised dependency weight)`;
+  tt.style.cssText += `;display:block;left:${x+14}px;top:${y-14}px`;
+}
+
+function onNodeHover({ object, x, y }) {
+  const tt = document.getElementById('tt');
+  if (!object) { tt.style.display='none'; return; }
+  const [r,g,b] = nodeColor(object);
+  document.getElementById('tt-name').textContent = object.label;
+  document.getElementById('tt-name').style.color = `rgb(${r},${g},${b})`;
+  document.getElementById('tt-sub').textContent   = object.node_type==='firm' ? (object.sector||'') : object.id;
+  document.getElementById('tt-layer').textContent = object.node_role;
+  document.getElementById('tt-flow').textContent  = `Out: ${object.out_deg} links · In: ${object.in_deg} links`;
+  document.getElementById('tt-wt').textContent    = `DVA/Rev: $${Math.round(object.dva_usd_m||0).toLocaleString()}M`;
+  tt.style.cssText += `;display:block;left:${x+14}px;top:${y-14}px`;
+}
+
+// ── Node selection & ego-network ──────────────────────────────────
+function selectNode(node) {
+  selectedNode = node;
+  document.getElementById('reset-btn').classList.add('show');
+
+  // Fly-to with smooth interpolation, driven by Deck.gl's own controller
+  const currentZoom = deckInst.viewState ? deckInst.viewState.zoom : 2.0;
+  deckInst.setProps({
+    initialViewState: {
+      longitude: node.longitude,
+      latitude:  node.latitude,
+      zoom:      Math.max(currentZoom, 3.5),
+      pitch:     20,
+      bearing:   0,
+      transitionDuration: 1200,
+      transitionInterpolator: new deck.FlyToInterpolator(),
+    }
+  });
+
+  // Sidebar structural moat panel
+  const bcKey = activeLayer ? `bc_l${activeLayer}` : 'bc_max';
+  const bc    = node[bcKey] || 0;
+  const lname = activeLayer
+    ? (META.layers||[]).find(l=>l.id===activeLayer)?.name || 'selected layer'
+    : 'all layers';
+
+  document.getElementById('sp-eyebrow').textContent = node.node_type==='firm' ? '◆ Corporation' : '○ Nation-State';
+  document.getElementById('sp-name').textContent    = node.label;
+  document.getElementById('sp-sub').textContent     = node.id + (node.home_country ? ` · HQ: ${node.home_country}` : (node.region&&node.region!=='firm' ? ` · ${node.region}` : ''));
+  document.getElementById('sp-bc-val').textContent  = bc.toFixed(4);
+  document.getElementById('sp-bc-sub').textContent  = `betweenness centrality · ${lname}`;
+  document.getElementById('sp-note').textContent    = node.market_note || '';
+
+  // Per-layer BC mini-bars
+  const layerColors = META.layers || [];
+  document.getElementById('sp-layers').innerHTML = layerColors.map(l => {
+    const lbc = node[`bc_l${l.id}`] || 0;
+    const [r,g,b] = LCOLORS[l.id] || [180,180,180];
+    return `<div class="sp-layer-row">
+      <span class="sp-layer-name">${l.name.split(' ')[0]}</span>
+      <div class="sp-layer-bar-wrap"><div class="sp-layer-bar" style="width:${(lbc*100).toFixed(1)}%;background:rgb(${r},${g},${b})"></div></div>
+      <span class="sp-layer-val">${lbc.toFixed(3)}</span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('selected-panel').classList.add('show');
+
+  // Also populate right detail panel
+  showDetail(node);
+
+  updateDeck();
+  updateFoot();
+}
+
+function clearSelection() {
+  selectedNode = null;
+  document.getElementById('selected-panel').classList.remove('show');
+  document.getElementById('detail').classList.remove('show');
+  document.getElementById('reset-btn').classList.remove('show');
+  updateDeck();
+  updateFoot();
+}
+
+function showDetail(n) {
+  document.getElementById('d-eye').textContent  = n.node_type==='firm' ? '◆ Corporation' : '○ Nation-State';
+  document.getElementById('d-name').textContent = n.label;
+  document.getElementById('d-sub').textContent  = n.id + (n.home_country ? ` · ${n.home_country}` : (n.region&&n.region!=='firm' ? ` · ${n.region}` : ''));
+  const noteEl = document.getElementById('d-note');
+  noteEl.textContent = n.market_note || '';
+  noteEl.style.display = n.market_note ? 'block' : 'none';
+
+  const rows = [
+    { k:'Type',       v: n.node_type==='firm' ? 'Corporation' : 'Nation-State' },
+    { k:'Role',       v: n.node_role },
+    { k:'DVA / Rev',  v: `$${Math.round(n.dva_usd_m||0).toLocaleString()}M` },
+    { k:'BC (max)',   v: (n.bc_max||0).toFixed(4) },
+    { k:'Out-links',  v: n.out_deg },
+    { k:'In-links',   v: n.in_deg },
+  ];
+
+  document.getElementById('d-body').innerHTML =
+    rows.map(r=>`<div class="dr"><span class="dk">${r.k}</span><span class="dv">${r.v}</span></div>`).join('') +
+    `<div class="d-bc-head">Betweenness by Layer</div>` +
+    (META.layers||[]).map(l => {
+      const bc = n[`bc_l${l.id}`] || 0;
+      const [r,g,b] = LCOLORS[l.id] || [180,180,180];
+      return `<div class="d-bc-item">
+        <div class="d-bc-lbl"><span>${l.name}</span><span>${bc.toFixed(4)}</span></div>
+        <div class="d-bc-track"><div class="d-bc-bar" style="width:${(bc*100).toFixed(1)}%;background:rgb(${r},${g},${b})"></div></div>
+      </div>`;
+    }).join('');
+
+  document.getElementById('detail').classList.add('show');
+}
+
+function closeDetail() {
+  document.getElementById('detail').classList.remove('show');
+  if (selectedNode) clearSelection();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// CONTROLS
+// ══════════════════════════════════════════════════════════════════
+function setView(mode) {
+  viewMode = mode;
+  ['bc','trade'].forEach(m => document.getElementById(`vbtn-${m}`).classList.toggle('on', m===mode));
+  document.getElementById('rank-sec').textContent =
+    mode==='bc' ? 'Top Nodes · Betweenness Centrality' : 'Top Nodes · DVA / Revenue';
+  document.getElementById('s-mode').textContent =
+    mode==='bc' ? 'Betweenness' : 'Trade Value';
+  renderRankList();
+  updateDeck();
+  updateFoot();
+}
+
+function setLayer(id) {
+  activeLayer = id;
+  document.getElementById('all-btn').classList.toggle('on', id===null);
+  document.querySelectorAll('.lrow').forEach(r =>
+    r.classList.toggle('on', parseInt(r.dataset.lid)===id)
+  );
+  renderRankList();
+  updateDeck();
+  updateFoot();
+}
+
+function setThreshold(val) {
+  threshold = parseFloat(val);
+  document.getElementById('thresh-val').textContent = threshold.toFixed(2);
+  document.getElementById('s-thresh').textContent   = threshold.toFixed(2);
+  updateDeck();
+  updateFoot();
+}
+
+function setLegendHover(lid) {
+  hoveredLayer = lid;
+  updateDeck();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// RANK LIST
+// ══════════════════════════════════════════════════════════════════
+function renderRankList() {
+  const bcKey = activeLayer ? `bc_l${activeLayer}` : 'bc_max';
+  const isBC  = viewMode==='bc';
+  const lname = activeLayer
+    ? (META.layers||[]).find(l=>l.id===activeLayer)?.name || '' : 'All Layers';
+
+  const ranked = [...NODES]
+    .filter(n => isBC ? (n[bcKey]||0)>0 : (n.dva_norm||0)>0)
+    .sort((a,b) => isBC ? (b[bcKey]||0)-(a[bcKey]||0) : (b.dva_norm||0)-(a.dva_norm||0))
+    .slice(0,10);
+
+  const mx = ranked.length ? (isBC ? (ranked[0][bcKey]||1) : (ranked[0].dva_norm||1)) : 1;
+
+  document.getElementById('rank-list').innerHTML = ranked.map((n,i) => {
+    const val = isBC ? (n[bcKey]||0) : (n.dva_norm||0);
+    const score = isBC ? val.toFixed(4) : `$${Math.round(n.dva_usd_m||0).toLocaleString()}M`;
+    const [r,g,b] = nodeColor(n);
+    return `<div class="ri" onclick="selectNode(${JSON.stringify(n).replace(/'/g,'&#39;')})">
+      <div class="ri-rank">Rank ${i+1} · ${lname}</div>
+      <div class="ri-name">${n.node_type==='firm'?'◆ ':''}${n.label}</div>
+      <div class="ri-meta">${n.id} · ${n.node_type==='firm'?(n.sector||'firm'):n.node_role}</div>
+      <div class="ri-bar-track"><div class="ri-bar-fill" style="width:${(val/mx*100).toFixed(1)}%;background:rgb(${r},${g},${b})"></div></div>
+      <div class="ri-score">${isBC?'BC':'DVA'}: ${score}</div>
+    </div>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════════════════════════
+// LEGEND — layer rows with hover dimming
+// ══════════════════════════════════════════════════════════════════
+function renderLegend() {
+  const legLayers = document.getElementById('leg-layers');
+  legLayers.innerHTML = `<div class="leg-title">Arc — Supply Chain Layer</div>`;
+  (META.layers||[]).forEach(l => {
+    const [r,g,b] = LCOLORS[l.id] || [180,180,180];
+    const row = document.createElement('div');
+    row.className = 'leg-row';
+    row.innerHTML = `<div class="leg-line" style="background:rgb(${r},${g},${b})"></div>
+      <span class="leg-lbl hov">${l.name}</span>`;
+    row.addEventListener('mouseenter', () => setLegendHover(l.id));
+    row.addEventListener('mouseleave', () => setLegendHover(null));
+    legLayers.appendChild(row);
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FOOTER
+// ══════════════════════════════════════════════════════════════════
+function updateFoot() {
+  const bcKey = activeLayer ? `bc_l${activeLayer}` : 'bc_max';
+  const visEdges = selectedNode
+    ? EDGES.filter(e => e.source===selectedNode.id || e.target===selectedNode.id)
+    : EDGES.filter(e => (activeLayer===null||e.layer_id===activeLayer) && e.final_weight>=threshold);
+  document.getElementById('s-nodes').textContent = NODES.length;
+  document.getElementById('s-edges').textContent = visEdges.length;
+  document.getElementById('s-layer').textContent = activeLayer
+    ? (META.layers||[]).find(l=>l.id===activeLayer)?.name || '' : 'All';
+}
+
+// ══════════════════════════════════════════════════════════════════
+// MAP SYNC
+// Deck.gl owns the controller (pan/zoom/drag) because its canvas sits
+// on top and must receive pointer events for node/arc picking to work.
+// MapLibre passively mirrors Deck's viewport on every change.
+// ══════════════════════════════════════════════════════════════════
+function syncMapToDeck(viewState) {
+  mapInst.jumpTo({
+    center: [viewState.longitude, viewState.latitude],
+    zoom: viewState.zoom,
+    pitch: viewState.pitch,
+    bearing: viewState.bearing,
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════════════
+async function init() {
+  [NODES, EDGES, META] = await Promise.all([
+    fetch(FILES.nodes).then(r=>r.json()),
+    fetch(FILES.edges).then(r=>r.json()),
+    fetch(FILES.meta).then(r=>r.json()),
+  ]);
+
+  document.getElementById('loading').style.display = 'none';
+
+  // MapLibre — pure black CartoDB Dark basemap
+  mapInst = new maplibregl.Map({
+    container: 'map',
+    style: {
+      version: 8,
+      sources: { carto: {
+        type: 'raster',
+        tiles: [
+          'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+          'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+          'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+        ],
+        tileSize: 256,
+        attribution: '© OpenStreetMap contributors © CARTO'
+      }},
+      layers: [{ id:'base', type:'raster', source:'carto' }]
+    },
+    center: [25, 22], zoom: 2.0, minZoom: 1, maxZoom: 10,
+    attributionControl: false
+  });
+
+  mapInst.addControl(new maplibregl.NavigationControl({ showCompass:false }), 'bottom-right');
+
+  // MapLibre no longer drives the camera — Deck.gl's controller does.
+  // Disable MapLibre's own interaction handlers to avoid both fighting
+  // over the same pointer events.
+  mapInst.dragPan.disable();
+  mapInst.scrollZoom.disable();
+  mapInst.dragRotate.disable();
+  mapInst.doubleClickZoom.disable();
+  mapInst.touchZoomRotate.disable();
+  mapInst.keyboard.disable();
+
+  // Deck.gl overlay — owns pointer events and the camera
+  deckInst = new deck.Deck({
+    canvas: 'deck-canvas',
+    width: '100%', height: '100%',
+    initialViewState: { longitude:25, latitude:22, zoom:2.0, pitch:20, bearing:0 },
+    controller: true,
+    layers: buildDeckLayers(),
+    onViewStateChange: ({ viewState }) => syncMapToDeck(viewState),
+    onWebGLInitialized: gl => {
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE); // additive blend for glow
+    },
+    getCursor: ({ isDragging, isHovering }) => isDragging ? 'grabbing' : (isHovering ? 'pointer' : 'grab'),
+  });
+
+  // Hide tooltip on canvas leave
+  document.getElementById('deck-canvas').addEventListener('mouseleave', () => {
+    document.getElementById('tt').style.display = 'none';
+  });
+
+  // Build layer toggle list
+  const edgeCounts = {};
+  EDGES.forEach(e => edgeCounts[e.layer_id] = (edgeCounts[e.layer_id]||0)+1);
+
+  document.getElementById('layer-list').innerHTML = (META.layers||[]).map(l => {
+    const [r,g,b] = LCOLORS[l.id] || [180,180,180];
+    return `<div class="lrow" data-lid="${l.id}" onclick="setLayer(${l.id})">
+      <div class="lswatch" style="background:rgb(${r},${g},${b})"></div>
+      <span class="lname">${l.name}</span>
+      <span class="lcount">${edgeCounts[l.id]||0}</span>
+    </div>`;
+  }).join('');
+
+  // Render the layer rows in legend with hover events
+  renderLegend();
+  renderRankList();
+  updateFoot();
+}
+
+init();
+</script>
+</body>
+</html>
