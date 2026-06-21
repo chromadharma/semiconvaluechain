@@ -219,6 +219,62 @@ html, body { height:100%; background:#000; color:var(--text); font-family:var(--
 .maplibregl-ctrl-group { background:#0a0a0a !important; border:1px solid #1c1c1c !important; }
 .maplibregl-ctrl-group button { background:#0a0a0a !important; }
 .maplibregl-ctrl-icon { filter:invert(1) opacity(.4); }
+
+/* ── MOBILE RESPONSIVENESS ───────────────────────────────────── */
+@media (max-width: 768px) {
+  /* 1. Move the left sidebar to the bottom half */
+  #sidebar {
+    top: auto; 
+    bottom: 0; 
+    width: 100%; 
+    height: 45vh; /* Takes up 45% of the viewport height */
+    border-right: none; 
+    border-top: 1px solid var(--border);
+  }
+
+  /* 2. Make the detail panel slide up from the bottom */
+  #detail {
+    top: auto; 
+    bottom: 0; 
+    width: 100%; 
+    height: 50vh;
+    border-left: none; 
+    border-top: 1px solid var(--border);
+    transform: translateY(100%); 
+  }
+  #detail.show { 
+    transform: translateY(0); 
+  }
+
+  /* 3. Pull the footer all the way to the left and sit it above the sidebar */
+  #foot {
+    left: 0; 
+    bottom: 45vh; 
+    flex-wrap: wrap; 
+    gap: 8px; 
+    padding: 6px 10px;
+  }
+
+  /* 4. Compress the legend and move it out from under the panels */
+  #legend {
+    left: 10px; 
+    bottom: calc(45vh + 50px);
+    flex-direction: column; 
+    gap: 8px; 
+    padding: 8px;
+    zoom: 0.85; /* Scales it down slightly */
+  }
+
+  /* 5. Make the rank list and stats wrap cleanly */
+  .leg-col { 
+    flex-direction: row; 
+    flex-wrap: wrap; 
+  }
+  #s-header h1 { 
+    font-size: 11px; 
+  }
+}  
+
 </style>
 </head>
 <body>
