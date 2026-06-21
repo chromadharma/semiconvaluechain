@@ -1,0 +1,44 @@
+{
+  "generated_at": "2026-06-18T12:07:45Z",
+  "n_nodes": 24,
+  "n_edges": 434,
+  "layers": [
+    {
+      "id": 1,
+      "name": "Raw Extraction",
+      "color": "#FF6B6B",
+      "source": "USGS MCS 2026"
+    },
+    {
+      "id": 2,
+      "name": "Refined Materials",
+      "color": "#FFA040",
+      "source": "SEMI/SIA/BCG structural"
+    },
+    {
+      "id": 3,
+      "name": "Equipment",
+      "color": "#FFD700",
+      "source": "UN Comtrade HS 8486"
+    },
+    {
+      "id": 4,
+      "name": "Design & IP",
+      "color": "#00CED1",
+      "source": "UN Comtrade HS 852351-9"
+    },
+    {
+      "id": 5,
+      "name": "Fabrication",
+      "color": "#9B59F5",
+      "source": "UN Comtrade HS 8542"
+    },
+    {
+      "id": 6,
+      "name": "Assembly & Packaging",
+      "color": "#57E389",
+      "source": "UN Comtrade HS 8541"
+    }
+  ],
+  "disclaimer": "Edge weights are biproportional inferences from country-level trade aggregates. Working paper only."
+}

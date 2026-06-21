@@ -1,0 +1,3474 @@
+[
+  {
+    "source": "CHN",
+    "target": "USA",
+    "weight": 1,
+    "final_weight": 1,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "CHN",
+    "target": "KOR",
+    "weight": 0.85,
+    "final_weight": 0.91,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "CHN",
+    "target": "DEU",
+    "weight": 0.7,
+    "final_weight": 0.82,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "CHN",
+    "target": "JPN",
+    "weight": 0.65,
+    "final_weight": 0.79,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "CHN",
+    "target": "CAN",
+    "weight": 0.5,
+    "final_weight": 0.7,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "CHN",
+    "target": "GBR",
+    "weight": 0.35,
+    "final_weight": 0.61,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "CHN",
+    "target": "FRA",
+    "weight": 0.28,
+    "final_weight": 0.568,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "CAN",
+    "target": "USA",
+    "weight": 0.55,
+    "final_weight": 0.3355,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "DEU",
+    "target": "USA",
+    "weight": 0.3,
+    "final_weight": 0.243,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "DEU",
+    "target": "NLD",
+    "weight": 0.2,
+    "final_weight": 0.183,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "JPN",
+    "target": "USA",
+    "weight": 0.18,
+    "final_weight": 0.1636,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "JPN",
+    "target": "KOR",
+    "weight": 0.14,
+    "final_weight": 0.1396,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "RUS",
+    "target": "CHN",
+    "weight": 0.08,
+    "final_weight": 0.0501,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "JPN",
+    "target": "KOR",
+    "weight": 0.92,
+    "final_weight": 0.6076,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JPN",
+    "target": "USA",
+    "weight": 0.68,
+    "final_weight": 0.4636,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JPN",
+    "target": "CHN",
+    "weight": 0.55,
+    "final_weight": 0.3856,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JPN",
+    "target": "MYS",
+    "weight": 0.3,
+    "final_weight": 0.2356,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JPN",
+    "target": "DEU",
+    "weight": 0.22,
+    "final_weight": 0.1876,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JPN",
+    "target": "PHL",
+    "weight": 0.2,
+    "final_weight": 0.1756,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "DEU",
+    "target": "KOR",
+    "weight": 0.46,
+    "final_weight": 0.339,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "DEU",
+    "target": "USA",
+    "weight": 0.4,
+    "final_weight": 0.303,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "DEU",
+    "target": "JPN",
+    "weight": 0.28,
+    "final_weight": 0.231,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "DEU",
+    "target": "CHN",
+    "weight": 0.25,
+    "final_weight": 0.213,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "USA",
+    "target": "KOR",
+    "weight": 0.38,
+    "final_weight": 0.3233,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "USA",
+    "target": "JPN",
+    "weight": 0.25,
+    "final_weight": 0.2453,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "KOR",
+    "target": "CHN",
+    "weight": 0.22,
+    "final_weight": 0.2346,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "BEL",
+    "target": "KOR",
+    "weight": 0.16,
+    "final_weight": 0.098,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JPN",
+    "target": "CHN",
+    "weight": 1,
+    "final_weight": 0.6556,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "KOR",
+    "weight": 0.5801,
+    "final_weight": 0.4036,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "USA",
+    "weight": 0.3409,
+    "final_weight": 0.2601,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "NLD",
+    "weight": 0.1638,
+    "final_weight": 0.1539,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "IRL",
+    "weight": 0.1029,
+    "final_weight": 0.1173,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "MYS",
+    "weight": 0.0685,
+    "final_weight": 0.0967,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "DEU",
+    "weight": 0.0632,
+    "final_weight": 0.0935,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "FRA",
+    "weight": 0.0359,
+    "final_weight": 0.0771,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "HKG",
+    "weight": 0.0339,
+    "final_weight": 0.0759,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "AUT",
+    "weight": 0.0309,
+    "final_weight": 0.0741,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "ITA",
+    "weight": 0.0186,
+    "final_weight": 0.0668,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "PHL",
+    "weight": 0.0178,
+    "final_weight": 0.0662,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "ISR",
+    "weight": 0.0176,
+    "final_weight": 0.0661,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "GBR",
+    "weight": 0.0109,
+    "final_weight": 0.0621,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "THA",
+    "weight": 0.0102,
+    "final_weight": 0.0617,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "VNM",
+    "weight": 0.0102,
+    "final_weight": 0.0617,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "CHN",
+    "weight": 0.8672,
+    "final_weight": 0.6156,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "KOR",
+    "weight": 0.5031,
+    "final_weight": 0.3972,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "NLD",
+    "weight": 0.1421,
+    "final_weight": 0.1806,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "JPN",
+    "weight": 0.1389,
+    "final_weight": 0.1787,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "IRL",
+    "weight": 0.0892,
+    "final_weight": 0.1489,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "MYS",
+    "weight": 0.0594,
+    "final_weight": 0.131,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "DEU",
+    "weight": 0.0548,
+    "final_weight": 0.1282,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "FRA",
+    "weight": 0.0312,
+    "final_weight": 0.114,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "HKG",
+    "weight": 0.0294,
+    "final_weight": 0.113,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "AUT",
+    "weight": 0.0268,
+    "final_weight": 0.1114,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "ITA",
+    "weight": 0.0162,
+    "final_weight": 0.105,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "PHL",
+    "weight": 0.0154,
+    "final_weight": 0.1046,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "ISR",
+    "weight": 0.0153,
+    "final_weight": 0.1045,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "CHN",
+    "weight": 0.6909,
+    "final_weight": 0.4254,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "KOR",
+    "weight": 0.4008,
+    "final_weight": 0.2514,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "USA",
+    "weight": 0.2355,
+    "final_weight": 0.1522,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "JPN",
+    "weight": 0.1106,
+    "final_weight": 0.0773,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "IRL",
+    "weight": 0.0711,
+    "final_weight": 0.0536,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "MYS",
+    "weight": 0.0473,
+    "final_weight": 0.0393,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "DEU",
+    "weight": 0.0437,
+    "final_weight": 0.0372,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "FRA",
+    "weight": 0.0248,
+    "final_weight": 0.0258,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "HKG",
+    "weight": 0.0234,
+    "final_weight": 0.025,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "AUT",
+    "weight": 0.0214,
+    "final_weight": 0.0238,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "ITA",
+    "weight": 0.0129,
+    "final_weight": 0.0187,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "PHL",
+    "weight": 0.0123,
+    "final_weight": 0.0183,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "ISR",
+    "weight": 0.0122,
+    "final_weight": 0.0182,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KOR",
+    "target": "CHN",
+    "weight": 0.2623,
+    "final_weight": 0.26,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KOR",
+    "target": "USA",
+    "weight": 0.0894,
+    "final_weight": 0.1563,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KOR",
+    "target": "NLD",
+    "weight": 0.043,
+    "final_weight": 0.1284,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KOR",
+    "target": "JPN",
+    "weight": 0.042,
+    "final_weight": 0.1279,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KOR",
+    "target": "IRL",
+    "weight": 0.027,
+    "final_weight": 0.1188,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KOR",
+    "target": "MYS",
+    "weight": 0.018,
+    "final_weight": 0.1134,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KOR",
+    "target": "DEU",
+    "weight": 0.0166,
+    "final_weight": 0.1126,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "CHN",
+    "target": "KOR",
+    "weight": 0.0773,
+    "final_weight": 0.4464,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "CHN",
+    "target": "USA",
+    "weight": 0.0455,
+    "final_weight": 0.4273,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "CHN",
+    "target": "NLD",
+    "weight": 0.0218,
+    "final_weight": 0.4131,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "CHN",
+    "target": "JPN",
+    "weight": 0.0214,
+    "final_weight": 0.4128,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "CHN",
+    "target": "IRL",
+    "weight": 0.0137,
+    "final_weight": 0.4082,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "MYS",
+    "target": "CHN",
+    "weight": 0.1042,
+    "final_weight": 0.0872,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "MYS",
+    "target": "KOR",
+    "weight": 0.0605,
+    "final_weight": 0.0609,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "MYS",
+    "target": "USA",
+    "weight": 0.0355,
+    "final_weight": 0.046,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "MYS",
+    "target": "NLD",
+    "weight": 0.0171,
+    "final_weight": 0.0349,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "MYS",
+    "target": "JPN",
+    "weight": 0.0167,
+    "final_weight": 0.0347,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "MYS",
+    "target": "IRL",
+    "weight": 0.0107,
+    "final_weight": 0.0311,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "DEU",
+    "target": "CHN",
+    "weight": 0.1026,
+    "final_weight": 0.1246,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "DEU",
+    "target": "KOR",
+    "weight": 0.0595,
+    "final_weight": 0.0987,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "DEU",
+    "target": "USA",
+    "weight": 0.035,
+    "final_weight": 0.084,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "DEU",
+    "target": "NLD",
+    "weight": 0.0168,
+    "final_weight": 0.0731,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "DEU",
+    "target": "JPN",
+    "weight": 0.0164,
+    "final_weight": 0.0728,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "DEU",
+    "target": "IRL",
+    "weight": 0.0106,
+    "final_weight": 0.0693,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "HKG",
+    "target": "CHN",
+    "weight": 0.1004,
+    "final_weight": 0.0608,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "HKG",
+    "target": "KOR",
+    "weight": 0.0583,
+    "final_weight": 0.0354,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "HKG",
+    "target": "USA",
+    "weight": 0.0342,
+    "final_weight": 0.021,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "HKG",
+    "target": "NLD",
+    "weight": 0.0165,
+    "final_weight": 0.0104,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "HKG",
+    "target": "JPN",
+    "weight": 0.0161,
+    "final_weight": 0.0101,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "HKG",
+    "target": "IRL",
+    "weight": 0.0103,
+    "final_weight": 0.0067,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "AUT",
+    "target": "CHN",
+    "weight": 0.0488,
+    "final_weight": 0.034,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "AUT",
+    "target": "KOR",
+    "weight": 0.0283,
+    "final_weight": 0.0218,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "AUT",
+    "target": "USA",
+    "weight": 0.0166,
+    "final_weight": 0.0147,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "GBR",
+    "target": "CHN",
+    "weight": 0.0262,
+    "final_weight": 0.0239,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "GBR",
+    "target": "KOR",
+    "weight": 0.0152,
+    "final_weight": 0.0173,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "CHE",
+    "target": "CHN",
+    "weight": 0.0159,
+    "final_weight": 0.0278,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "FRA",
+    "target": "CHN",
+    "weight": 0.0127,
+    "final_weight": 0.024,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KOR",
+    "target": "USA",
+    "weight": 1,
+    "final_weight": 0.7026,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "HKG",
+    "weight": 0.3281,
+    "final_weight": 0.2995,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "MEX",
+    "weight": 0.211,
+    "final_weight": 0.2293,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "CHN",
+    "weight": 0.1391,
+    "final_weight": 0.1861,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "MYS",
+    "weight": 0.1013,
+    "final_weight": 0.1635,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "DEU",
+    "weight": 0.0957,
+    "final_weight": 0.1601,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "IND",
+    "weight": 0.0766,
+    "final_weight": 0.1486,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "NLD",
+    "weight": 0.0586,
+    "final_weight": 0.1378,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "JPN",
+    "weight": 0.0564,
+    "final_weight": 0.1365,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "FRA",
+    "weight": 0.0485,
+    "final_weight": 0.1318,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "GBR",
+    "weight": 0.0459,
+    "final_weight": 0.1302,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "CAN",
+    "weight": 0.0346,
+    "final_weight": 0.1234,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "ARE",
+    "weight": 0.0322,
+    "final_weight": 0.1219,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "IRL",
+    "weight": 0.027,
+    "final_weight": 0.1189,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "KOR",
+    "target": "ITA",
+    "weight": 0.0191,
+    "final_weight": 0.1141,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "USA",
+    "weight": 0.5048,
+    "final_weight": 0.3275,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "HKG",
+    "weight": 0.1656,
+    "final_weight": 0.124,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "MEX",
+    "weight": 0.1065,
+    "final_weight": 0.0886,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "KOR",
+    "weight": 0.0934,
+    "final_weight": 0.0807,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "CHN",
+    "weight": 0.0702,
+    "final_weight": 0.0668,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "DEU",
+    "weight": 0.0483,
+    "final_weight": 0.0537,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "IND",
+    "weight": 0.0387,
+    "final_weight": 0.0479,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "NLD",
+    "weight": 0.0296,
+    "final_weight": 0.0424,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "JPN",
+    "weight": 0.0285,
+    "final_weight": 0.0417,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "FRA",
+    "weight": 0.0245,
+    "final_weight": 0.0394,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "GBR",
+    "weight": 0.0232,
+    "final_weight": 0.0386,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "CAN",
+    "weight": 0.0175,
+    "final_weight": 0.0351,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "ARE",
+    "weight": 0.0162,
+    "final_weight": 0.0344,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MYS",
+    "target": "IRL",
+    "weight": 0.0136,
+    "final_weight": 0.0329,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "HKG",
+    "weight": 0.1618,
+    "final_weight": 0.1924,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "MEX",
+    "weight": 0.1041,
+    "final_weight": 0.1578,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "KOR",
+    "weight": 0.0912,
+    "final_weight": 0.1501,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "CHN",
+    "weight": 0.0686,
+    "final_weight": 0.1365,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "MYS",
+    "weight": 0.05,
+    "final_weight": 0.1253,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "DEU",
+    "weight": 0.0472,
+    "final_weight": 0.1237,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "IND",
+    "weight": 0.0378,
+    "final_weight": 0.118,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "NLD",
+    "weight": 0.0289,
+    "final_weight": 0.1127,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "JPN",
+    "weight": 0.0278,
+    "final_weight": 0.112,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "FRA",
+    "weight": 0.0239,
+    "final_weight": 0.1097,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "GBR",
+    "weight": 0.0226,
+    "final_weight": 0.1089,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "CAN",
+    "weight": 0.0171,
+    "final_weight": 0.1056,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "ARE",
+    "weight": 0.0159,
+    "final_weight": 0.1049,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "IRL",
+    "weight": 0.0133,
+    "final_weight": 0.1033,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "USA",
+    "weight": 0.358,
+    "final_weight": 0.2153,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "MEX",
+    "weight": 0.0756,
+    "final_weight": 0.0458,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "KOR",
+    "weight": 0.0662,
+    "final_weight": 0.0402,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "CHN",
+    "weight": 0.0498,
+    "final_weight": 0.0304,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "MYS",
+    "weight": 0.0363,
+    "final_weight": 0.0223,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "DEU",
+    "weight": 0.0343,
+    "final_weight": 0.021,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "IND",
+    "weight": 0.0274,
+    "final_weight": 0.017,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "NLD",
+    "weight": 0.021,
+    "final_weight": 0.0131,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "JPN",
+    "weight": 0.0202,
+    "final_weight": 0.0126,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "FRA",
+    "weight": 0.0174,
+    "final_weight": 0.0109,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "GBR",
+    "weight": 0.0164,
+    "final_weight": 0.0103,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "CAN",
+    "weight": 0.0124,
+    "final_weight": 0.0079,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "ARE",
+    "weight": 0.0115,
+    "final_weight": 0.0074,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "USA",
+    "weight": 0.2885,
+    "final_weight": 0.5731,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "HKG",
+    "weight": 0.0946,
+    "final_weight": 0.4568,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "MEX",
+    "weight": 0.0609,
+    "final_weight": 0.4365,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "KOR",
+    "weight": 0.0534,
+    "final_weight": 0.432,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "MYS",
+    "weight": 0.0292,
+    "final_weight": 0.4175,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "DEU",
+    "weight": 0.0276,
+    "final_weight": 0.4166,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "IND",
+    "weight": 0.0221,
+    "final_weight": 0.4133,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "NLD",
+    "weight": 0.0169,
+    "final_weight": 0.4102,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "JPN",
+    "weight": 0.0163,
+    "final_weight": 0.4098,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "FRA",
+    "weight": 0.014,
+    "final_weight": 0.4084,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CHN",
+    "target": "GBR",
+    "weight": 0.0132,
+    "final_weight": 0.4079,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "DEU",
+    "target": "USA",
+    "weight": 0.1161,
+    "final_weight": 0.1326,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "DEU",
+    "target": "HKG",
+    "weight": 0.0381,
+    "final_weight": 0.0858,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "DEU",
+    "target": "MEX",
+    "weight": 0.0245,
+    "final_weight": 0.0777,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "DEU",
+    "target": "KOR",
+    "weight": 0.0215,
+    "final_weight": 0.0759,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "DEU",
+    "target": "CHN",
+    "weight": 0.0161,
+    "final_weight": 0.0727,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "DEU",
+    "target": "MYS",
+    "weight": 0.0118,
+    "final_weight": 0.07,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "IND",
+    "target": "USA",
+    "weight": 0.0547,
+    "final_weight": 0.0453,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "IND",
+    "target": "HKG",
+    "weight": 0.018,
+    "final_weight": 0.0233,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "IND",
+    "target": "MEX",
+    "weight": 0.0115,
+    "final_weight": 0.0194,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "IND",
+    "target": "KOR",
+    "weight": 0.0101,
+    "final_weight": 0.0186,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "FRA",
+    "target": "USA",
+    "weight": 0.0541,
+    "final_weight": 0.0489,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "FRA",
+    "target": "HKG",
+    "weight": 0.0178,
+    "final_weight": 0.027,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "FRA",
+    "target": "MEX",
+    "weight": 0.0114,
+    "final_weight": 0.0232,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "FRA",
+    "target": "KOR",
+    "weight": 0.01,
+    "final_weight": 0.0224,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "NLD",
+    "target": "USA",
+    "weight": 0.053,
+    "final_weight": 0.0427,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "NLD",
+    "target": "HKG",
+    "weight": 0.0174,
+    "final_weight": 0.0214,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "NLD",
+    "target": "MEX",
+    "weight": 0.0112,
+    "final_weight": 0.0176,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MEX",
+    "target": "USA",
+    "weight": 0.0376,
+    "final_weight": 0.0488,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "MEX",
+    "target": "HKG",
+    "weight": 0.0123,
+    "final_weight": 0.0337,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "IRL",
+    "target": "USA",
+    "weight": 0.0371,
+    "final_weight": 0.0295,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "IRL",
+    "target": "HKG",
+    "weight": 0.0122,
+    "final_weight": 0.0145,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "ARE",
+    "target": "USA",
+    "weight": 0.0323,
+    "final_weight": 0.0196,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "ARE",
+    "target": "HKG",
+    "weight": 0.0106,
+    "final_weight": 0.0066,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "PHL",
+    "target": "USA",
+    "weight": 0.0314,
+    "final_weight": 0.0267,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "PHL",
+    "target": "HKG",
+    "weight": 0.0103,
+    "final_weight": 0.014,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "JPN",
+    "target": "USA",
+    "weight": 0.0296,
+    "final_weight": 0.0733,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "HKG",
+    "target": "CHN",
+    "weight": 1,
+    "final_weight": 0.6005,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "KOR",
+    "weight": 0.1498,
+    "final_weight": 0.0904,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "VNM",
+    "weight": 0.1305,
+    "final_weight": 0.0788,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "MYS",
+    "weight": 0.1285,
+    "final_weight": 0.0776,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "USA",
+    "weight": 0.1049,
+    "final_weight": 0.0634,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "JPN",
+    "weight": 0.076,
+    "final_weight": 0.0461,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "MEX",
+    "weight": 0.0632,
+    "final_weight": 0.0384,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "DEU",
+    "weight": 0.0573,
+    "final_weight": 0.0349,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "THA",
+    "weight": 0.0457,
+    "final_weight": 0.0279,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "PHL",
+    "weight": 0.0415,
+    "final_weight": 0.0254,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "IND",
+    "weight": 0.0387,
+    "final_weight": 0.0237,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "IRL",
+    "weight": 0.0156,
+    "final_weight": 0.0098,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "FRA",
+    "weight": 0.0146,
+    "final_weight": 0.0092,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "NLD",
+    "weight": 0.0137,
+    "final_weight": 0.0087,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "HKG",
+    "target": "BEL",
+    "weight": 0.0116,
+    "final_weight": 0.0074,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "HKG",
+    "weight": 0.3856,
+    "final_weight": 0.6313,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "KOR",
+    "weight": 0.1083,
+    "final_weight": 0.465,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "VNM",
+    "weight": 0.0943,
+    "final_weight": 0.4566,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "MYS",
+    "weight": 0.0929,
+    "final_weight": 0.4557,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "USA",
+    "weight": 0.0758,
+    "final_weight": 0.4455,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "JPN",
+    "weight": 0.0549,
+    "final_weight": 0.433,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "MEX",
+    "weight": 0.0457,
+    "final_weight": 0.4274,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "DEU",
+    "weight": 0.0414,
+    "final_weight": 0.4249,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "THA",
+    "weight": 0.033,
+    "final_weight": 0.4198,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "PHL",
+    "weight": 0.03,
+    "final_weight": 0.418,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "IND",
+    "weight": 0.028,
+    "final_weight": 0.4168,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "IRL",
+    "weight": 0.0113,
+    "final_weight": 0.4068,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "FRA",
+    "weight": 0.0105,
+    "final_weight": 0.4063,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "CHN",
+    "weight": 0.5278,
+    "final_weight": 0.4193,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "HKG",
+    "weight": 0.2816,
+    "final_weight": 0.2716,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "VNM",
+    "weight": 0.0689,
+    "final_weight": 0.144,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "MYS",
+    "weight": 0.0678,
+    "final_weight": 0.1434,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "USA",
+    "weight": 0.0554,
+    "final_weight": 0.1359,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "JPN",
+    "weight": 0.0401,
+    "final_weight": 0.1267,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "MEX",
+    "weight": 0.0334,
+    "final_weight": 0.1227,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "DEU",
+    "weight": 0.0303,
+    "final_weight": 0.1208,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "THA",
+    "weight": 0.0241,
+    "final_weight": 0.1171,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "PHL",
+    "weight": 0.0219,
+    "final_weight": 0.1158,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "IND",
+    "weight": 0.0204,
+    "final_weight": 0.1149,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "CHN",
+    "weight": 0.3674,
+    "final_weight": 0.2451,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "HKG",
+    "weight": 0.196,
+    "final_weight": 0.1423,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "KOR",
+    "weight": 0.055,
+    "final_weight": 0.0577,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "VNM",
+    "weight": 0.0479,
+    "final_weight": 0.0534,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "USA",
+    "weight": 0.0385,
+    "final_weight": 0.0478,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "JPN",
+    "weight": 0.0279,
+    "final_weight": 0.0414,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "MEX",
+    "weight": 0.0232,
+    "final_weight": 0.0386,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "DEU",
+    "weight": 0.0211,
+    "final_weight": 0.0373,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "THA",
+    "weight": 0.0168,
+    "final_weight": 0.0347,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "PHL",
+    "weight": 0.0152,
+    "final_weight": 0.0338,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "MYS",
+    "target": "IND",
+    "weight": 0.0142,
+    "final_weight": 0.0332,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "CHN",
+    "weight": 0.2415,
+    "final_weight": 0.2402,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "HKG",
+    "weight": 0.1288,
+    "final_weight": 0.1726,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "KOR",
+    "weight": 0.0362,
+    "final_weight": 0.117,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "VNM",
+    "weight": 0.0315,
+    "final_weight": 0.1142,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "MYS",
+    "weight": 0.031,
+    "final_weight": 0.114,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "JPN",
+    "weight": 0.0184,
+    "final_weight": 0.1064,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "MEX",
+    "weight": 0.0153,
+    "final_weight": 0.1045,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "DEU",
+    "weight": 0.0138,
+    "final_weight": 0.1036,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "THA",
+    "weight": 0.011,
+    "final_weight": 0.102,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "USA",
+    "target": "PHL",
+    "weight": 0.01,
+    "final_weight": 0.1013,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "JPN",
+    "target": "CHN",
+    "weight": 0.1573,
+    "final_weight": 0.1499,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "JPN",
+    "target": "HKG",
+    "weight": 0.0839,
+    "final_weight": 0.1059,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "JPN",
+    "target": "KOR",
+    "weight": 0.0236,
+    "final_weight": 0.0697,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "JPN",
+    "target": "VNM",
+    "weight": 0.0205,
+    "final_weight": 0.0679,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "JPN",
+    "target": "MYS",
+    "weight": 0.0202,
+    "final_weight": 0.0677,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "JPN",
+    "target": "USA",
+    "weight": 0.0165,
+    "final_weight": 0.0655,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "PHL",
+    "target": "CHN",
+    "weight": 0.1354,
+    "final_weight": 0.089,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "PHL",
+    "target": "HKG",
+    "weight": 0.0722,
+    "final_weight": 0.0511,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "PHL",
+    "target": "KOR",
+    "weight": 0.0203,
+    "final_weight": 0.02,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "PHL",
+    "target": "VNM",
+    "weight": 0.0177,
+    "final_weight": 0.0184,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "PHL",
+    "target": "MYS",
+    "weight": 0.0174,
+    "final_weight": 0.0182,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "PHL",
+    "target": "USA",
+    "weight": 0.0142,
+    "final_weight": 0.0163,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "PHL",
+    "target": "JPN",
+    "weight": 0.0103,
+    "final_weight": 0.014,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "DEU",
+    "target": "CHN",
+    "weight": 0.0945,
+    "final_weight": 0.1197,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "DEU",
+    "target": "HKG",
+    "weight": 0.0504,
+    "final_weight": 0.0932,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "DEU",
+    "target": "KOR",
+    "weight": 0.0142,
+    "final_weight": 0.0715,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "DEU",
+    "target": "VNM",
+    "weight": 0.0123,
+    "final_weight": 0.0704,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "DEU",
+    "target": "MYS",
+    "weight": 0.0121,
+    "final_weight": 0.0703,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "VNM",
+    "target": "CHN",
+    "weight": 0.062,
+    "final_weight": 0.0811,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "VNM",
+    "target": "HKG",
+    "weight": 0.0331,
+    "final_weight": 0.0637,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "IRL",
+    "target": "CHN",
+    "weight": 0.0558,
+    "final_weight": 0.0407,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "IRL",
+    "target": "HKG",
+    "weight": 0.0298,
+    "final_weight": 0.0251,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "FRA",
+    "target": "CHN",
+    "weight": 0.0464,
+    "final_weight": 0.0442,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "FRA",
+    "target": "HKG",
+    "weight": 0.0248,
+    "final_weight": 0.0312,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "THA",
+    "target": "CHN",
+    "weight": 0.0435,
+    "final_weight": 0.0433,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "THA",
+    "target": "HKG",
+    "weight": 0.0232,
+    "final_weight": 0.0311,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "NLD",
+    "target": "CHN",
+    "weight": 0.0245,
+    "final_weight": 0.0256,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "NLD",
+    "target": "HKG",
+    "weight": 0.0131,
+    "final_weight": 0.0188,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "ISR",
+    "target": "CHN",
+    "weight": 0.0231,
+    "final_weight": 0.0219,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "ISR",
+    "target": "HKG",
+    "weight": 0.0123,
+    "final_weight": 0.0154,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "HKG",
+    "weight": 1,
+    "final_weight": 1,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "USA",
+    "weight": 0.95,
+    "final_weight": 0.97,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "DEU",
+    "weight": 0.6243,
+    "final_weight": 0.7746,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "KOR",
+    "weight": 0.315,
+    "final_weight": 0.589,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "IND",
+    "weight": 0.3146,
+    "final_weight": 0.5887,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "JPN",
+    "weight": 0.2787,
+    "final_weight": 0.5672,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "NLD",
+    "weight": 0.2727,
+    "final_weight": 0.5636,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "VNM",
+    "weight": 0.2703,
+    "final_weight": 0.5622,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "MEX",
+    "weight": 0.2431,
+    "final_weight": 0.5459,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "MYS",
+    "weight": 0.2344,
+    "final_weight": 0.5407,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "ITA",
+    "weight": 0.1521,
+    "final_weight": 0.4913,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "THA",
+    "weight": 0.1516,
+    "final_weight": 0.491,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "FRA",
+    "weight": 0.127,
+    "final_weight": 0.4762,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHN",
+    "target": "PHL",
+    "weight": 0.1124,
+    "final_weight": 0.4675,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "CHN",
+    "weight": 0.4653,
+    "final_weight": 0.2796,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "USA",
+    "weight": 0.2572,
+    "final_weight": 0.1548,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "DEU",
+    "weight": 0.169,
+    "final_weight": 0.1019,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "KOR",
+    "weight": 0.0853,
+    "final_weight": 0.0517,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "IND",
+    "weight": 0.0852,
+    "final_weight": 0.0516,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "JPN",
+    "weight": 0.0755,
+    "final_weight": 0.0458,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "NLD",
+    "weight": 0.0738,
+    "final_weight": 0.0448,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "VNM",
+    "weight": 0.0732,
+    "final_weight": 0.0444,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "MEX",
+    "weight": 0.0658,
+    "final_weight": 0.04,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "MYS",
+    "weight": 0.0635,
+    "final_weight": 0.0386,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "ITA",
+    "weight": 0.0412,
+    "final_weight": 0.0252,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "THA",
+    "weight": 0.041,
+    "final_weight": 0.0251,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "FRA",
+    "weight": 0.0344,
+    "final_weight": 0.0211,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "HKG",
+    "target": "PHL",
+    "weight": 0.0304,
+    "final_weight": 0.0188,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "CHN",
+    "weight": 0.2507,
+    "final_weight": 0.2134,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "HKG",
+    "weight": 0.1459,
+    "final_weight": 0.1505,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "USA",
+    "weight": 0.1386,
+    "final_weight": 0.1461,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "KOR",
+    "weight": 0.046,
+    "final_weight": 0.0905,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "IND",
+    "weight": 0.0459,
+    "final_weight": 0.0905,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "JPN",
+    "weight": 0.0407,
+    "final_weight": 0.0874,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "NLD",
+    "weight": 0.0398,
+    "final_weight": 0.0868,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "VNM",
+    "weight": 0.0394,
+    "final_weight": 0.0866,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "MEX",
+    "weight": 0.0355,
+    "final_weight": 0.0843,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "MYS",
+    "weight": 0.0342,
+    "final_weight": 0.0835,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "ITA",
+    "weight": 0.0222,
+    "final_weight": 0.0763,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "THA",
+    "weight": 0.0221,
+    "final_weight": 0.0762,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "FRA",
+    "weight": 0.0185,
+    "final_weight": 0.0741,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "DEU",
+    "target": "PHL",
+    "weight": 0.0164,
+    "final_weight": 0.0728,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "CHN",
+    "weight": 0.2465,
+    "final_weight": 0.1726,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "HKG",
+    "weight": 0.1434,
+    "final_weight": 0.1107,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "USA",
+    "weight": 0.1363,
+    "final_weight": 0.1064,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "DEU",
+    "weight": 0.0895,
+    "final_weight": 0.0784,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "KOR",
+    "weight": 0.0452,
+    "final_weight": 0.0518,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "IND",
+    "weight": 0.0451,
+    "final_weight": 0.0517,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "JPN",
+    "weight": 0.04,
+    "final_weight": 0.0487,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "NLD",
+    "weight": 0.0391,
+    "final_weight": 0.0481,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "VNM",
+    "weight": 0.0388,
+    "final_weight": 0.0479,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "MEX",
+    "weight": 0.0349,
+    "final_weight": 0.0456,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "ITA",
+    "weight": 0.0218,
+    "final_weight": 0.0378,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "THA",
+    "weight": 0.0217,
+    "final_weight": 0.0377,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "FRA",
+    "weight": 0.0182,
+    "final_weight": 0.0356,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "MYS",
+    "target": "PHL",
+    "weight": 0.0161,
+    "final_weight": 0.0343,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "CHN",
+    "weight": 0.2402,
+    "final_weight": 0.1997,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "HKG",
+    "weight": 0.1398,
+    "final_weight": 0.1395,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "USA",
+    "weight": 0.1328,
+    "final_weight": 0.1353,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "DEU",
+    "weight": 0.0873,
+    "final_weight": 0.1079,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "KOR",
+    "weight": 0.044,
+    "final_weight": 0.082,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "IND",
+    "weight": 0.044,
+    "final_weight": 0.082,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "NLD",
+    "weight": 0.0381,
+    "final_weight": 0.0785,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "VNM",
+    "weight": 0.0378,
+    "final_weight": 0.0783,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "MEX",
+    "weight": 0.034,
+    "final_weight": 0.076,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "MYS",
+    "weight": 0.0328,
+    "final_weight": 0.0752,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "ITA",
+    "weight": 0.0213,
+    "final_weight": 0.0683,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "THA",
+    "weight": 0.0212,
+    "final_weight": 0.0683,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "FRA",
+    "weight": 0.0178,
+    "final_weight": 0.0662,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "JPN",
+    "target": "PHL",
+    "weight": 0.0157,
+    "final_weight": 0.065,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "CHN",
+    "weight": 0.2127,
+    "final_weight": 0.223,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "HKG",
+    "weight": 0.1238,
+    "final_weight": 0.1696,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "DEU",
+    "weight": 0.0773,
+    "final_weight": 0.1417,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "KOR",
+    "weight": 0.039,
+    "final_weight": 0.1187,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "IND",
+    "weight": 0.0389,
+    "final_weight": 0.1187,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "JPN",
+    "weight": 0.0345,
+    "final_weight": 0.116,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "NLD",
+    "weight": 0.0338,
+    "final_weight": 0.1156,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "VNM",
+    "weight": 0.0335,
+    "final_weight": 0.1154,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "MEX",
+    "weight": 0.0301,
+    "final_weight": 0.1134,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "MYS",
+    "weight": 0.029,
+    "final_weight": 0.1127,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "ITA",
+    "weight": 0.0188,
+    "final_weight": 0.1066,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "THA",
+    "weight": 0.0188,
+    "final_weight": 0.1066,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "FRA",
+    "weight": 0.0157,
+    "final_weight": 0.1048,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "PHL",
+    "weight": 0.0139,
+    "final_weight": 0.1037,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "CHN",
+    "weight": 0.1965,
+    "final_weight": 0.1618,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "HKG",
+    "weight": 0.1144,
+    "final_weight": 0.1125,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "USA",
+    "weight": 0.1087,
+    "final_weight": 0.1091,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "DEU",
+    "weight": 0.0714,
+    "final_weight": 0.0867,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "KOR",
+    "weight": 0.036,
+    "final_weight": 0.0655,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "IND",
+    "weight": 0.036,
+    "final_weight": 0.0655,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "JPN",
+    "weight": 0.0319,
+    "final_weight": 0.063,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "NLD",
+    "weight": 0.0312,
+    "final_weight": 0.0626,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "MEX",
+    "weight": 0.0278,
+    "final_weight": 0.0605,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "MYS",
+    "weight": 0.0268,
+    "final_weight": 0.06,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "ITA",
+    "weight": 0.0174,
+    "final_weight": 0.0543,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "THA",
+    "weight": 0.0173,
+    "final_weight": 0.0543,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "FRA",
+    "weight": 0.0145,
+    "final_weight": 0.0526,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "VNM",
+    "target": "PHL",
+    "weight": 0.0129,
+    "final_weight": 0.0516,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "CHN",
+    "weight": 0.1196,
+    "final_weight": 0.1744,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "HKG",
+    "weight": 0.0696,
+    "final_weight": 0.1444,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "USA",
+    "weight": 0.0661,
+    "final_weight": 0.1423,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "DEU",
+    "weight": 0.0434,
+    "final_weight": 0.1287,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "IND",
+    "weight": 0.0219,
+    "final_weight": 0.1158,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "JPN",
+    "weight": 0.0194,
+    "final_weight": 0.1143,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "NLD",
+    "weight": 0.019,
+    "final_weight": 0.114,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "VNM",
+    "weight": 0.0188,
+    "final_weight": 0.1139,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "MEX",
+    "weight": 0.0169,
+    "final_weight": 0.1128,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "MYS",
+    "weight": 0.0163,
+    "final_weight": 0.1124,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "ITA",
+    "weight": 0.0106,
+    "final_weight": 0.109,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "KOR",
+    "target": "THA",
+    "weight": 0.0105,
+    "final_weight": 0.109,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "CHN",
+    "weight": 0.0892,
+    "final_weight": 0.0707,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "HKG",
+    "weight": 0.0519,
+    "final_weight": 0.0483,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "USA",
+    "weight": 0.0493,
+    "final_weight": 0.0468,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "DEU",
+    "weight": 0.0324,
+    "final_weight": 0.0366,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "KOR",
+    "weight": 0.0163,
+    "final_weight": 0.027,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "IND",
+    "weight": 0.0163,
+    "final_weight": 0.027,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "JPN",
+    "weight": 0.0145,
+    "final_weight": 0.0259,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "NLD",
+    "weight": 0.0141,
+    "final_weight": 0.0257,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "VNM",
+    "weight": 0.014,
+    "final_weight": 0.0256,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "MEX",
+    "weight": 0.0126,
+    "final_weight": 0.0248,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "THA",
+    "target": "MYS",
+    "weight": 0.0122,
+    "final_weight": 0.0245,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "NLD",
+    "target": "CHN",
+    "weight": 0.071,
+    "final_weight": 0.0535,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "NLD",
+    "target": "HKG",
+    "weight": 0.0413,
+    "final_weight": 0.0357,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "NLD",
+    "target": "USA",
+    "weight": 0.0392,
+    "final_weight": 0.0345,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "NLD",
+    "target": "DEU",
+    "weight": 0.0258,
+    "final_weight": 0.0264,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "NLD",
+    "target": "KOR",
+    "weight": 0.013,
+    "final_weight": 0.0187,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "NLD",
+    "target": "IND",
+    "weight": 0.013,
+    "final_weight": 0.0187,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "NLD",
+    "target": "JPN",
+    "weight": 0.0115,
+    "final_weight": 0.0178,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "NLD",
+    "target": "VNM",
+    "weight": 0.0112,
+    "final_weight": 0.0176,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "NLD",
+    "target": "MEX",
+    "weight": 0.01,
+    "final_weight": 0.017,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "PHL",
+    "target": "CHN",
+    "weight": 0.0446,
+    "final_weight": 0.0346,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "PHL",
+    "target": "HKG",
+    "weight": 0.026,
+    "final_weight": 0.0234,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "PHL",
+    "target": "USA",
+    "weight": 0.0247,
+    "final_weight": 0.0226,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "PHL",
+    "target": "DEU",
+    "weight": 0.0162,
+    "final_weight": 0.0175,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "FRA",
+    "target": "CHN",
+    "weight": 0.0412,
+    "final_weight": 0.0411,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "FRA",
+    "target": "HKG",
+    "weight": 0.024,
+    "final_weight": 0.0307,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "FRA",
+    "target": "USA",
+    "weight": 0.0228,
+    "final_weight": 0.03,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "FRA",
+    "target": "DEU",
+    "weight": 0.015,
+    "final_weight": 0.0253,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "ITA",
+    "target": "CHN",
+    "weight": 0.0278,
+    "final_weight": 0.0239,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "ITA",
+    "target": "HKG",
+    "weight": 0.0162,
+    "final_weight": 0.017,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "ITA",
+    "target": "USA",
+    "weight": 0.0154,
+    "final_weight": 0.0165,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "ITA",
+    "target": "DEU",
+    "weight": 0.0101,
+    "final_weight": 0.0133,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "AUT",
+    "target": "CHN",
+    "weight": 0.0274,
+    "final_weight": 0.0212,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "AUT",
+    "target": "HKG",
+    "weight": 0.0159,
+    "final_weight": 0.0143,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "AUT",
+    "target": "USA",
+    "weight": 0.0152,
+    "final_weight": 0.0139,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  }
+]
