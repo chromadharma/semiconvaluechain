@@ -222,17 +222,29 @@ html, body { height:100%; background:#000; color:var(--text); font-family:var(--
 
 /* ── MOBILE RESPONSIVENESS ───────────────────────────────────── */
 @media (max-width: 768px) {
-  /* 1. Move the left sidebar to the bottom half */
+  /* 1. Sidebar sizing and scroll trapping */
   #sidebar {
     top: auto; 
     bottom: 0; 
     width: 100%; 
-    height: 45vh; /* Takes up 45% of the viewport height */
+    height: 45vh; 
     border-right: none; 
     border-top: 1px solid var(--border);
+    /* Make the entire panel scrollable and trap the swipes */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
 
-  /* 2. Make the detail panel slide up from the bottom */
+  /* 2. Stop the menus and tables from squishing */
+  #sidebar > div, #sidebar > button {
+    flex-shrink: 0;
+  }
+  #rank-wrap {
+    overflow-y: visible; 
+  }
+
+  /* 3. Detail panel scroll trapping */
   #detail {
     top: auto; 
     bottom: 0; 
@@ -241,12 +253,16 @@ html, body { height:100%; background:#000; color:var(--text); font-family:var(--
     border-left: none; 
     border-top: 1px solid var(--border);
     transform: translateY(100%); 
+    /* Trap the swipes here too */
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
   }
   #detail.show { 
     transform: translateY(0); 
   }
 
-  /* 3. Pull the footer all the way to the left and sit it above the sidebar */
+  /* 4. Footer and Legend layout */
   #foot {
     left: 0; 
     bottom: 45vh; 
@@ -254,18 +270,14 @@ html, body { height:100%; background:#000; color:var(--text); font-family:var(--
     gap: 8px; 
     padding: 6px 10px;
   }
-
-  /* 4. Compress the legend and move it out from under the panels */
   #legend {
     left: 10px; 
     bottom: calc(45vh + 50px);
     flex-direction: column; 
     gap: 8px; 
     padding: 8px;
-    zoom: 0.85; /* Scales it down slightly */
+    zoom: 0.85; 
   }
-
-  /* 5. Make the rank list and stats wrap cleanly */
   .leg-col { 
     flex-direction: row; 
     flex-wrap: wrap; 
@@ -273,8 +285,8 @@ html, body { height:100%; background:#000; color:var(--text); font-family:var(--
   #s-header h1 { 
     font-size: 11px; 
   }
-}  
-
+}
+  
 </style>
 </head>
 <body>
