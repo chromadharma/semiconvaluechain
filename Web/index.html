@@ -4,231 +4,149 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Global Semiconductor Supply Chain — Infrastructural Power</title>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inconsolata:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Working paper: mapping the global semiconductor supply chain as a six-layer network and identifying structural chokepoints.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet">
 <script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
 <script src="https://unpkg.com/deck.gl@8.9.35/dist.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg: #000;
-  --panel: #0a0a0a;
-  --border: #1c1c1c;
-  --border2: #2a2a2a;
-  --text: #bbb;
-  --dim: #555;
-  --bright: #fff;
-  --serif: 'EB Garamond', Georgia, serif;
-  --mono: 'Inconsolata', monospace;
-  /* Node role colours */
-  --exporter: #39ff14;
-  --importer: #ff3131;
-  --firm: #00ffff;
-  /* VIBGYOR layer colours */
-  --l1: #8B00FF;
-  --l2: #0055FF;
-  --l3: #00CC44;
-  --l4: #FFE600;
-  --l5: #FF7700;
-  --l6: #FF1111;
-}
-html, body { height:100%; background:#000; color:var(--text); font-family:var(--serif); overflow:hidden; }
-#app { position:relative; width:100vw; height:100vh; }
-#map, #deck-canvas { position:absolute; inset:0; }
-#deck-canvas { pointer-events:auto; }
-
-/* ── LEFT SIDEBAR ────────────────────────────────────────────── */
-#sidebar {
-  position:absolute; left:0; top:0; bottom:0; z-index:20;
-  width:260px; background:rgba(0,0,0,0.93);
-  border-right:1px solid var(--border);
-  display:flex; flex-direction:column;
-  backdrop-filter:blur(12px);
-  overflow:hidden;
-}
-#s-header { padding:15px 16px 12px; border-bottom:1px solid var(--border); flex-shrink:0; }
-.wp-badge {
-  font-family:var(--mono); font-size:8px; letter-spacing:2px;
-  text-transform:uppercase; color:#444;
-  display:flex; align-items:center; gap:5px; margin-bottom:8px;
-}
-.wp-badge::before { content:''; width:5px; height:5px; background:#fff; border-radius:50%; flex-shrink:0; }
-#s-header h1 { font-size:12.5px; font-weight:500; color:#fff; line-height:1.45; letter-spacing:.01em; }
-#s-header .tagline { font-size:10.5px; color:var(--dim); margin-top:4px; font-style:italic; line-height:1.4; }
-
-/* Section labels */
-.sec { font-family:var(--mono); font-size:7.5px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); padding:10px 16px 5px; border-top:1px solid var(--border); flex-shrink:0; }
-
-/* View mode */
-#view-row { display:flex; gap:4px; padding:0 10px 6px; flex-shrink:0; }
-.vbtn { flex:1; padding:5px 0; background:none; border:1px solid var(--border2); color:var(--dim); font-family:var(--mono); font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase; cursor:pointer; transition:all .15s; border-radius:2px; }
-.vbtn:hover { color:#fff; border-color:#444; }
-.vbtn.on { color:#fff; border-color:#fff; background:rgba(255,255,255,.05); }
-
-/* Layer toggles */
-#layer-list { padding:0 8px 4px; flex-shrink:0; }
-.lrow {
-  display:flex; align-items:center; gap:8px;
-  padding:4px 8px; cursor:pointer; border-radius:2px;
-  transition:background .12s; user-select:none; margin-bottom:1px;
-}
-.lrow:hover { background:rgba(255,255,255,.04); }
-.lrow.on { background:rgba(255,255,255,.06); }
-.lrow:hover .lhover-dim { opacity:1 !important; }
-.lswatch { width:8px; height:8px; border-radius:1px; flex-shrink:0; transition:opacity .2s; }
-.lrow:not(.on) .lswatch { opacity:.2; }
-.lname { font-size:11.5px; color:var(--dim); transition:color .15s; flex:1; font-family:var(--serif); }
-.lrow.on .lname { color:#fff; }
-.lcount { font-family:var(--mono); font-size:7.5px; color:var(--dim); }
-#all-btn { margin:2px 8px 0; background:none; border:1px solid var(--border2); color:var(--dim); font-family:var(--mono); font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase; padding:5px 10px; cursor:pointer; width:calc(100% - 16px); transition:all .15s; }
-#all-btn:hover, #all-btn.on { border-color:#fff; color:#fff; background:rgba(255,255,255,.04); }
-
-/* Threshold slider */
-#threshold-wrap { padding:4px 16px 8px; flex-shrink:0; }
-#threshold-wrap label { font-family:var(--mono); font-size:7.5px; letter-spacing:1px; color:var(--dim); display:flex; justify-content:space-between; margin-bottom:5px; }
-#threshold-wrap label span { color:#888; }
-#threshold-slider {
-  width:100%; accent-color:#fff;
-  -webkit-appearance:none; appearance:none; height:1px; background:var(--border2); cursor:pointer; outline:none;
-}
-#threshold-slider::-webkit-slider-thumb { -webkit-appearance:none; width:12px; height:12px; border-radius:50%; background:#fff; cursor:pointer; }
-#threshold-slider::-moz-range-thumb { width:12px; height:12px; border-radius:50%; background:#fff; border:none; cursor:pointer; }
-
-/* Selected node panel */
-#selected-panel { flex-shrink:0; border-top:1px solid var(--border); background:rgba(0,0,0,.5); display:none; }
-#selected-panel.show { display:block; }
-#sp-inner { padding:12px 16px 10px; }
-#sp-clear { float:right; background:none; border:none; color:var(--dim); font-size:14px; cursor:pointer; padding:0 0 4px 8px; line-height:1; }
-#sp-clear:hover { color:#fff; }
-#sp-eyebrow { font-family:var(--mono); font-size:7.5px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); margin-bottom:3px; }
-#sp-name { font-size:17px; font-weight:500; color:#fff; line-height:1.2; margin-bottom:3px; }
-#sp-sub  { font-family:var(--mono); font-size:8px; color:#555; margin-bottom:8px; }
-#sp-moat { background:rgba(255,255,255,.03); border:1px solid var(--border); padding:8px 10px; margin-bottom:8px; }
-#sp-moat-label { font-family:var(--mono); font-size:7px; letter-spacing:1.5px; text-transform:uppercase; color:#444; margin-bottom:4px; }
-#sp-bc-val { font-size:20px; font-weight:500; color:#fff; font-family:var(--mono); }
-#sp-bc-sub { font-size:10px; color:var(--dim); font-family:var(--mono); margin-top:1px; }
-#sp-note { font-size:10.5px; color:var(--text); line-height:1.55; font-style:italic; }
-#sp-layers { margin-top:8px; }
-.sp-layer-row { display:flex; justify-content:space-between; align-items:center; padding:3px 0; }
-.sp-layer-name { font-family:var(--mono); font-size:8px; color:var(--dim); }
-.sp-layer-bar-wrap { flex:1; margin:0 8px; height:1px; background:var(--border); }
-.sp-layer-bar { height:100%; }
-.sp-layer-val { font-family:var(--mono); font-size:8px; color:#666; }
-
-/* Centrality/value list */
-#rank-wrap { flex:1; overflow-y:auto; min-height:0; scrollbar-width:thin; scrollbar-color:var(--border2) transparent; }
-#rank-list { padding:0 8px 8px; }
-.ri { padding:7px 8px 5px; border-bottom:1px solid var(--border); cursor:pointer; transition:background .1s; }
-.ri:hover { background:rgba(255,255,255,.03); }
-.ri:last-child { border-bottom:none; }
-.ri-rank { font-family:var(--mono); font-size:7px; color:#444; letter-spacing:1px; margin-bottom:2px; }
-.ri-name { font-size:12px; color:#fff; line-height:1.3; margin-bottom:1px; }
-.ri-meta { font-family:var(--mono); font-size:7.5px; color:var(--dim); text-transform:uppercase; letter-spacing:.5px; margin-bottom:3px; }
-.ri-bar-track { height:1px; background:var(--border2); }
-.ri-bar-fill { height:100%; transition:width .4s cubic-bezier(.4,0,.2,1); }
-.ri-score { font-family:var(--mono); font-size:7.5px; color:var(--dim); margin-top:2px; }
-
-/* Footer links */
-#s-footer { padding:8px 14px; border-top:1px solid var(--border); flex-shrink:0; display:flex; gap:10px; }
-.f-link { font-family:var(--mono); font-size:7.5px; color:#444; letter-spacing:1px; text-transform:uppercase; text-decoration:none; transition:color .15s; }
-.f-link:hover { color:#fff; }
-
-/* ── RIGHT DETAIL PANEL ──────────────────────────────────────── */
-#detail {
-  position:absolute; right:0; top:0; bottom:0; z-index:20;
-  width:232px; background:rgba(0,0,0,.93);
-  border-left:1px solid var(--border); backdrop-filter:blur(12px);
-  display:flex; flex-direction:column; padding:15px 14px;
-  opacity:0; pointer-events:none;
-  transform:translateX(5px);
-  transition:opacity .2s, transform .2s;
-}
-#detail.show { opacity:1; pointer-events:all; transform:translateX(0); }
-#d-close { position:absolute; top:8px; right:10px; background:none; border:none; color:var(--dim); font-size:16px; cursor:pointer; line-height:1; padding:4px; }
-#d-close:hover { color:#fff; }
-#d-eye { font-family:var(--mono); font-size:7.5px; letter-spacing:2px; text-transform:uppercase; color:#444; margin-bottom:4px; }
-#d-name { font-size:18px; font-weight:500; color:#fff; line-height:1.2; margin-bottom:3px; }
-#d-sub  { font-family:var(--mono); font-size:8px; color:#555; margin-bottom:10px; }
-#d-note { font-size:10.5px; color:var(--text); line-height:1.6; font-style:italic; margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid var(--border); }
-#d-body { flex:1; overflow-y:auto; scrollbar-width:thin; scrollbar-color:var(--border2) transparent; }
-.dr { display:flex; justify-content:space-between; align-items:baseline; padding:5px 0; border-bottom:1px solid var(--border); }
-.dr:last-of-type { border-bottom:none; }
-.dk { font-family:var(--mono); font-size:7.5px; color:var(--dim); text-transform:uppercase; letter-spacing:.5px; }
-.dv { font-family:var(--serif); font-size:12px; color:#fff; font-style:italic; text-align:right; max-width:130px; }
-.d-bc-head { font-family:var(--mono); font-size:7.5px; letter-spacing:1px; text-transform:uppercase; color:#444; padding:9px 0 5px; }
-.d-bc-item { margin-bottom:6px; }
-.d-bc-lbl { display:flex; justify-content:space-between; font-family:var(--mono); font-size:7.5px; color:var(--dim); margin-bottom:3px; }
-.d-bc-track { height:1px; background:var(--border2); }
-.d-bc-bar { height:100%; }
-
-/* ── LEGEND ──────────────────────────────────────────────────── */
-#legend {
-  position:absolute; bottom:34px; left:272px; z-index:20;
-  background:rgba(0,0,0,.91); border:1px solid var(--border);
-  padding:10px 13px; backdrop-filter:blur(8px);
-  display:flex; gap:16px;
-}
-.leg-col { display:flex; flex-direction:column; gap:5px; }
-.leg-title { font-family:var(--mono); font-size:7px; letter-spacing:2px; text-transform:uppercase; color:#444; margin-bottom:2px; }
-.leg-row { display:flex; align-items:center; gap:7px; }
-.leg-dot { width:9px; height:9px; border-radius:50%; flex-shrink:0; }
-.leg-diamond { width:8px; height:8px; transform:rotate(45deg); border-radius:1px; flex-shrink:0; }
-.leg-line { height:2px; width:20px; flex-shrink:0; }
-.leg-lbl { font-family:var(--mono); font-size:7.5px; color:var(--dim); white-space:nowrap; }
-.leg-lbl.hov { cursor:pointer; transition:color .15s; }
-.leg-lbl.hov:hover { color:#fff; }
-
-/* ── TOOLTIP ─────────────────────────────────────────────────── */
-#tt {
-  position:fixed; z-index:200; display:none;
-  background:rgba(0,0,0,.97); border:1px solid #2a2a2a;
-  padding:8px 11px; pointer-events:none; max-width:210px;
-  box-shadow:0 4px 20px rgba(0,0,0,.8);
-}
-#tt-name { font-size:13px; font-weight:500; color:#fff; margin-bottom:2px; }
-#tt-sub  { font-family:var(--mono); font-size:7.5px; color:#555; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:5px; }
-.tt-r { font-size:11px; color:var(--dim); margin-bottom:1px; }
-.tt-v { color:var(--text); font-style:italic; }
-
-/* ── FOOTER ──────────────────────────────────────────────────── */
-#foot {
-  position:absolute; bottom:0; left:260px; right:0; z-index:20;
-  background:rgba(0,0,0,.9); border-top:1px solid var(--border);
-  padding:5px 16px; display:flex; align-items:center; gap:16px;
-  backdrop-filter:blur(4px);
-}
-.fs { font-family:var(--mono); font-size:7.5px; color:var(--dim); white-space:nowrap; }
-.fs b { color:#777; font-weight:400; }
-#reset-btn {
-  margin-left:auto; background:none; border:1px solid var(--border2);
-  color:var(--dim); font-family:var(--mono); font-size:7.5px;
-  letter-spacing:1px; text-transform:uppercase; padding:4px 10px;
-  cursor:pointer; transition:all .15s; display:none;
-}
-#reset-btn.show { display:block; }
-#reset-btn:hover { border-color:#fff; color:#fff; }
-
-/* Loading */
-#loading { position:fixed; inset:0; background:#000; z-index:999; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
-.spin { width:22px; height:22px; border:1px solid #1a1a1a; border-top-color:#fff; border-radius:50%; animation:sp 1s linear infinite; }
-@keyframes sp { to { transform:rotate(360deg); } }
-#loading h2 { font-size:15px; font-weight:400; color:#fff; }
-#loading p  { font-family:var(--mono); font-size:8px; color:#444; letter-spacing:1.5px; }
-.maplibregl-ctrl-group { background:#0a0a0a !important; border:1px solid #1c1c1c !important; }
-.maplibregl-ctrl-group button { background:#0a0a0a !important; }
-.maplibregl-ctrl-icon { filter:invert(1) opacity(.4); }
-</style>
 </head>
 <body>
-<div id="loading">
-  <div class="spin"></div>
-  <h2>Semiconductor Supply Chain</h2>
-  <p>Initialising network · 39 nodes · 485 edges</p>
-</div>
+<div id="progress-bar"></div>
 
+<header id="masthead">
+  <div class="wp-badge">Working Paper · 2026</div>
+  <h1>The Toll-Booths of the Chip Stack</h1>
+  <p class="dek">Global trade statistics measure how much moves through the semiconductor supply chain. They say almost nothing about who owns the chokepoints. This working paper maps the chain as a six-layer network and finds that the real structural power sits with a small number of corporations, not states.</p>
+  <div class="byline"><strong>Rudraveera Sankuratri</strong> · Ahmedabad University · Supervised by Dr. Neelanjan Sircar</div>
+  <div class="scroll-cue">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
+    Scroll to begin
+  </div>
+</header>
+<div id="scrolly">
+  <div id="sticky-visual">
+    <!-- Panel 1: bar chart -->
+    <div class="vis-panel" data-panel="1">
+      <div class="panel-inner">
+        <span class="panel-label">Figure 1</span>
+        <div class="panel-title">Financial Weight, Sorted</div>
+        <div id="bar-chart"></div>
+        <div class="bar-legend">
+          <span><i class="firm"></i> Firm — market cap</span>
+          <span><i class="country"></i> Country — DVA in exports</span>
+        </div>
+        <div class="panel-source">Market cap: public filings, accessed July 2026. DVA: OECD TiVA C26, 2020. Different units, shown together to illustrate relative scale — not directly comparable 1:1.</div>
+      </div>
+    </div>
+
+    <!-- Panel 2: HHI chart -->
+    <div class="vis-panel" data-panel="2">
+      <div class="panel-inner">
+        <span class="panel-label">Figure 2</span>
+        <div class="panel-title">Concentration by Layer — HHI on Source-Side Export Share</div>
+        <div id="hhi-chart"></div>
+        <div class="hhi-note">Dashed line marks HHI = 0.25, the conventional high-concentration threshold. Sum of squared export-weight shares per layer, computed directly from the edge set; 1.0 = complete monopoly.</div>
+      </div>
+    </div>
+
+    <!-- Panel 3: toy network + formula -->
+    <div class="vis-panel" data-panel="3">
+      <div class="panel-inner">
+        <span class="panel-label">Figure 3</span>
+        <div class="panel-title">The Toll-Booth, Formalised</div>
+        <div class="toy-eq"><div id="eq-bc-toy"></div></div>
+        <div class="toy-svg-wrap"><div id="toy-network"></div></div>
+        <div class="toy-caption">Every s→t path between the left and right clusters must pass through the bridge node. Its betweenness is 1.0 — a formal toll-booth.</div>
+      </div>
+    </div>
+
+    <!-- Panel 3b: percolation + participation -->
+    <div class="vis-panel" data-panel="3b">
+      <div class="panel-inner">
+        <span class="panel-label">Figure 4</span>
+        <div class="panel-title">Stress-Testing the Network</div>
+        <div class="mini-charts">
+          <div class="mini-chart-box">
+            <div class="mini-chart-title">Percolation: Targeted Attack vs. Random Failure</div>
+            <div class="mini-chart-sub">Giant component size as nodes are removed</div>
+            <div id="percolation-chart"></div>
+            <div class="legend-inline">
+              <span><i style="background:var(--oxblood)"></i> Targeted (highest betweenness first)</span>
+              <span><i style="background:var(--faint)"></i> Random (200-trial average)</span>
+            </div>
+          </div>
+          <div class="mini-chart-box">
+            <div class="mini-chart-title">Overall Multiplex Centrality vs. Participation</div>
+            <div class="mini-chart-sub">Breadth (spread across layers) vs. depth (aggregate betweenness)</div>
+            <div id="participation-chart"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="text-track">
+    <section class="story" data-panel="1">
+      <div class="kicker eyebrow">I · The Evolution</div>
+      <h2>From the integrated giant to the hyper-specialised web</h2>
+      <p>The semiconductor industry did not start out distributed. Early Intel designed, fabricated, and packaged its own chips end to end — an integrated device manufacturer (IDM) with sovereign control of its own supply chain. Over four decades that model fractured into dozens of hyper-specialised firms, each holding a narrow, defensible position in one layer of a six-stage global chain.</p>
+      <p>That fracture created enormous value — and enormous concentration. Nvidia alone is worth more than the GDP of every country in this dataset combined. TSMC and ASML, meanwhile, sit at valuations that dwarf the countries whose trade statistics economists actually track.</p>
+      <p class="stat-line">Nvidia's market cap: ≈$5.1T. Combined DVA of every country in this network: ≈$0.9T.</p>
+    </section>
+
+    <section class="story" data-panel="2">
+      <div class="kicker eyebrow">II · The Reality of Monopolisation</div>
+      <h2>Trade volume hides power. Concentration reveals it.</h2>
+      <p>Gross trade statistics double-count. A wafer that crosses three borders on its way from sand to smartphone appears three times in the numbers — inflating the apparent diversity of the supply base and obscuring how narrow it actually is at each stage.</p>
+      <p>The Herfindahl-Hirschman Index corrects for this by measuring concentration directly — the sum of squared export shares within a layer. One layer spikes into outright monopoly territory: Raw Extraction, where China alone accounts for 72% of source-side flow, chiefly primary gallium. Nothing else comes close.</p>
+      <p>Equipment and Design & IP look dispersed by this measure — but that undercounts the truth. Both are led by the United States at only ~21–22% of source share, yet dominated in substance by a small handful of US-headquartered firms whose combined national portfolio is a far tighter chokepoint than the country-level number implies.</p>
+    </section>
+
+    <section class="story" data-panel="3">
+      <div class="kicker eyebrow">III · Graph Theory in Plain English</div>
+      <h2>Think of it as a highway system, not a trade ledger</h2>
+      <p>Picture the supply chain as a system of international highways. We are not measuring how much cargo moves on them. We are measuring who owns the toll-booth on the shortest route between any two points.</p>
+      <p>Betweenness centrality counts, for every possible origin and destination, how many of the shortest paths between them are forced through a given node. A node with high betweenness is a highway interchange: close it, and traffic across the entire system backs up. That is why we call it the toll-booth parameter — it is a direct measure of how much rent a node can extract, and how catastrophic its disruption would be.</p>
+    </section>
+
+    <section class="story" data-panel="3b">
+      <div class="kicker eyebrow">III·B · Network Analysis, as a Secondary Layer</div>
+      <h2>What the topology adds once the conventional numbers are on the table</h2>
+      <p>Two supporting tests, run against the same 47-node network. First: what happens if you actually remove the chokepoints? Targeted removal of the highest-betweenness node, recalculated at every step, collapses the network's giant component below half its size after just <strong>17% of nodes</strong> are gone. Random failure — the kind trade shocks and natural disasters usually cause — takes removing <strong>47%</strong> of nodes to do the same damage. That gap is the fragility the valuation chart hints at, made explicit.</p>
+      <p>Second: power is not held the same way by every actor. Using a multiplex participation coefficient, we can separate nodes that are powerful in one layer only from nodes that are powerful across several. Almost every marquee firm — ASML, TSMC, Arm, Cadence/Synopsys — is a pure single-layer specialist: enormous depth, zero cross-layer reach. China is the one outlier with genuine breadth, active across four of six layers at once.</p>
+    </section>
+  </div>
+</div>
+<section id="sankey-section">
+  <div class="section-head">
+    <div class="kicker eyebrow">Companion Figure · Separate Data Lineage</div>
+    <h2>Who Pays Whom</h2>
+    <p>The network above is built from country-level trade aggregates. This figure is a different kind of evidence: a supplier-spend-weighted snapshot of specific corporate relationships, from raw materials through equipment through foundries to the fabless companies that ultimately pay for all of it.</p>
+  </div>
+  <div id="sankey-chart"></div>
+  <div class="sankey-credit">
+    <span class="credit-name">Framing and sourcing approach: Micro (YouTube).</span>
+    Structured after a supplier-spend-weighted diagram Micro compiled from investor-relations disclosures and SEC/6-K filings, inferring undisclosed relationships by working backwards from listed suppliers among the public companies. This version follows the same method independently against a subset of those primary sources — figures marked <span class="basis-tag disclosed">disclosed</span> come directly from a company filing; figures marked <span class="basis-tag inferred">inferred</span> are real, documented relationships with an order-of-magnitude estimate rather than a published number.
+    <ul class="sankey-sources" id="sankey-sources-list"></ul>
+  </div>
+</section>
+<div class="sankey-tooltip" id="sankey-tt"></div>
+<section id="sandbox-intro">
+  <div class="kicker">IV · The Strategic Sandbox</div>
+  <h2>Now that you understand the moats, explore the network yourself</h2>
+  <p>Everything above is a guided argument. What follows is the underlying instrument: the full 47-node, 513-edge network, filterable by layer, switchable between betweenness and trade-value framings, with every node's structural moat — including the multiplex breadth measure from Figure 4 — one click away.</p>
+</section>
 <div id="app">
+  <div id="loading">
+    <div class="spin"></div>
+    <h2>Semiconductor Supply Chain</h2>
+    <p>Initialising network · 47 nodes · 513 edges</p>
+  </div>
   <div id="map"></div>
   <canvas id="deck-canvas"></canvas>
 
@@ -304,15 +222,15 @@ html, body { height:100%; background:#000; color:var(--text); font-family:var(--
     <!-- Node roles -->
     <div class="leg-col">
       <div class="leg-title">Node Role</div>
-      <div class="leg-row"><div class="leg-dot" style="background:#39ff14"></div><span class="leg-lbl">Net Exporter</span></div>
-      <div class="leg-row"><div class="leg-dot" style="background:#ff3131"></div><span class="leg-lbl">Net Importer</span></div>
-      <div class="leg-row"><div class="leg-diamond" style="background:#00ffff"></div><span class="leg-lbl">Firm / Hub</span></div>
+      <div class="leg-row"><div class="leg-dot" style="background:#1A1A1A"></div><span class="leg-lbl">Net Exporter</span></div>
+      <div class="leg-row"><div class="leg-dot" style="background:#9A9488"></div><span class="leg-lbl">Net Importer</span></div>
+      <div class="leg-row"><div class="leg-diamond" style="background:#A61B1B"></div><span class="leg-lbl">Firm / Hub</span></div>
     </div>
     <!-- Node size -->
     <div class="leg-col">
       <div class="leg-title">Node Size</div>
-      <div class="leg-row"><div class="leg-dot" style="background:#fff;width:4px;height:4px"></div><span class="leg-lbl">Low score</span></div>
-      <div class="leg-row"><div class="leg-dot" style="background:#fff;width:10px;height:10px"></div><span class="leg-lbl">High score</span></div>
+      <div class="leg-row"><div class="leg-dot" style="background:#1A1A1A;width:4px;height:4px"></div><span class="leg-lbl">Low score</span></div>
+      <div class="leg-row"><div class="leg-dot" style="background:#1A1A1A;width:10px;height:10px"></div><span class="leg-lbl">High score</span></div>
     </div>
     <!-- Layer arc colours -->
     <div class="leg-col" id="leg-layers">
@@ -321,8 +239,8 @@ html, body { height:100%; background:#000; color:var(--text); font-family:var(--
     <!-- Arc weight -->
     <div class="leg-col">
       <div class="leg-title">Arc Weight</div>
-      <div class="leg-row"><div class="leg-line" style="background:#555;height:1px"></div><span class="leg-lbl">Weak</span></div>
-      <div class="leg-row"><div class="leg-line" style="background:#fff;height:3px"></div><span class="leg-lbl">Strong</span></div>
+      <div class="leg-row"><div class="leg-line" style="background:#CFC9BC;height:1px"></div><span class="leg-lbl">Weak</span></div>
+      <div class="leg-row"><div class="leg-line" style="background:#1A1A1A;height:3px"></div><span class="leg-lbl">Strong</span></div>
     </div>
   </div>
 
@@ -346,28 +264,325 @@ html, body { height:100%; background:#000; color:var(--text); font-family:var(--
   <div class="tt-r">Weight: <span class="tt-v" id="tt-wt"></span></div>
 </div>
 
+<footer id="site-footer">
+  <div class="foot-inner">
+    <h3>Global Semiconductor Supply Chain</h3>
+    <p>An interactive network analysis modelling the chip stack as a six-layer directed graph, applying betweenness centrality, HHI concentration, percolation analysis, and multiplex participation to argue that structural chokepoints — not diplomatic relationships — are where geopolitical power in the system actually resides.</p>
+    <div class="foot-links">
+      <a href="methodology.html">↗ Full Methodology</a>
+      <a href="https://github.com/rudraveera/semiconductor-supply-chain">↗ GitHub Repository</a>
+      <a href="findings.md">↗ Findings Paper</a>
+    </div>
+    <div class="colophon">
+      Rudraveera Sankuratri · Ahmedabad University · Supervised by Dr. Neelanjan Sircar · Working Paper, 2026.
+      Code: MIT License. Data: derived from public sources, see methodology for citations. Analysis and written content: CC BY 4.0.
+    </div>
+  </div>
+</footer>
 <script>
+
+// ══════════════════════════════════════════════════════════════════
+// SHARED DATA LOAD (scrollytelling figures — independent of sandbox engine)
+// ══════════════════════════════════════════════════════════════════
+const SVGNS = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, parent) {
+  const e = document.createElementNS(SVGNS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+const StoryData = { nodes:null, meta:null, percolation:null, sankey:null, hhi:null };
+
+async function loadStoryData() {
+  const [nodes, meta, percolation, sankey, hhi] = await Promise.all([
+    fetch('nodes.json').then(r=>r.json()),
+    fetch('meta.json').then(r=>r.json()),
+    fetch('percolation.json').then(r=>r.json()),
+    fetch('sankey.json').then(r=>r.json()),
+    fetch('hhi_by_layer.json').then(r=>r.json()),
+  ]);
+  StoryData.nodes = nodes; StoryData.meta = meta; StoryData.percolation = percolation;
+  StoryData.sankey = sankey; StoryData.hhi = hhi;
+  buildBarChart();
+  buildHHIChart();
+  buildToyNetwork();
+  buildPercolationChart();
+  buildParticipationChart();
+  buildSankey();
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FIGURE 1 — Bar chart, sorted by financial weight
+// ══════════════════════════════════════════════════════════════════
+function buildBarChart() {
+  const nodes = StoryData.nodes;
+  const weighted = nodes.map(n => {
+    const isMarketCap = !!n.market_cap_usd_b;
+    const val = isMarketCap ? n.market_cap_usd_b : (n.dva_usd_m||0)/1000; // both in $B
+    return { label: n.label, val, isFirm: n.node_type==='firm', metric: n.financial_metric };
+  }).filter(d => d.val > 0).sort((a,b) => b.val - a.val).slice(0, 13);
+
+  const max = weighted[0].val;
+  const host = document.getElementById('bar-chart');
+  host.innerHTML = weighted.map(d => {
+    const pct = Math.max(2, (d.val / max) * 100);
+    const displayVal = d.val >= 1000 ? `$${(d.val/1000).toFixed(2)}T` : `$${d.val.toFixed(0)}B`;
+    return `<div class="bar-row">
+      <div class="bar-label">${d.label}</div>
+      <div class="bar-track"><div class="bar-fill ${d.isFirm?'firm':'country'}" style="width:0%" data-w="${pct}"></div></div>
+      <div class="bar-val tabular">${displayVal}</div>
+    </div>`;
+  }).join('');
+  requestAnimationFrame(() => {
+    host.querySelectorAll('.bar-fill').forEach(b => b.style.width = b.dataset.w + '%');
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FIGURE 2 — HHI by layer
+// ══════════════════════════════════════════════════════════════════
+function buildHHIChart() {
+  const layers = StoryData.meta.layers;
+  const hhi = StoryData.hhi;
+  const layerColor = {1:'var(--l1)',2:'var(--l2)',3:'var(--l3)',4:'var(--l4)',5:'var(--l5)',6:'var(--l6)'};
+  const host = document.getElementById('hhi-chart');
+  const maxHHI = Math.max(...Object.values(hhi), 0.6);
+  host.innerHTML = layers.map(l => {
+    const v = hhi[l.id] || 0;
+    const pct = (v / maxHHI) * 100;
+    const threshPct = (0.25 / maxHHI) * 100;
+    return `<div class="hhi-row">
+      <div class="hhi-label">${l.name}</div>
+      <div class="hhi-track">
+        <div class="hhi-fill" style="width:0%;background:${layerColor[l.id]}" data-w="${pct}"></div>
+        <div class="hhi-thresh" style="left:${threshPct}%"></div>
+      </div>
+      <div class="hhi-val tabular">${v.toFixed(3)}</div>
+    </div>`;
+  }).join('');
+  requestAnimationFrame(() => {
+    host.querySelectorAll('.hhi-fill').forEach(b => b.style.width = b.dataset.w + '%');
+  });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FIGURE 3 — Toy network (static) + KaTeX formula
+// ══════════════════════════════════════════════════════════════════
+function buildToyNetwork() {
+  katex.render(
+    "C_B(i) = \\sum_{s \\neq i \\neq t} \\frac{\\sigma_{st}(i)}{\\sigma_{st}}",
+    document.getElementById('eq-bc-toy'),
+    { throwOnError:false, displayMode:true }
+  );
+
+  const host = document.getElementById('toy-network');
+  const W = 440, H = 200;
+  const svg = el('svg', { viewBox:`0 0 ${W} ${H}`, width:'100%', height:'auto' });
+  const pos = { A:[60,60], B:[60,140], M:[220,100], C:[380,60], D:[380,140] };
+  const edges = [['A','M'],['B','M'],['M','C'],['M','D']];
+
+  edges.forEach(([a,b]) => {
+    el('line', { x1:pos[a][0], y1:pos[a][1], x2:pos[b][0], y2:pos[b][1],
+      stroke:'var(--rule-strong)', 'stroke-width':1.5 }, svg);
+  });
+  // highlight all paths pass through M with a soft halo
+  el('circle', { cx:pos.M[0], cy:pos.M[1], r:26, fill:'var(--oxblood-tint)' }, svg);
+
+  Object.entries(pos).forEach(([id,[x,y]]) => {
+    const isBridge = id === 'M';
+    el('circle', { cx:x, cy:y, r:isBridge?9:7,
+      fill: isBridge ? 'var(--oxblood)' : 'var(--ink)' }, svg);
+    const t = el('text', { x, y:y-16, 'text-anchor':'middle',
+      'font-family':'Work Sans', 'font-size':11, fill:'var(--muted)' }, svg);
+    t.textContent = isBridge ? 'bridge' : id;
+  });
+  host.innerHTML = '';
+  host.appendChild(svg);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FIGURE 4a — Percolation curve
+// ══════════════════════════════════════════════════════════════════
+function buildPercolationChart() {
+  const { targeted, random } = StoryData.percolation;
+  const W = 460, H = 200, PAD = 28;
+  const host = document.getElementById('percolation-chart');
+  const svg = el('svg', { viewBox:`0 0 ${W} ${H}`, width:'100%', height:'auto' });
+
+  const x = f => PAD + f * (W - PAD*1.4);
+  const y = g => (H - PAD) - g * (H - PAD*1.6);
+
+  // axes
+  el('line', { x1:PAD, y1:H-PAD, x2:W-PAD*0.4, y2:H-PAD, stroke:'var(--rule-strong)', 'stroke-width':1 }, svg);
+  el('line', { x1:PAD, y1:PAD*0.6, x2:PAD, y2:H-PAD, stroke:'var(--rule-strong)', 'stroke-width':1 }, svg);
+  el('text', { x:PAD, y:H-8, 'font-family':'Work Sans', 'font-size':9, fill:'var(--faint)' }, svg).textContent = '0%';
+  el('text', { x:W-PAD*0.4-24, y:H-8, 'font-family':'Work Sans', 'font-size':9, fill:'var(--faint)' }, svg).textContent = 'nodes removed';
+  const line = (data, color) => {
+    const pts = data.map(d => `${x(d.frac_removed)},${y(d.giant_frac)}`).join(' ');
+    el('polyline', { points:pts, class:'sankey-link', stroke:color, 'stroke-width':2, fill:'none' }, svg);
+  };
+  line(random, 'var(--faint)');
+  line(targeted, 'var(--oxblood)');
+
+  // 50% reference line
+  el('line', { x1:PAD, y1:y(0.5), x2:W-PAD*0.4, y2:y(0.5), stroke:'var(--rule)', 'stroke-dasharray':'2,3' }, svg);
+
+  host.innerHTML = '';
+  host.appendChild(svg);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// FIGURE 4b — Multiplex participation scatter
+// ══════════════════════════════════════════════════════════════════
+function buildParticipationChart() {
+  const nodes = StoryData.nodes.filter(n => (n.omc||0) > 0);
+  const W = 460, H = 220, PAD = 30;
+  const host = document.getElementById('participation-chart');
+  const svg = el('svg', { viewBox:`0 0 ${W} ${H}`, width:'100%', height:'auto' });
+
+  const maxOMC = Math.max(...nodes.map(n=>n.omc));
+  const x = v => PAD + (v/maxOMC) * (W - PAD*1.6);
+  const y = v => (H - PAD) - v * (H - PAD*1.6);
+
+  el('line', { x1:PAD, y1:H-PAD, x2:W-PAD*0.4, y2:H-PAD, stroke:'var(--rule-strong)' }, svg);
+  el('line', { x1:PAD, y1:PAD*0.6, x2:PAD, y2:H-PAD, stroke:'var(--rule-strong)' }, svg);
+  el('text', { x:W-PAD*1.5, y:H-8, 'font-family':'Work Sans', 'font-size':9, fill:'var(--faint)' }, svg).textContent = 'centrality →';
+  el('text', { x:6, y:PAD, 'font-family':'Work Sans', 'font-size':9, fill:'var(--faint)' }, svg).textContent = 'breadth';
+
+  const labelThese = ['CHN','ASML','TSMC','NVIDIA','USA','SAMSUNGF'];
+  nodes.forEach(n => {
+    const cx = x(n.omc), cy = y(n.participation||0);
+    const isFirm = n.node_type === 'firm';
+    el('circle', { cx, cy, r: isFirm?4:5,
+      fill: isFirm ? 'var(--oxblood)' : 'var(--link)', 'fill-opacity':0.8 }, svg);
+    if (labelThese.includes(n.id)) {
+      const t = el('text', { x:cx+7, y:cy+3, 'font-family':'Work Sans', 'font-size':9.5, fill:'var(--ink)' }, svg);
+      t.textContent = n.label;
+    }
+  });
+
+  host.innerHTML = '';
+  host.appendChild(svg);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// SANKEY — manual layout (no d3-sankey dependency)
+// ══════════════════════════════════════════════════════════════════
+function buildSankey() {
+  const { nodes, links, meta } = StoryData.sankey;
+  const layerCount = 4;
+  const W = 920, H = 460, COLPAD = 90, NODEW = 14, NODEGAP = 10;
+  const colX = i => COLPAD + i * ((W - COLPAD*2) / (layerCount - 1));
+
+  const byId = {}; nodes.forEach(n => byId[n.id] = n);
+  const inflow = {}, outflow = {};
+  nodes.forEach(n => { inflow[n.id]=0; outflow[n.id]=0; });
+  links.forEach(l => { outflow[l.source]+=l.value; inflow[l.target]+=l.value; });
+  nodes.forEach(n => { n._val = Math.max(inflow[n.id], outflow[n.id], 1); });
+
+  // group by layer, stack vertically, scaled to fit H
+  const byLayer = {};
+  for (let i=0;i<layerCount;i++) byLayer[i] = nodes.filter(n=>n.layer===i);
+  const scale = {};
+  for (let i=0;i<layerCount;i++) {
+    const total = byLayer[i].reduce((s,n)=>s+n._val,0);
+    const avail = H - NODEGAP*(byLayer[i].length-1);
+    scale[i] = avail / total;
+  }
+  for (let i=0;i<layerCount;i++) {
+    let y = 0;
+    byLayer[i].forEach(n => {
+      n._h = Math.max(n._val * scale[i], 3);
+      n._x = colX(i);
+      n._y = y;
+      y += n._h + NODEGAP;
+    });
+  }
+  // running offset trackers for link attachment points
+  const outUsed = {}, inUsed = {};
+  nodes.forEach(n => { outUsed[n.id]=0; inUsed[n.id]=0; });
+
+  const host = document.getElementById('sankey-chart');
+  const svg = el('svg', { viewBox:`0 0 ${W} ${H+30}`, width:'100%', height:'auto', style:'min-width:760px' });
+  const g = el('g', { transform:'translate(0,15)' }, svg);
+
+  const linkColor = basis => basis === 'disclosed' ? 'var(--oxblood)' : 'var(--rule-strong)';
+
+  links.forEach(l => {
+    const s = byId[l.source], t = byId[l.target];
+    const sScale = scale[s.layer], tScale = scale[t.layer];
+    const lh_s = l.value * sScale, lh_t = l.value * tScale;
+    const sy0 = s._y + outUsed[s.id], ty0 = t._y + inUsed[t.id];
+    outUsed[s.id] += lh_s; inUsed[t.id] += lh_t;
+
+    const x0 = s._x + NODEW, x1 = t._x;
+    const y0a = sy0, y0b = sy0 + lh_s, y1a = ty0, y1b = ty0 + lh_t;
+    const xm = (x0+x1)/2;
+    const path = `M${x0},${y0a} C${xm},${y0a} ${xm},${y1a} ${x1},${y1a}
+                  L${x1},${y1b} C${xm},${y1b} ${xm},${y0b} ${x0},${y0b} Z`;
+    const p = el('path', { d:path, fill:linkColor(l.basis), 'fill-opacity': l.basis==='disclosed'?0.35:0.5, class:'sankey-link' }, g);
+    p.addEventListener('mousemove', (ev) => showSankeyTT(ev, `${s.name} → ${t.name}`, `$${l.value}B/yr · ${l.basis}`, l.note));
+    p.addEventListener('mouseleave', hideSankeyTT);
+  });
+
+  nodes.forEach(n => {
+    if (n._h === undefined) return;
+    el('rect', { x:n._x, y:n._y, width:NODEW, height:n._h, fill:'var(--ink)' }, g)
+      .addEventListener('mousemove', (ev) => showSankeyTT(ev, n.name, `$${n._val}B/yr through-flow`, n.note));
+    const isLeftHalf = n.layer < 2;
+    const t = el('text', {
+      x: isLeftHalf ? n._x - 6 : n._x + NODEW + 6,
+      y: n._y + n._h/2 + 3.5,
+      'text-anchor': isLeftHalf ? 'end' : 'start',
+      class:'sankey-node-label'
+    }, g);
+    t.textContent = n.name;
+  });
+
+  ['Materials','Equipment','Foundry / Memory','Fabless Design'].forEach((label,i) => {
+    el('text', { x:colX(i)+NODEW/2, y:8, 'text-anchor':'middle', class:'sankey-node-sub',
+      'font-weight':600, 'letter-spacing':'.06em' }, svg).textContent = label.toUpperCase();
+  });
+
+  host.innerHTML = '';
+  host.appendChild(svg);
+
+  // sources list
+  document.getElementById('sankey-sources-list').innerHTML =
+    meta.sources.map(s => `<li>${s}</li>`).join('') + `<li style="margin-top:6px;">${meta.disclaimer}</li>`;
+}
+
+function showSankeyTT(ev, name, sub, note) {
+  const tt = document.getElementById('sankey-tt');
+  tt.innerHTML = `<b>${name}</b>${sub}${note ? '<br>'+note : ''}`;
+  tt.style.display = 'block';
+  tt.style.left = (ev.clientX + 14) + 'px';
+  tt.style.top = (ev.clientY + 14) + 'px';
+}
+function hideSankeyTT() { document.getElementById('sankey-tt').style.display = 'none'; }
+
 // ══════════════════════════════════════════════════════════════════
 // DATA & STATE
 // ══════════════════════════════════════════════════════════════════
 const FILES = { nodes:'nodes.json', edges:'edges.json', meta:'meta.json' };
 
-// VIBGYOR layer colours (RGB arrays for Deck.gl)
+// Editorial layer colours (RGB arrays for Deck.gl) — muted, replaces VIBGYOR neon
 const LCOLORS = {
-  1:[139,  0,255], // Violet  — Raw Extraction
-  2:[  0, 85,255], // Blue    — Refined Materials
-  3:[  0,200, 68], // Green   — Equipment
-  4:[255,230,  0], // Yellow  — Design & IP
-  5:[255,119,  0], // Orange  — Fabrication
-  6:[255, 17, 17], // Red     — Assembly & Packaging
+  1:[ 74, 59, 82], // Deep Amethyst — Raw Extraction
+  2:[ 43, 92,143], // Slate Blue    — Refined Materials
+  3:[ 31,107, 82], // Sage Forest   — Equipment
+  4:[194,138,  0], // Burnished Ochre — Design & IP
+  5:[217, 95,  2], // Terracotta    — Fabrication
+  6:[158, 42, 43], // Deep Carmine  — Assembly & Packaging
 };
 
-// Node role colours (RGB)
+// Node role colours (RGB) — ink / faint / oxblood
 const NCOLORS = {
-  exporter:[57, 255, 20],
-  importer:[255, 49, 49],
-  firm:    [0, 255, 255],
-  hub:     [0, 255, 255],  // hubs treated same as firms visually
+  exporter:[ 26, 26, 26],
+  importer:[154,148,136],
+  firm:    [166, 27, 27],
+  hub:     [ 50,104,145],  // hubs get the link-blue to read as "structurally central" vs plain firms
 };
 
 let NODES=[], EDGES=[], META={};
@@ -693,11 +908,16 @@ function showDetail(n) {
   const rows = [
     { k:'Type',       v: n.node_type==='firm' ? 'Corporation' : 'Nation-State' },
     { k:'Role',       v: n.node_role },
-    { k:'DVA / Rev',  v: `$${Math.round(n.dva_usd_m||0).toLocaleString()}M` },
+  ];
+  if (n.market_cap_usd_b) rows.push({ k:'Market Cap', v: `$${n.market_cap_usd_b.toLocaleString()}B` });
+  rows.push({ k: n.financial_metric==='dva' ? 'DVA (exports)' : 'DVA / Rev', v: `$${Math.round(n.dva_usd_m||0).toLocaleString()}M` });
+  rows.push(
     { k:'BC (max)',   v: (n.bc_max||0).toFixed(4) },
     { k:'Out-links',  v: n.out_deg },
     { k:'In-links',   v: n.in_deg },
-  ];
+    { k:'Multiplex OMC', v: (n.omc||0).toFixed(4) },
+    { k:'Participation', v: n.n_layers_active>1 ? (n.participation||0).toFixed(2) : `0 — single-layer` },
+  );
 
   document.getElementById('d-body').innerHTML =
     rows.map(r=>`<div class="dr"><span class="dk">${r.k}</span><span class="dv">${r.v}</span></div>`).join('') +
@@ -847,7 +1067,7 @@ async function init() {
 
   document.getElementById('loading').style.display = 'none';
 
-  // MapLibre — pure black CartoDB Dark basemap
+  // MapLibre — CartoDB Positron (light), matching the editorial paper ground
   mapInst = new maplibregl.Map({
     container: 'map',
     style: {
@@ -855,9 +1075,9 @@ async function init() {
       sources: { carto: {
         type: 'raster',
         tiles: [
-          'https://a.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
-          'https://b.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
-          'https://c.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}@2x.png',
+          'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+          'https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
+          'https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png',
         ],
         tileSize: 256,
         attribution: '© OpenStreetMap contributors © CARTO'
@@ -919,7 +1139,66 @@ async function init() {
   updateFoot();
 }
 
-init();
+window.__initSandbox = init; // triggered lazily when #app scrolls into view — see scrollytelling controller below
+
+// ══════════════════════════════════════════════════════════════════
+// SCROLLYTELLING CONTROLLER
+// ══════════════════════════════════════════════════════════════════
+function initScrollytelling() {
+  const stories = Array.from(document.querySelectorAll('.story'));
+  const panels  = Array.from(document.querySelectorAll('.vis-panel'));
+
+  const activate = (key) => {
+    stories.forEach(s => s.classList.toggle('active', s.dataset.panel === key));
+    panels.forEach(p => p.classList.toggle('on', p.dataset.panel === key));
+  };
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) activate(entry.target.dataset.panel);
+    });
+  }, { threshold: 0.5, rootMargin: '-10% 0px -10% 0px' });
+
+  stories.forEach(s => io.observe(s));
+  if (stories.length) activate(stories[0].dataset.panel);
+
+  // progress bar across full document
+  const bar = document.getElementById('progress-bar');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement;
+    const scrolled = h.scrollTop / (h.scrollHeight - h.clientHeight);
+    bar.style.width = (scrolled * 100).toFixed(2) + '%';
+  }, { passive: true });
+}
+
+// ══════════════════════════════════════════════════════════════════
+// LAZY SANDBOX INIT — boot the deck.gl/MapLibre engine only once the
+// sandbox section is near the viewport (performance + avoids the
+// loading flash showing before the reader has scrolled that far).
+// ══════════════════════════════════════════════════════════════════
+function initSandboxLazy() {
+  let started = false;
+  const target = document.getElementById('sandbox-intro') || document.getElementById('app');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !started) {
+        started = true;
+        if (typeof window.__initSandbox === 'function') window.__initSandbox();
+        io.disconnect();
+      }
+    });
+  }, { rootMargin: '600px 0px 600px 0px' });
+  io.observe(target);
+}
+
+// ══════════════════════════════════════════════════════════════════
+// BOOT
+// ══════════════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+  loadStoryData();
+  initScrollytelling();
+  initSandboxLazy();
+});
 </script>
 </body>
 </html>

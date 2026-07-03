@@ -1,0 +1,447 @@
+{
+  "n_nodes": 47,
+  "n_edges": 203,
+  "targeted": [
+    {
+      "frac_removed": 0.0,
+      "giant_frac": 1.0
+    },
+    {
+      "frac_removed": 0.0213,
+      "giant_frac": 0.9574468085106383,
+      "removed": "USA"
+    },
+    {
+      "frac_removed": 0.0426,
+      "giant_frac": 0.8723404255319149,
+      "removed": "CHN"
+    },
+    {
+      "frac_removed": 0.0638,
+      "giant_frac": 0.8297872340425532,
+      "removed": "KOR"
+    },
+    {
+      "frac_removed": 0.0851,
+      "giant_frac": 0.8085106382978723,
+      "removed": "JPN"
+    },
+    {
+      "frac_removed": 0.1064,
+      "giant_frac": 0.7872340425531915,
+      "removed": "TSMC"
+    },
+    {
+      "frac_removed": 0.1277,
+      "giant_frac": 0.7021276595744681,
+      "removed": "SAMSUNGF"
+    },
+    {
+      "frac_removed": 0.1489,
+      "giant_frac": 0.5106382978723404,
+      "removed": "NLD"
+    },
+    {
+      "frac_removed": 0.1702,
+      "giant_frac": 0.425531914893617,
+      "removed": "HKG"
+    },
+    {
+      "frac_removed": 0.1915,
+      "giant_frac": 0.23404255319148937,
+      "removed": "MYS"
+    },
+    {
+      "frac_removed": 0.2128,
+      "giant_frac": 0.1702127659574468,
+      "removed": "DEU"
+    },
+    {
+      "frac_removed": 0.234,
+      "giant_frac": 0.1702127659574468,
+      "removed": "INTELF"
+    },
+    {
+      "frac_removed": 0.2553,
+      "giant_frac": 0.1276595744680851,
+      "removed": "VNM"
+    },
+    {
+      "frac_removed": 0.2766,
+      "giant_frac": 0.0851063829787234,
+      "removed": "ARM"
+    },
+    {
+      "frac_removed": 0.2979,
+      "giant_frac": 0.0851063829787234,
+      "removed": "CADENCE"
+    },
+    {
+      "frac_removed": 0.3191,
+      "giant_frac": 0.06382978723404255,
+      "removed": "MEX"
+    },
+    {
+      "frac_removed": 0.3404,
+      "giant_frac": 0.0425531914893617,
+      "removed": "SMIC"
+    },
+    {
+      "frac_removed": 0.3617,
+      "giant_frac": 0.0425531914893617,
+      "removed": "CAN"
+    },
+    {
+      "frac_removed": 0.383,
+      "giant_frac": 0.0425531914893617,
+      "removed": "RUS"
+    },
+    {
+      "frac_removed": 0.4043,
+      "giant_frac": 0.0425531914893617,
+      "removed": "BEL"
+    },
+    {
+      "frac_removed": 0.4255,
+      "giant_frac": 0.0425531914893617,
+      "removed": "AUT"
+    },
+    {
+      "frac_removed": 0.4468,
+      "giant_frac": 0.0425531914893617,
+      "removed": "GBR"
+    },
+    {
+      "frac_removed": 0.4681,
+      "giant_frac": 0.0425531914893617,
+      "removed": "CHE"
+    },
+    {
+      "frac_removed": 0.4894,
+      "giant_frac": 0.0425531914893617,
+      "removed": "FRA"
+    },
+    {
+      "frac_removed": 0.5106,
+      "giant_frac": 0.0425531914893617,
+      "removed": "IND"
+    },
+    {
+      "frac_removed": 0.5319,
+      "giant_frac": 0.0425531914893617,
+      "removed": "IRL"
+    },
+    {
+      "frac_removed": 0.5532,
+      "giant_frac": 0.0425531914893617,
+      "removed": "ARE"
+    },
+    {
+      "frac_removed": 0.5745,
+      "giant_frac": 0.0425531914893617,
+      "removed": "PHL"
+    },
+    {
+      "frac_removed": 0.5957,
+      "giant_frac": 0.0425531914893617,
+      "removed": "THA"
+    },
+    {
+      "frac_removed": 0.617,
+      "giant_frac": 0.0425531914893617,
+      "removed": "ISR"
+    },
+    {
+      "frac_removed": 0.6383,
+      "giant_frac": 0.02127659574468085,
+      "removed": "ITA"
+    },
+    {
+      "frac_removed": 0.6596,
+      "giant_frac": 0.02127659574468085,
+      "removed": "ASML"
+    },
+    {
+      "frac_removed": 0.6809,
+      "giant_frac": 0.02127659574468085,
+      "removed": "APPLMAT"
+    },
+    {
+      "frac_removed": 0.7021,
+      "giant_frac": 0.02127659574468085,
+      "removed": "LAMRES"
+    },
+    {
+      "frac_removed": 0.7234,
+      "giant_frac": 0.02127659574468085,
+      "removed": "KLA"
+    },
+    {
+      "frac_removed": 0.7447,
+      "giant_frac": 0.02127659574468085,
+      "removed": "NVIDIA"
+    },
+    {
+      "frac_removed": 0.766,
+      "giant_frac": 0.02127659574468085,
+      "removed": "AMD"
+    },
+    {
+      "frac_removed": 0.7872,
+      "giant_frac": 0.02127659574468085,
+      "removed": "QUALCOMM"
+    },
+    {
+      "frac_removed": 0.8085,
+      "giant_frac": 0.02127659574468085,
+      "removed": "SHINETSU"
+    },
+    {
+      "frac_removed": 0.8298,
+      "giant_frac": 0.02127659574468085,
+      "removed": "JSR"
+    },
+    {
+      "frac_removed": 0.8511,
+      "giant_frac": 0.02127659574468085,
+      "removed": "ASE"
+    },
+    {
+      "frac_removed": 0.8723,
+      "giant_frac": 0.02127659574468085,
+      "removed": "CHALCO"
+    },
+    {
+      "frac_removed": 0.8936,
+      "giant_frac": 0.02127659574468085,
+      "removed": "SUMCO"
+    },
+    {
+      "frac_removed": 0.9149,
+      "giant_frac": 0.02127659574468085,
+      "removed": "MERCKKG"
+    },
+    {
+      "frac_removed": 0.9362,
+      "giant_frac": 0.02127659574468085,
+      "removed": "TEL"
+    },
+    {
+      "frac_removed": 0.9574,
+      "giant_frac": 0.02127659574468085,
+      "removed": "AMKOR"
+    },
+    {
+      "frac_removed": 0.9787,
+      "giant_frac": 0.02127659574468085,
+      "removed": "FORMFACTOR"
+    }
+  ],
+  "random": [
+    {
+      "frac_removed": 0.0,
+      "giant_frac": 1.0
+    },
+    {
+      "frac_removed": 0.0213,
+      "giant_frac": 0.9776595744680805
+    },
+    {
+      "frac_removed": 0.0426,
+      "giant_frac": 0.9553191489361708
+    },
+    {
+      "frac_removed": 0.0638,
+      "giant_frac": 0.9318085106382945
+    },
+    {
+      "frac_removed": 0.0851,
+      "giant_frac": 0.9098936170212772
+    },
+    {
+      "frac_removed": 0.1064,
+      "giant_frac": 0.8873404255319128
+    },
+    {
+      "frac_removed": 0.1277,
+      "giant_frac": 0.8645744680851073
+    },
+    {
+      "frac_removed": 0.1489,
+      "giant_frac": 0.8414893617021266
+    },
+    {
+      "frac_removed": 0.1702,
+      "giant_frac": 0.8191489361702138
+    },
+    {
+      "frac_removed": 0.1915,
+      "giant_frac": 0.7958510638297873
+    },
+    {
+      "frac_removed": 0.2128,
+      "giant_frac": 0.7726595744680865
+    },
+    {
+      "frac_removed": 0.234,
+      "giant_frac": 0.7502127659574477
+    },
+    {
+      "frac_removed": 0.2553,
+      "giant_frac": 0.7277659574468093
+    },
+    {
+      "frac_removed": 0.2766,
+      "giant_frac": 0.7025531914893627
+    },
+    {
+      "frac_removed": 0.2979,
+      "giant_frac": 0.6806382978723416
+    },
+    {
+      "frac_removed": 0.3191,
+      "giant_frac": 0.6575531914893635
+    },
+    {
+      "frac_removed": 0.3404,
+      "giant_frac": 0.6346808510638319
+    },
+    {
+      "frac_removed": 0.3617,
+      "giant_frac": 0.611276595744683
+    },
+    {
+      "frac_removed": 0.383,
+      "giant_frac": 0.5874468085106404
+    },
+    {
+      "frac_removed": 0.4043,
+      "giant_frac": 0.5655319148936189
+    },
+    {
+      "frac_removed": 0.4255,
+      "giant_frac": 0.5389361702127675
+    },
+    {
+      "frac_removed": 0.4468,
+      "giant_frac": 0.5151063829787245
+    },
+    {
+      "frac_removed": 0.4681,
+      "giant_frac": 0.4908510638297872
+    },
+    {
+      "frac_removed": 0.4894,
+      "giant_frac": 0.46659574468084974
+    },
+    {
+      "frac_removed": 0.5106,
+      "giant_frac": 0.44223404255319004
+    },
+    {
+      "frac_removed": 0.5319,
+      "giant_frac": 0.4163829787234034
+    },
+    {
+      "frac_removed": 0.5532,
+      "giant_frac": 0.38989361702127634
+    },
+    {
+      "frac_removed": 0.5745,
+      "giant_frac": 0.36265957446808517
+    },
+    {
+      "frac_removed": 0.5957,
+      "giant_frac": 0.3350000000000004
+    },
+    {
+      "frac_removed": 0.617,
+      "giant_frac": 0.30925531914893684
+    },
+    {
+      "frac_removed": 0.6383,
+      "giant_frac": 0.28500000000000025
+    },
+    {
+      "frac_removed": 0.6596,
+      "giant_frac": 0.26223404255319177
+    },
+    {
+      "frac_removed": 0.6809,
+      "giant_frac": 0.2394680851063831
+    },
+    {
+      "frac_removed": 0.7021,
+      "giant_frac": 0.215
+    },
+    {
+      "frac_removed": 0.7234,
+      "giant_frac": 0.1926595744680851
+    },
+    {
+      "frac_removed": 0.7447,
+      "giant_frac": 0.17425531914893613
+    },
+    {
+      "frac_removed": 0.766,
+      "giant_frac": 0.1555319148936172
+    },
+    {
+      "frac_removed": 0.7872,
+      "giant_frac": 0.13478723404255333
+    },
+    {
+      "frac_removed": 0.8085,
+      "giant_frac": 0.11574468085106386
+    },
+    {
+      "frac_removed": 0.8298,
+      "giant_frac": 0.09840425531914895
+    },
+    {
+      "frac_removed": 0.8511,
+      "giant_frac": 0.08351063829787235
+    },
+    {
+      "frac_removed": 0.8723,
+      "giant_frac": 0.06787234042553196
+    },
+    {
+      "frac_removed": 0.8936,
+      "giant_frac": 0.05521276595744678
+    },
+    {
+      "frac_removed": 0.9149,
+      "giant_frac": 0.042765957446808466
+    },
+    {
+      "frac_removed": 0.9362,
+      "giant_frac": 0.032340425531914845
+    },
+    {
+      "frac_removed": 0.9574,
+      "giant_frac": 0.025319148936170214
+    },
+    {
+      "frac_removed": 0.9787,
+      "giant_frac": 0.021276595744680882
+    }
+  ],
+  "removal_order_top15": [
+    "USA",
+    "CHN",
+    "KOR",
+    "JPN",
+    "TSMC",
+    "SAMSUNGF",
+    "NLD",
+    "HKG",
+    "MYS",
+    "DEU",
+    "INTELF",
+    "VNM",
+    "ARM",
+    "CADENCE",
+    "MEX"
+  ]
+}

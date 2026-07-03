@@ -20,7 +20,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 1.7068,
+    "participation": 0.7685,
+    "n_layers_active": 4,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "CAN",
@@ -43,7 +48,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "DEU",
@@ -66,7 +76,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0278,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "JPN",
@@ -89,7 +104,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.3636,
+    "participation": 0.5414,
+    "n_layers_active": 2,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "RUS",
@@ -112,7 +132,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "USA",
@@ -135,7 +160,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 1.0837,
+    "participation": 0.5688,
+    "n_layers_active": 2,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "KOR",
@@ -158,7 +188,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.6062,
+    "participation": 0.4926,
+    "n_layers_active": 3,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "BEL",
@@ -181,7 +216,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "NLD",
@@ -204,7 +244,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "MYS",
@@ -227,7 +272,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "HKG",
@@ -250,7 +300,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.6397,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "AUT",
@@ -273,7 +328,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "GBR",
@@ -296,7 +356,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "CHE",
@@ -319,7 +384,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "FRA",
@@ -342,7 +412,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "IND",
@@ -365,7 +440,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "MEX",
@@ -388,7 +468,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "IRL",
@@ -411,7 +496,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "ARE",
@@ -434,7 +524,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "PHL",
@@ -457,7 +552,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "VNM",
@@ -480,7 +580,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "THA",
@@ -503,7 +608,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "ISR",
@@ -526,7 +636,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "ITA",
@@ -549,7 +664,12 @@
     "node_type": "country",
     "home_country": null,
     "sector": null,
-    "market_note": ""
+    "market_note": "",
+    "omc": 0.0,
+    "participation": 0.0,
+    "n_layers_active": 0,
+    "market_cap_usd_b": null,
+    "financial_metric": "dva"
   },
   {
     "id": "TSMC",
@@ -572,7 +692,12 @@
     "bc_max": 0.95,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "~60% global foundry share; ~90% leading-edge (<7nm). No TSMC = no AI chips."
+    "market_note": "~60% global foundry share; ~90% leading-edge (<7nm). No TSMC = no AI chips.",
+    "omc": 0.95,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 2396,
+    "financial_metric": "market_cap"
   },
   {
     "id": "SAMSUNGF",
@@ -595,7 +720,12 @@
     "bc_max": 0.4,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "~15% foundry share; combined memory + logic IDM"
+    "market_note": "~15% foundry share; combined memory + logic IDM",
+    "omc": 0.65,
+    "participation": 0.568,
+    "n_layers_active": 2,
+    "market_cap_usd_b": 1516,
+    "financial_metric": "market_cap"
   },
   {
     "id": "INTELF",
@@ -618,7 +748,12 @@
     "bc_max": 0.22,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "IDM + Intel Foundry Services; fabs in USA, Ireland, Israel"
+    "market_note": "IDM + Intel Foundry Services; fabs in USA, Ireland, Israel",
+    "omc": 0.37,
+    "participation": 0.5785,
+    "n_layers_active": 2,
+    "market_cap_usd_b": 673.43,
+    "financial_metric": "market_cap"
   },
   {
     "id": "ASML",
@@ -641,7 +776,12 @@
     "bc_max": 0.98,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "100% EUV monopoly; ~80% DUV. No ASML = no advanced chips, anywhere."
+    "market_note": "100% EUV monopoly; ~80% DUV. No ASML = no advanced chips, anywhere.",
+    "omc": 0.98,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 743.73,
+    "financial_metric": "market_cap"
   },
   {
     "id": "APPLMAT",
@@ -664,7 +804,12 @@
     "bc_max": 0.72,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "Deposition, etch & CMP systems; present in every advanced fab globally"
+    "market_note": "Deposition, etch & CMP systems; present in every advanced fab globally",
+    "omc": 0.72,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 489.96,
+    "financial_metric": "market_cap"
   },
   {
     "id": "LAMRES",
@@ -687,7 +832,12 @@
     "bc_max": 0.65,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "Etch systems; critical for sub-5nm patterning layers"
+    "market_note": "Etch systems; critical for sub-5nm patterning layers",
+    "omc": 0.65,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 486.52,
+    "financial_metric": "market_cap"
   },
   {
     "id": "KLA",
@@ -710,7 +860,12 @@
     "bc_max": 0.55,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "Metrology & defect inspection; yield gating for all leading-edge fabs"
+    "market_note": "Metrology & defect inspection; yield gating for all leading-edge fabs",
+    "omc": 0.55,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 339.05,
+    "financial_metric": "market_cap"
   },
   {
     "id": "NVIDIA",
@@ -733,7 +888,12 @@
     "bc_max": 0.8,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "~80% AI accelerator share; 100% fabless \u2014 entirely TSMC dependent"
+    "market_note": "~80% AI accelerator share; 100% fabless \u2014 entirely TSMC dependent",
+    "omc": 1.55,
+    "participation": 0.5994,
+    "n_layers_active": 2,
+    "market_cap_usd_b": 5103,
+    "financial_metric": "market_cap"
   },
   {
     "id": "AMD",
@@ -756,7 +916,12 @@
     "bc_max": 0.55,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "CPU/GPU fabless; TSMC-dependent for all leading-edge nodes"
+    "market_note": "CPU/GPU fabless; TSMC-dependent for all leading-edge nodes",
+    "omc": 1.05,
+    "participation": 0.5986,
+    "n_layers_active": 2,
+    "market_cap_usd_b": 876.23,
+    "financial_metric": "market_cap"
   },
   {
     "id": "QUALCOMM",
@@ -779,7 +944,12 @@
     "bc_max": 0.7,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "Mobile SoC dominant; fabless \u2014 designs in USA, fabs in Taiwan"
+    "market_note": "Mobile SoC dominant; fabless \u2014 designs in USA, fabs in Taiwan",
+    "omc": 0.7,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 238.31,
+    "financial_metric": "market_cap"
   },
   {
     "id": "ARM",
@@ -802,7 +972,12 @@
     "bc_max": 0.92,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "~99% mobile CPU architecture licensing; designs originate in Cambridge, UK"
+    "market_note": "~99% mobile CPU architecture licensing; designs originate in Cambridge, UK",
+    "omc": 0.92,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 469.37,
+    "financial_metric": "market_cap"
   },
   {
     "id": "CADENCE",
@@ -825,7 +1000,12 @@
     "bc_max": 0.88,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "EDA duopoly with Synopsys; every chip design flows through these tools"
+    "market_note": "EDA duopoly with Synopsys; every chip design flows through these tools",
+    "omc": 0.88,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 189.0,
+    "financial_metric": "market_cap"
   },
   {
     "id": "SHINETSU",
@@ -848,7 +1028,12 @@
     "bc_max": 0.85,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "~30% Si wafer market; EUV photoresist leader; Japan export-control sensitive"
+    "market_note": "~30% Si wafer market; EUV photoresist leader; Japan export-control sensitive",
+    "omc": 0.85,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": null,
+    "financial_metric": "revenue_proxy"
   },
   {
     "id": "JSR",
@@ -871,7 +1056,12 @@
     "bc_max": 0.6,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "EUV-grade photoresist near-monopoly; Japan govt acquired JSR in 2023"
+    "market_note": "EUV-grade photoresist near-monopoly; Japan govt acquired JSR in 2023",
+    "omc": 0.6,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": null,
+    "financial_metric": "revenue_proxy"
   },
   {
     "id": "ASE",
@@ -894,7 +1084,12 @@
     "bc_max": 0.72,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "Largest OSAT globally; ~20% advanced packaging share; headquartered Taiwan"
+    "market_note": "Largest OSAT globally; ~20% advanced packaging share; headquartered Taiwan",
+    "omc": 0.72,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 88.98,
+    "financial_metric": "market_cap"
   },
   {
     "id": "CHALCO",
@@ -917,7 +1112,12 @@
     "bc_max": 0.82,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "Controls ~60% of Chinese alumina refining capacity, the byproduct source of primary gallium. State-owned. The firm-level node behind China's Layer-1 dominance."
+    "market_note": "Controls ~60% of Chinese alumina refining capacity, the byproduct source of primary gallium. State-owned. The firm-level node behind China's Layer-1 dominance.",
+    "omc": 0.82,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": null,
+    "financial_metric": "revenue_proxy"
   },
   {
     "id": "SUMCO",
@@ -940,7 +1140,12 @@
     "bc_max": 0.7,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "~25% global silicon wafer market, forming a duopoly with Shin-Etsu. Every fab depends on one of these two suppliers for substrate wafers."
+    "market_note": "~25% global silicon wafer market, forming a duopoly with Shin-Etsu. Every fab depends on one of these two suppliers for substrate wafers.",
+    "omc": 0.7,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 9.22,
+    "financial_metric": "market_cap"
   },
   {
     "id": "MERCKKG",
@@ -963,7 +1168,12 @@
     "bc_max": 0.55,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "Dominant in specialty chemicals: liquid crystals, photoresists, ALD/CVD precursors. German. Critical for sub-5nm patterning chemistry."
+    "market_note": "Dominant in specialty chemicals: liquid crystals, photoresists, ALD/CVD precursors. German. Critical for sub-5nm patterning chemistry.",
+    "omc": 0.55,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": null,
+    "financial_metric": "revenue_proxy"
   },
   {
     "id": "TEL",
@@ -986,7 +1196,12 @@
     "bc_max": 0.62,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "#3 global semiconductor equipment maker (~15% share). Etch, deposition, and thermal processing systems. Completes the Equipment oligopoly alongside ASML and the US firms."
+    "market_note": "#3 global semiconductor equipment maker (~15% share). Etch, deposition, and thermal processing systems. Completes the Equipment oligopoly alongside ASML and the US firms.",
+    "omc": 0.62,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 212.54,
+    "financial_metric": "market_cap"
   },
   {
     "id": "SMIC",
@@ -1009,7 +1224,12 @@
     "bc_max": 0.18,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "China's leading foundry, currently ~14nm with ambitions toward 7nm. The primary target of US BIS export controls. Structurally significant as the contested \"alternative hub\" that does not yet exist at the leading edge."
+    "market_note": "China's leading foundry, currently ~14nm with ambitions toward 7nm. The primary target of US BIS export controls. Structurally significant as the contested \"alternative hub\" that does not yet exist at the leading edge.",
+    "omc": 0.18,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 78.22,
+    "financial_metric": "market_cap"
   },
   {
     "id": "AMKOR",
@@ -1032,7 +1252,12 @@
     "bc_max": 0.52,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "#2 OSAT globally after ASE Group, ~15% advanced packaging share. HQ Arizona, major operations in Korea, Vietnam, Malaysia."
+    "market_note": "#2 OSAT globally after ASE Group, ~15% advanced packaging share. HQ Arizona, major operations in Korea, Vietnam, Malaysia.",
+    "omc": 0.52,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 22.42,
+    "financial_metric": "market_cap"
   },
   {
     "id": "FORMFACTOR",
@@ -1055,7 +1280,12 @@
     "bc_max": 0.48,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "Dominant in wafer probe cards (~35% global share) \u2014 the test infrastructure that verifies chips work before wafers are cut and packaged. Without probe cards, fabs cannot confirm yield."
+    "market_note": "Dominant in wafer probe cards (~35% global share) \u2014 the test infrastructure that verifies chips work before wafers are cut and packaged. Without probe cards, fabs cannot confirm yield.",
+    "omc": 0.48,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 11.65,
+    "financial_metric": "market_cap"
   },
   {
     "id": "TECHPROBE",
@@ -1078,6 +1308,11 @@
     "bc_max": 0.4,
     "node_role": "firm",
     "node_type": "firm",
-    "market_note": "Italian firm, #2 in wafer probe cards (~25% share). Forms a duopoly with FormFactor over the global wafer test infrastructure that gates packaging."
+    "market_note": "Italian firm, #2 in wafer probe cards (~25% share). Forms a duopoly with FormFactor over the global wafer test infrastructure that gates packaging.",
+    "omc": 0.4,
+    "participation": 0.0,
+    "n_layers_active": 1,
+    "market_cap_usd_b": 27.56,
+    "financial_metric": "market_cap"
   }
 ]

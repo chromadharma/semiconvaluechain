@@ -3470,5 +3470,637 @@
     "final_weight": 0.0139,
     "layer_id": 6,
     "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "ASML",
+    "target": "TSMC",
+    "weight": 0.98,
+    "final_weight": 0.98,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "ASML",
+    "target": "SAMSUNGF",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "ASML",
+    "target": "INTELF",
+    "weight": 0.8,
+    "final_weight": 0.8,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "APPLMAT",
+    "target": "TSMC",
+    "weight": 0.75,
+    "final_weight": 0.75,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "APPLMAT",
+    "target": "SAMSUNGF",
+    "weight": 0.7,
+    "final_weight": 0.7,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "APPLMAT",
+    "target": "INTELF",
+    "weight": 0.65,
+    "final_weight": 0.65,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "LAMRES",
+    "target": "TSMC",
+    "weight": 0.68,
+    "final_weight": 0.68,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "LAMRES",
+    "target": "SAMSUNGF",
+    "weight": 0.62,
+    "final_weight": 0.62,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KLA",
+    "target": "TSMC",
+    "weight": 0.55,
+    "final_weight": 0.55,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "KLA",
+    "target": "SAMSUNGF",
+    "weight": 0.5,
+    "final_weight": 0.5,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NLD",
+    "target": "ASML",
+    "weight": 0.95,
+    "final_weight": 0.95,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "APPLMAT",
+    "weight": 0.9,
+    "final_weight": 0.9,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "LAMRES",
+    "weight": 0.88,
+    "final_weight": 0.88,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "USA",
+    "target": "KLA",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "NVIDIA",
+    "target": "TSMC",
+    "weight": 0.98,
+    "final_weight": 0.98,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "AMD",
+    "target": "TSMC",
+    "weight": 0.95,
+    "final_weight": 0.95,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "QUALCOMM",
+    "target": "TSMC",
+    "weight": 0.92,
+    "final_weight": 0.92,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "QUALCOMM",
+    "target": "SAMSUNGF",
+    "weight": 0.35,
+    "final_weight": 0.35,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "TSMC",
+    "target": "TWN",
+    "weight": 0.99,
+    "final_weight": 0.99,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "TSMC",
+    "target": "USA",
+    "weight": 0.8,
+    "final_weight": 0.8,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "TSMC",
+    "target": "KOR",
+    "weight": 0.3,
+    "final_weight": 0.3,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "TSMC",
+    "target": "CHN",
+    "weight": 0.45,
+    "final_weight": 0.45,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "SAMSUNGF",
+    "target": "KOR",
+    "weight": 0.95,
+    "final_weight": 0.95,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "INTELF",
+    "target": "USA",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "TWN",
+    "target": "TSMC",
+    "weight": 0.99,
+    "final_weight": 0.99,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "KOR",
+    "target": "SAMSUNGF",
+    "weight": 0.95,
+    "final_weight": 0.95,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "ARM",
+    "target": "QUALCOMM",
+    "weight": 0.95,
+    "final_weight": 0.95,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "ARM",
+    "target": "NVIDIA",
+    "weight": 0.6,
+    "final_weight": 0.6,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "ARM",
+    "target": "AMD",
+    "weight": 0.55,
+    "final_weight": 0.55,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "ARM",
+    "target": "CHN",
+    "weight": 0.8,
+    "final_weight": 0.8,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "ARM",
+    "target": "KOR",
+    "weight": 0.7,
+    "final_weight": 0.7,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CADENCE",
+    "target": "TSMC",
+    "weight": 0.9,
+    "final_weight": 0.9,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CADENCE",
+    "target": "NVIDIA",
+    "weight": 0.88,
+    "final_weight": 0.88,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CADENCE",
+    "target": "AMD",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CADENCE",
+    "target": "QUALCOMM",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "CADENCE",
+    "target": "CHN",
+    "weight": 0.7,
+    "final_weight": 0.7,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "GBR",
+    "target": "ARM",
+    "weight": 0.95,
+    "final_weight": 0.95,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "CADENCE",
+    "weight": 0.95,
+    "final_weight": 0.95,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "NVIDIA",
+    "weight": 0.95,
+    "final_weight": 0.95,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "AMD",
+    "weight": 0.9,
+    "final_weight": 0.9,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "USA",
+    "target": "QUALCOMM",
+    "weight": 0.9,
+    "final_weight": 0.9,
+    "layer_id": 4,
+    "layer_name": "Design & IP"
+  },
+  {
+    "source": "SHINETSU",
+    "target": "TSMC",
+    "weight": 0.9,
+    "final_weight": 0.9,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "SHINETSU",
+    "target": "SAMSUNGF",
+    "weight": 0.8,
+    "final_weight": 0.8,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "SHINETSU",
+    "target": "INTELF",
+    "weight": 0.65,
+    "final_weight": 0.65,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JSR",
+    "target": "TSMC",
+    "weight": 0.75,
+    "final_weight": 0.75,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JSR",
+    "target": "SAMSUNGF",
+    "weight": 0.65,
+    "final_weight": 0.65,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JPN",
+    "target": "SHINETSU",
+    "weight": 0.9,
+    "final_weight": 0.9,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JPN",
+    "target": "JSR",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "ASE",
+    "target": "TWN",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "ASE",
+    "target": "USA",
+    "weight": 0.7,
+    "final_weight": 0.7,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "TWN",
+    "target": "ASE",
+    "weight": 0.8,
+    "final_weight": 0.8,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "CHALCO",
+    "target": "CHN",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "CHN",
+    "target": "CHALCO",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "CHALCO",
+    "target": "USA",
+    "weight": 0.4,
+    "final_weight": 0.4,
+    "layer_id": 1,
+    "layer_name": "Raw Extraction"
+  },
+  {
+    "source": "SUMCO",
+    "target": "TSMC",
+    "weight": 0.75,
+    "final_weight": 0.75,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "SUMCO",
+    "target": "SAMSUNGF",
+    "weight": 0.68,
+    "final_weight": 0.68,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "SUMCO",
+    "target": "INTELF",
+    "weight": 0.55,
+    "final_weight": 0.55,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "JPN",
+    "target": "SUMCO",
+    "weight": 0.88,
+    "final_weight": 0.88,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "MERCKKG",
+    "target": "TSMC",
+    "weight": 0.55,
+    "final_weight": 0.55,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "MERCKKG",
+    "target": "SAMSUNGF",
+    "weight": 0.5,
+    "final_weight": 0.5,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "DEU",
+    "target": "MERCKKG",
+    "weight": 0.8,
+    "final_weight": 0.8,
+    "layer_id": 2,
+    "layer_name": "Refined Materials"
+  },
+  {
+    "source": "TEL",
+    "target": "TSMC",
+    "weight": 0.7,
+    "final_weight": 0.7,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "TEL",
+    "target": "SAMSUNGF",
+    "weight": 0.65,
+    "final_weight": 0.65,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "TEL",
+    "target": "INTELF",
+    "weight": 0.55,
+    "final_weight": 0.55,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "JPN",
+    "target": "TEL",
+    "weight": 0.85,
+    "final_weight": 0.85,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "SMIC",
+    "target": "CHN",
+    "weight": 0.9,
+    "final_weight": 0.9,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "CHN",
+    "target": "SMIC",
+    "weight": 0.9,
+    "final_weight": 0.9,
+    "layer_id": 5,
+    "layer_name": "Fabrication"
+  },
+  {
+    "source": "ASML",
+    "target": "SMIC",
+    "weight": 0.25,
+    "final_weight": 0.25,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "APPLMAT",
+    "target": "SMIC",
+    "weight": 0.3,
+    "final_weight": 0.3,
+    "layer_id": 3,
+    "layer_name": "Equipment"
+  },
+  {
+    "source": "AMKOR",
+    "target": "USA",
+    "weight": 0.65,
+    "final_weight": 0.65,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "AMKOR",
+    "target": "KOR",
+    "weight": 0.55,
+    "final_weight": 0.55,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "AMKOR",
+    "weight": 0.6,
+    "final_weight": 0.6,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "FORMFACTOR",
+    "target": "TSMC",
+    "weight": 0.6,
+    "final_weight": 0.6,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "FORMFACTOR",
+    "target": "SAMSUNGF",
+    "weight": 0.5,
+    "final_weight": 0.5,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "FORMFACTOR",
+    "target": "INTELF",
+    "weight": 0.45,
+    "final_weight": 0.45,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "USA",
+    "target": "FORMFACTOR",
+    "weight": 0.7,
+    "final_weight": 0.7,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "TECHPROBE",
+    "target": "TSMC",
+    "weight": 0.45,
+    "final_weight": 0.45,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "TECHPROBE",
+    "target": "SAMSUNGF",
+    "weight": 0.4,
+    "final_weight": 0.4,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
+  },
+  {
+    "source": "ITA",
+    "target": "TECHPROBE",
+    "weight": 0.75,
+    "final_weight": 0.75,
+    "layer_id": 6,
+    "layer_name": "Assembly & Packaging"
   }
 ]

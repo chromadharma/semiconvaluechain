@@ -1,0 +1,6 @@
+.DS_Store
+.Rproj.user/
+.Rhistory
+__pycache__/
+*.pyc
+node_modules/

@@ -3,425 +3,152 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Methodology — Semiconductor Supply Chain Network</title>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inconsolata:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Methodology — Global Semiconductor Supply Chain</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
 <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 <style>
-:root {
-  --bg: #000; --panel: #080808; --border: #1a1a1a;
-  --text: #bbb; --dim: #555; --bright: #fff;
-  --serif: 'EB Garamond', Georgia, serif;
-  --mono: 'Inconsolata', monospace;
-  --l1:#8B00FF; --l2:#0055FF; --l3:#00CC44; --l4:#FFE600; --l5:#FF7700; --l6:#FF1111;
-}
-*, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-html { scroll-behavior:smooth; }
-body { background:var(--bg); color:var(--text); font-family:var(--serif); font-size:16px; line-height:1.75; }
-
-/* Layout */
-.page-wrap { display:flex; min-height:100vh; }
-nav {
-  width:220px; min-width:220px; position:sticky; top:0; height:100vh;
-  background:var(--panel); border-right:1px solid var(--border);
-  padding:32px 20px; overflow-y:auto; flex-shrink:0;
-}
-nav .logo { font-family:var(--mono); font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); margin-bottom:24px; display:flex; align-items:center; gap:6px; }
-nav .logo::before { content:''; width:5px; height:5px; background:#fff; border-radius:50%; }
-nav h2 { font-size:13px; font-weight:500; color:#fff; line-height:1.4; margin-bottom:20px; }
-nav ul { list-style:none; }
-nav ul li { margin-bottom:2px; }
-nav ul li a { font-family:var(--mono); font-size:8.5px; letter-spacing:1px; text-transform:uppercase; color:var(--dim); text-decoration:none; padding:5px 0; display:block; transition:color .15s; border-left:2px solid transparent; padding-left:10px; }
-nav ul li a:hover { color:#fff; border-left-color:#333; }
-nav .back { display:block; font-family:var(--mono); font-size:8px; letter-spacing:1px; text-transform:uppercase; color:#333; text-decoration:none; margin-top:24px; padding:6px 0; border-top:1px solid var(--border); transition:color .15s; }
-nav .back:hover { color:#fff; }
-
-main { flex:1; max-width:760px; padding:60px 64px 100px; }
-
-/* Typography */
-h1 { font-size:32px; font-weight:500; color:#fff; line-height:1.2; margin-bottom:8px; }
-.subtitle { font-size:15px; color:var(--dim); font-style:italic; margin-bottom:40px; }
-h2 { font-size:20px; font-weight:500; color:#fff; margin:56px 0 6px; padding-top:8px; border-top:1px solid var(--border); line-height:1.3; }
-h3 { font-size:15px; font-weight:500; color:#ccc; margin:28px 0 6px; }
-p  { margin-bottom:14px; color:var(--text); }
-strong { color:#ccc; font-weight:500; }
-em { font-style:italic; color:#aaa; }
-code { font-family:var(--mono); font-size:12px; background:#0d0d0d; border:1px solid var(--border); padding:2px 5px; color:#aaa; border-radius:2px; }
-pre { font-family:var(--mono); font-size:12px; background:#0a0a0a; border:1px solid var(--border); padding:16px 20px; margin:16px 0 20px; overflow-x:auto; color:#aaa; line-height:1.7; border-left:3px solid #1e1e1e; }
-pre code { background:none; border:none; padding:0; }
-
-/* Equation display */
-.eq { background:#070707; border:1px solid var(--border); padding:20px; margin:20px 0; text-align:center; border-left:3px solid #2a2a2a; }
-.eq-label { font-family:var(--mono); font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); margin-bottom:12px; }
-.katex { color:#fff !important; }
-.katex-display { margin:0 !important; }
-
-/* Variable table */
-table { width:100%; border-collapse:collapse; margin:16px 0 24px; font-size:13.5px; }
-th { font-family:var(--mono); font-size:8px; letter-spacing:1.5px; text-transform:uppercase; color:var(--dim); text-align:left; padding:6px 0; border-bottom:1px solid var(--border); font-weight:400; }
-td { padding:7px 0; border-bottom:1px solid #111; vertical-align:top; }
-td:first-child { font-family:var(--mono); font-size:12px; color:#aaa; width:120px; padding-right:16px; white-space:nowrap; }
-td:last-child { color:var(--text); line-height:1.5; }
-
-/* Data source cards */
-.ds-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:16px 0 24px; }
-.ds-card { background:#060606; border:1px solid var(--border); padding:14px 16px; }
-.ds-layer { display:inline-block; width:8px; height:8px; border-radius:1px; margin-right:6px; vertical-align:middle; flex-shrink:0; }
-.ds-name { font-size:13px; font-weight:500; color:#ccc; margin-bottom:4px; line-height:1.3; }
-.ds-desc { font-size:11.5px; color:var(--dim); line-height:1.5; margin-bottom:6px; }
-.ds-url  { font-family:var(--mono); font-size:9px; color:#444; word-break:break-all; }
-.ds-hs   { font-family:var(--mono); font-size:9px; color:#666; margin-top:4px; }
-
-/* Pipeline step */
-.step { display:flex; gap:16px; margin:16px 0; }
-.step-num { font-family:var(--mono); font-size:11px; color:#333; width:28px; flex-shrink:0; padding-top:3px; }
-.step-body h4 { font-size:13.5px; font-weight:500; color:#ccc; margin-bottom:4px; }
-.step-body p  { font-size:13px; color:var(--dim); margin-bottom:0; line-height:1.6; }
-
-/* Callout */
-.callout { background:#070707; border-left:3px solid #2a2a2a; padding:14px 18px; margin:20px 0; }
-.callout.finding { border-left-color:#39ff14; }
-.callout.warning { border-left-color:#ff3131; }
-.callout.note    { border-left-color:#0055ff; }
-.callout-label { font-family:var(--mono); font-size:8px; letter-spacing:2px; text-transform:uppercase; color:var(--dim); margin-bottom:6px; }
-.callout p { margin-bottom:0; font-size:13.5px; }
-
-/* HHI table */
-.hhi-row { display:flex; align-items:center; gap:10px; padding:5px 0; border-bottom:1px solid #0d0d0d; }
-.hhi-label { font-family:var(--mono); font-size:9px; color:var(--dim); width:140px; flex-shrink:0; }
-.hhi-bar-wrap { flex:1; height:2px; background:#111; }
-.hhi-bar { height:100%; }
-.hhi-val { font-family:var(--mono); font-size:9px; color:#666; width:48px; text-align:right; }
-
-/* Glossary */
-.gloss { margin-bottom:12px; }
-.gloss dt { font-family:var(--mono); font-size:11px; color:#ccc; margin-bottom:2px; }
-.gloss dd { font-size:13.5px; color:var(--dim); line-height:1.5; padding-left:16px; }
+  body{ overflow-x:hidden; }
+  .doc{ max-width:660px; margin:0 auto; padding:76px 24px 100px; }
+  .doc .back{ font-family:var(--font-sans); font-size:12px; color:var(--muted); text-decoration:none; display:inline-flex; align-items:center; gap:6px; margin-bottom:36px; }
+  .doc .back:hover{ color:var(--oxblood); }
+  .doc h1{ font-size:clamp(2.1rem,5vw,2.9rem); line-height:1.05; margin-bottom:14px; }
+  .doc .dek{ font-family:var(--font-sans); color:var(--muted); font-size:1.1rem; margin-bottom:44px; max-width:56ch; }
+  .doc h2{ font-size:1.5rem; margin:56px 0 16px; padding-top:20px; border-top:1px solid var(--rule); }
+  .doc h2:first-of-type{ margin-top:0; padding-top:0; border-top:none; }
+  .doc h3{ font-family:var(--font-sans); font-weight:600; font-size:1rem; color:var(--ink); margin:26px 0 10px; }
+  .doc p{ margin-bottom:14px; }
+  .doc ul, .doc ol{ margin:0 0 16px 22px; }
+  .doc li{ margin-bottom:6px; }
+  .eq-box{ background:var(--surface); border:1px solid var(--rule); padding:20px; margin:18px 0; text-align:center; }
+  .eq-box .katex{ font-size:1.05em; }
+  table.src-table{ width:100%; border-collapse:collapse; font-size:.92rem; margin:14px 0 24px; }
+  table.src-table th{ text-align:left; font-family:var(--font-sans); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); border-bottom:1px solid var(--rule-strong); padding:6px 10px 8px 0; }
+  table.src-table td{ border-bottom:1px solid var(--rule); padding:9px 10px 9px 0; vertical-align:top; }
+  table.src-table td.num{ font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .citelist{ font-family:var(--font-sans); font-size:.88rem; color:var(--muted); line-height:1.9; }
+  .citelist p{ margin-bottom:10px; }
+  .disclaimer-box{ background:var(--inset); border-left:3px solid var(--oxblood); padding:16px 18px; font-size:.95rem; color:var(--body); margin:20px 0; }
+  .glossary dt{ font-family:var(--font-sans); font-weight:600; color:var(--ink); margin-top:14px; }
+  .glossary dd{ margin-left:0; color:var(--muted); font-size:.95rem; }
 </style>
 </head>
 <body>
-<div class="page-wrap">
+<div class="doc">
+  <a class="back" href="index.html">← Back to visualisation</a>
+  <div class="kicker" style="margin-bottom:14px;">Working Paper · Methodology</div>
+  <h1>How This Network Was Built</h1>
+  <p class="dek">Data sources, construction pipeline, and the four analytical methods behind the figures — betweenness centrality, HHI concentration, percolation, and multiplex participation.</p>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Working Paper · 2026</div>
-  <h2>Methodology &amp; Data Documentation</h2>
+  <h2>1 · Data Sources</h2>
+  <p>The base network models global semiconductor trade as a six-layer directed graph of 24 countries and 23 firms (47 nodes, 513 edges). Country-level flows are biproportional inferences from aggregate trade statistics; firm-level flows and financial figures are drawn from public disclosures. This is a working paper — edge weights are estimates, not audited figures.</p>
+  <table class="src-table">
+    <tr><th>Source</th><th>Used for</th></tr>
+    <tr><td>USGS, Mineral Commodity Summaries 2026</td><td>Raw Extraction layer (gallium and related inputs)</td></tr>
+    <tr><td>OECD TiVA 2025 edition</td><td>Country domestic-value-added (DVA) figures</td></tr>
+    <tr><td>UN Comtrade Plus, HS 8486 / 8541 / 8542 / 852351–9</td><td>Equipment, Assembly, Fabrication, Design & IP layer flows</td></tr>
+    <tr><td>SEMI / SIA / BCG structural estimates</td><td>Refined Materials layer</td></tr>
+    <tr><td>Company investor relations &amp; SEC/6-K filings</td><td>Firm-level revenue, market capitalisation (accessed July 2026)</td></tr>
+    <tr><td>companiesmarketcap.com</td><td>Cross-check on firm market capitalisation, July 2026</td></tr>
+  </table>
+
+  <h2>2 · Construction Pipeline</h2>
+  <ol>
+    <li>Raw trade and financial data cleaned and merged in R (<code>tidyverse</code>, <code>readxl</code>, <code>igraph</code>).</li>
+    <li>Country-level bilateral flows disaggregated to the six supply-chain layers using HS-code mappings.</li>
+    <li>Firm nodes added where a single corporation plausibly accounts for a large share of a layer's global capacity (e.g. ASML in EUV lithography), with edges to/from their home country and known customer/supplier countries.</li>
+    <li>Betweenness centrality computed per layer and on the aggregate graph (Brandes' algorithm).</li>
+    <li>Downstream metrics — HHI, percolation, multiplex participation — computed directly from the resulting node/edge set (see §4–6).</li>
+  </ol>
+
+  <h2>3 · Betweenness Centrality — the "Toll-Booth" Parameter</h2>
+  <p>For every node <em>i</em>, betweenness centrality counts the share of shortest paths between all other node pairs that pass through it:</p>
+  <div class="eq-box"><div id="eq-bc"></div></div>
+  <p>where <span id="eq-inline-1"></span> is the total number of shortest paths from <em>s</em> to <em>t</em>, and <span id="eq-inline-2"></span> is the number of those that pass through <em>i</em>. A node with betweenness near 1.0 sits on nearly every shortest path between the two sides of the network it bridges — removing it does not reroute traffic, it severs it.</p>
+
+  <h2>4 · HHI — Concentration by Layer</h2>
+  <p>The Herfindahl-Hirschman Index is the sum of squared market shares within a market:</p>
+  <div class="eq-box"><div id="eq-hhi"></div></div>
+  <p>Here, <em>s</em><sub>i</sub> is a node's share of total source-side (export) edge weight within a single layer. HHI ranges from near-0 (many equal-sized competitors) to 1.0 (single supplier). Conventionally, HHI &gt; 0.25 marks high concentration.</p>
+  <p>Computed directly from the edge set: <strong>Raw Extraction is the standout at HHI = 0.553</strong> (China, 72% of source-side flow — chiefly primary gallium). Every other layer sits below the 0.25 threshold on this pure export-share measure — Refined Materials 0.189, Design &amp; IP 0.157, Fabrication 0.125, Assembly &amp; Packaging 0.144, Equipment lowest at 0.114.</p>
+  <div class="disclaimer-box">This is a country/firm export-share HHI, not a firm-ownership HHI. Equipment and Design &amp; IP look dispersed here because the measure is computed at the node level and several distinct US-headquartered firms (Applied Materials, Lam Research, KLA, Cadence, Synopsys) are counted separately even though they share a national jurisdiction and, in practice, considerable strategic alignment. A firm-only HHI restricted to those layers would read meaningfully higher.</div>
+
+  <h2>5 · Percolation — Targeted Attack vs. Random Failure</h2>
+  <p>To test structural fragility directly, we simulate two failure modes on the aggregate (all-layers, undirected, simple-graph) network and track the size of the giant connected component as nodes are removed:</p>
   <ul>
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#data">Data Sources</a></li>
-    <li><a href="#pipeline">R Pipeline</a></li>
-    <li><a href="#math-bc">Betweenness Centrality</a></li>
-    <li><a href="#math-nfg">Network Formation Game</a></li>
-    <li><a href="#math-star">Star Equilibrium</a></li>
-    <li><a href="#edge-construction">Edge Construction</a></li>
-    <li><a href="#degree-filter">Degree Filter</a></li>
-    <li><a href="#hhi">Concentration (HHI)</a></li>
-    <li><a href="#limitations">Limitations</a></li>
-    <li><a href="#replication">Replication</a></li>
-    <li><a href="#glossary">Glossary</a></li>
+    <li><strong>Targeted attack, recalculated:</strong> at each step, remove the node with the currently-highest betweenness centrality, then recompute betweenness on the reduced graph before the next removal. This is the harder, more realistic attack scenario — it accounts for centrality shifting onto new nodes as the network degrades.</li>
+    <li><strong>Random failure:</strong> nodes removed in random order, averaged over 200 trials.</li>
   </ul>
-  <a class="back" href="index.html">← Back to Map</a>
-</nav>
+  <p>Result: the giant component drops below 50% of its original size after removing only <strong>17.0%</strong> of nodes under targeted attack, versus <strong>46.8%</strong> under random failure — a robust-yet-fragile signature consistent with scale-free network topology, and the same qualitative pattern found in this author's prior AviationNet analysis of the global commercial flight network.</p>
 
-<!-- MAIN -->
-<main>
-<h1>Methodology &amp; Data Documentation</h1>
-<p class="subtitle">Semiconductor Supply Chain Network · Sahasrik Rudraveera Ragani · Ahmedabad University · 2026</p>
+  <h2>6 · Multiplex Participation Coefficient</h2>
+  <p>Following Battiston, Nicosia &amp; Latora (2014), we separate a node's <em>total</em> structural importance from how that importance is <em>distributed</em> across the six layers:</p>
+  <div class="eq-box"><div id="eq-omc"></div></div>
+  <div class="eq-box"><div id="eq-participation"></div></div>
+  <p>where <em>L</em> = 6 layers and <span id="eq-inline-3"></span> is node <em>i</em>'s betweenness in layer α. Overall Multiplex Centrality (OMC) sums a node's betweenness across all layers; the Participation Coefficient measures how evenly that centrality is spread — 0 for a node powerful in exactly one layer, approaching 1 for a node with equal centrality spread across all six.</p>
+  <p>Almost every marquee firm in this dataset — ASML, TSMC, Arm, Cadence/Synopsys — scores a participation coefficient of exactly 0: enormous depth, confined to a single layer. China is the sole outlier with genuine cross-layer breadth (participation ≈ 0.77, active in four of six layers), making it the only actor in the network with both scale and structural reach at once.</p>
 
-<!-- OVERVIEW -->
-<h2 id="overview">Overview</h2>
-<p>This project maps the global semiconductor supply chain as a <strong>six-layer directed network</strong> and applies graph-theoretic metrics to identify structural chokepoints — nodes through which a disproportionate share of global supply-chain traffic must pass.</p>
-<p>The core claim is that conventional trade statistics systematically misattribute geopolitical leverage in this industry because they measure bilateral flows between sovereign states, while the actual structural power is concentrated in a small number of private firms whose positions in the network make them <em>obligatory passage points</em> for the entire global technology stack.</p>
-<p>Everything in this project is reproducible from public data. The full pipeline is open-source on GitHub and can be re-run from scratch in approximately 30 minutes.</p>
+  <h2>7 · Companion Figure — Supplier-Spend Sankey</h2>
+  <p>The Sankey diagram on the main page is a separate data lineage from the trade-statistics network above. Its framing and sourcing approach is credited to <strong>Micro</strong> on YouTube, who compiled a supplier-spend-weighted diagram from investor-relations disclosures and SEC/6-K filings, inferring undisclosed relationships by working backwards from listed suppliers among the public companies. This site's version follows the same method independently against a subset of those primary sources, with each flow tagged as either directly disclosed in a filing or an order-of-magnitude inference from documented (but not dollar-quantified) relationships. Full source list is printed beneath the figure itself.</p>
 
-<div class="callout note">
-  <div class="callout-label">Reproducibility</div>
-  <p>The R script (<code>01_network_pipeline.R</code>), raw data files, and processed JSON outputs are all publicly available. See <a href="#replication" style="color:#0055ff">Replication Instructions</a> below.</p>
-</div>
+  <h2>8 · Theoretical Framework</h2>
+  <p><strong>Infrastructural power (Braun).</strong> Power that derives from control over critical infrastructure rather than ownership of assets or formal diplomatic authority. TSMC's and ASML's leverage is infrastructural — it operates through network position, not treaty.</p>
+  <p><strong>Actor-network theory (Latour).</strong> Refuses the human/non-human distinction. ASML's EUV machines and Japan's photoresist chemistry are enrolled as actants, not neutral substrates — chokepoints are effects of stabilised actor-networks, not pre-given structural features.</p>
+  <p><strong>Network formation games (Jackson &amp; Wolinsky).</strong> Predicts that when direct link costs exceed the marginal benefit of bypassing a hub, the equilibrium topology is a star. This is the formal reason decoupling from TSMC is not individually rational under current cost structures.</p>
 
-<!-- DATA SOURCES -->
-<h2 id="data">Data Sources</h2>
-<p>Each supply chain layer is built from a distinct data source matched to the economic activity it represents.</p>
+  <h2>9 · Limitations</h2>
+  <ul>
+    <li>Edge weights are biproportional inferences from country-level aggregates, not audited firm-to-firm transaction data.</li>
+    <li>The Sankey figure mixes disclosed figures with order-of-magnitude estimates, explicitly flagged per flow.</li>
+    <li>HHI is computed on source-side export share, not firm ownership or revenue concentration — see the disclaimer in §4.</li>
+    <li>Percolation analysis uses a simple, undirected collapse of the six-layer graph; layer-specific robustness may differ from the aggregate picture shown.</li>
+    <li>This is a working paper. Figures will be revised as the underlying pipeline is updated.</li>
+  </ul>
 
-<div class="ds-grid">
-  <div class="ds-card">
-    <div class="ds-name"><span class="ds-layer" style="background:var(--l1)"></span>Layer 1 — Raw Extraction</div>
-    <div class="ds-desc">USGS Mineral Commodity Summaries 2026 (Gallium). Provides country-level mine production in kilograms. China accounts for 99% of primary gallium output.</div>
-    <div class="ds-url">pubs.usgs.gov/periodicals/mcs2026</div>
-    <div class="ds-hs">Supplemented: usgs_gallium_ts.xlsx (time series 1995–2024)</div>
+  <h2>10 · Citations</h2>
+  <div class="citelist">
+    <p>USGS (2026). Mineral Commodity Summaries 2026: Gallium. U.S. Geological Survey.</p>
+    <p>OECD (2025). Trade in Value Added (TiVA) 2025 Edition.</p>
+    <p>UN Comtrade (2022–2025). International Trade Statistics Database. HS codes: 8486, 8541, 8542, 852351, 852352, 852359.</p>
+    <p>Brandes, U. (2001). A Faster Algorithm for Betweenness Centrality. <em>Journal of Mathematical Sociology</em>, 25(2), 163–177.</p>
+    <p>Battiston, F., Nicosia, V. &amp; Latora, V. (2014). Structural measures for multiplex networks. <em>Physical Review E</em>, 89(3), 032804.</p>
+    <p>Jackson, M.O. &amp; Wolinsky, A. (1996). A Strategic Model of Social and Economic Networks. <em>Journal of Economic Theory</em>, 71(1), 44–74.</p>
+    <p>Braun, B. (2023). Infrastructural Power. <em>Annual Review of Political Science</em>.</p>
+    <p>Micro (YouTube). Semiconductor supply chain explainer and supplier-spend Sankey — sourcing approach credited per §7.</p>
   </div>
-  <div class="ds-card">
-    <div class="ds-name"><span class="ds-layer" style="background:var(--l2)"></span>Layer 2 — Refined Materials</div>
-    <div class="ds-desc">Structural estimates derived from SEMI Materials Market Data 2023, SIA State of the Industry 2023, and BCG/SEMI supply chain analysis 2021. No single HS code captures this layer cleanly.</div>
-    <div class="ds-url">semi.org · semiconductors.org · bcg.com</div>
+
+  <h2>Glossary</h2>
+  <dl class="glossary">
+    <dt>DVA</dt><dd>Domestic Value Added — the portion of a country's gross exports actually produced domestically, net of imported inputs (OECD TiVA methodology).</dd>
+    <dt>HHI</dt><dd>Herfindahl-Hirschman Index — sum of squared market shares, a standard concentration measure.</dd>
+    <dt>Giant component</dt><dd>The largest connected subgraph remaining after node removal.</dd>
+    <dt>OSAT</dt><dd>Outsourced Semiconductor Assembly and Test — third-party packaging/testing providers, concentrated in China and Southeast Asia.</dd>
+  </dl>
+</div>
+
+<footer id="site-footer">
+  <div class="foot-inner">
+    <h3>Global Semiconductor Supply Chain</h3>
+    <div class="foot-links">
+      <a href="index.html">↗ Back to Visualisation</a>
+      <a href="https://github.com/rudraveera/semiconductor-supply-chain">↗ GitHub Repository</a>
+      <a href="findings.md">↗ Findings Paper</a>
+    </div>
+    <div class="colophon">Rudraveera Sankuratri · Ahmedabad University · Supervised by Dr. Neelanjan Sircar · Working Paper, 2026.</div>
   </div>
-  <div class="ds-card">
-    <div class="ds-name"><span class="ds-layer" style="background:var(--l3)"></span>Layer 3 — Equipment</div>
-    <div class="ds-desc">UN Comtrade HS 8486 — "Machines for the manufacture of semiconductor devices." Reporter-to-World aggregates, 2022.</div>
-    <div class="ds-url">comtradeplus.un.org</div>
-    <div class="ds-hs">HS 8486 · Year 2022 · Flow X+M</div>
-  </div>
-  <div class="ds-card">
-    <div class="ds-name"><span class="ds-layer" style="background:var(--l4)"></span>Layer 4 — Design &amp; IP</div>
-    <div class="ds-desc">UN Comtrade HS 852351, 852352, 852359 — electronic integrated circuit media. Proxy for EDA software and IP licensing flows.</div>
-    <div class="ds-url">comtradeplus.un.org</div>
-    <div class="ds-hs">HS 852351/52/59 · Year 2022</div>
-  </div>
-  <div class="ds-card">
-    <div class="ds-name"><span class="ds-layer" style="background:var(--l5)"></span>Layer 5 — Fabrication</div>
-    <div class="ds-desc">UN Comtrade HS 8542 — "Electronic integrated circuits." Captures wafer fabrication output flows between trading partners.</div>
-    <div class="ds-url">comtradeplus.un.org</div>
-    <div class="ds-hs">HS 8542 · Year 2022 · Flow X+M</div>
-  </div>
-  <div class="ds-card">
-    <div class="ds-name"><span class="ds-layer" style="background:var(--l6)"></span>Layer 6 — Assembly</div>
-    <div class="ds-desc">UN Comtrade HS 8541 — "Diodes, transistors, and similar semiconductor devices." Best Comtrade proxy for OSAT (outsourced assembly and test) flows.</div>
-    <div class="ds-url">comtradeplus.un.org</div>
-    <div class="ds-hs">HS 8541 · Year 2022</div>
-  </div>
-</div>
-
-<h3>Value-Added Weighting</h3>
-<p>Trade volume is a poor measure of structural importance because it double-counts: a component that crosses a border three times appears three times in gross trade statistics. We use <strong>OECD Trade in Value Added (TiVA) 2025 edition</strong> to weight edges by domestic value added in gross exports (indicator: <code>EXGR_DVA</code>), sector C26 (manufacture of computer, electronic and optical products), year 2020.</p>
-<p>This means an edge's final weight blends two signals: (1) its biproportional trade share, and (2) the value genuinely created by the exporting country in that sector. A country that assembles chips imported from elsewhere gets lower weight than one that designs or fabricates them.</p>
-
-<h3>Firm-Level Data</h3>
-<p>Because Comtrade only captures sovereign trade, key firms (TSMC, ASML, Nvidia, etc.) are added as explicit nodes with betweenness proxies derived from published market-share data:</p>
-<table>
-  <tr><th>Firm</th><th>Source for BC proxy</th></tr>
-  <tr><td>TSMC</td><td>IC Insights 2023 foundry market share reports (~60% global foundry revenue, ~90% leading-edge)</td></tr>
-  <tr><td>ASML</td><td>ASML Annual Report 2023 (100% EUV market share)</td></tr>
-  <tr><td>Arm Holdings</td><td>Arm IPO prospectus 2023 (~99% mobile CPU architecture licensing)</td></tr>
-  <tr><td>Cadence/Synopsys</td><td>Gartner EDA market share 2022 (~70% combined)</td></tr>
-  <tr><td>Nvidia</td><td>IDC AI accelerator market tracker Q4 2023 (~80% share)</td></tr>
-  <tr><td>Applied Materials, Lam, KLA</td><td>SEMI equipment market data 2022</td></tr>
-  <tr><td>Shin-Etsu, JSR</td><td>SEMI Materials Market Data 2023</td></tr>
-  <tr><td>ASE Group</td><td>Company annual report 2023 (~20% OSAT revenue share)</td></tr>
-</table>
-
-<!-- R PIPELINE -->
-<h2 id="pipeline">The R Pipeline</h2>
-<p>The data pipeline is written entirely in R and is fully reproducible. Every decision point is commented in the script. Below is a plain-English walkthrough of each step.</p>
-
-<div class="step"><div class="step-num">01</div><div class="step-body"><h4>Geocoding Lookup</h4><p>Natural Earth Admin-0 GeoJSON provides ISO3 country codes and pre-computed label placement coordinates (LABEL_X, LABEL_Y) for every sovereign territory. These become the node longitude/latitude on the map.</p></div></div>
-<div class="step"><div class="step-num">02</div><div class="step-body"><h4>TiVA Value-Added Scores</h4><p>OECD TiVA C26 DVA data is loaded and filtered to year 2020 (most complete year in the download). Aggregate codes (OECD, EU27, NAFTA, etc.) are excluded. Values are in USD millions and normalised 0–1 against the maximum (China, $412B).</p></div></div>
-<div class="step"><div class="step-num">03</div><div class="step-body"><h4>Comtrade Edge Construction</h4><p>Each Comtrade file contains reporter-to-World aggregates — every country's total exports and imports to/from the world, but not bilateral pairs. We reconstruct bilateral flows using biproportional inference (see <a href="#edge-construction">Edge Construction</a> below).</p></div></div>
-<div class="step"><div class="step-num">04</div><div class="step-body"><h4>Passive Consumer Filter</h4><p>Nodes with in-degree ≥ 2 and out-degree = 0 across all layers are classified as passive consumers — they import chips but play no structural role in the supply chain. These are pruned to reduce noise. See <a href="#degree-filter">Degree Filter</a>.</p></div></div>
-<div class="step"><div class="step-num">05</div><div class="step-body"><h4>Betweenness Centrality</h4><p>Computed per layer using igraph's <code>betweenness()</code> with <code>weights = 1/edge_weight</code> (stronger dependency = shorter path = higher centrality). Normalised 0–1.</p></div></div>
-<div class="step"><div class="step-num">06</div><div class="step-body"><h4>JSON Export</h4><p>The pipeline writes three files: <code>nodes.json</code> (39 nodes with all metrics), <code>edges.json</code> (485 edges with layer tags and weights), and <code>meta.json</code> (layer definitions and disclaimer). These are the only files the frontend consumes.</p></div></div>
-
-<pre><code># Minimal reproducible example — run this in R after setting paths
-library(tidyverse); library(jsonlite); library(igraph)
-source("scripts/01_network_pipeline.R")
-# Outputs: data/Processed/nodes.json, edges.json, meta.json</code></pre>
-
-<!-- BETWEENNESS CENTRALITY -->
-<h2 id="math-bc">Mathematical Framework I: Betweenness Centrality</h2>
-
-<h3>What it measures — plain English</h3>
-<p>Imagine every possible pair of countries in the network wants to send something to each other — raw materials, equipment, chip designs, finished circuits. Each pair finds the most efficient route through the network (the "shortest path"). Betweenness centrality simply counts: <em>for how many of these routes is node i a necessary stop?</em></p>
-<p>A node with high betweenness is like a major highway interchange. Close it and traffic across the entire system backs up. That is why we call it the <strong>Toll-Booth Parameter</strong>: the higher the betweenness, the more rent a node can extract from the system, and the more catastrophic its disruption would be.</p>
-
-<h3>Formal definition</h3>
-<div class="eq">
-  <div class="eq-label">Equation 1 — Betweenness Centrality</div>
-  <div id="eq-bc"></div>
-</div>
-
-<table>
-  <tr><th>Symbol</th><th>Meaning in this study</th></tr>
-  <tr><td>\(C_B(i)\)</td><td>Betweenness centrality of node \(i\) (e.g. TSMC, Netherlands, China). Ranges 0–1 after normalisation.</td></tr>
-  <tr><td>\(\sigma_{st}\)</td><td>Total number of shortest weighted paths from source node \(s\) (e.g. a Japan wafer supplier) to target node \(t\) (e.g. a Vietnam assembly plant).</td></tr>
-  <tr><td>\(\sigma_{st}(i)\)</td><td>The number of those paths that route through node \(i\). If every path from \(s\) to \(t\) must pass through \(i\), then \(\sigma_{st}(i)/\sigma_{st} = 1\).</td></tr>
-</table>
-
-<h3>How we compute it</h3>
-<p>We use igraph's implementation of Brandes' algorithm (2001), which runs in O(VE) time. Edge weights are inverted before computation: a strong dependency (weight = 0.98) becomes a short path (distance = 1/0.98 ≈ 1.02), so the algorithm correctly identifies strong-dependency paths as the shortest routes through the network.</p>
-<pre><code>g &lt;- graph_from_data_frame(edges %>% select(from, to, weight=weight_norm))
-bc &lt;- betweenness(g,
-                  directed   = TRUE,
-                  weights    = 1 / E(g)$weight,   # invert: strength → shortness
-                  normalized = TRUE)               # divide by (n-1)(n-2) for comparability</code></pre>
-
-<div class="callout finding">
-  <div class="callout-label">Key Finding</div>
-  <p>In four of six supply chain layers, the highest-betweenness actor is a corporation, not a nation-state. ASML (BC = 0.98 in Equipment) and TSMC (BC = 0.95 in Fabrication) are the two dominant chokepoints in the entire network.</p>
-</div>
-
-<!-- NETWORK FORMATION GAME -->
-<h2 id="math-nfg">Mathematical Framework II: Network Formation Games</h2>
-
-<h3>Why the network looks the way it does — plain English</h3>
-<p>Why does every major chip designer — Nvidia, AMD, Qualcomm — send their fabrication work to one company in Taiwan, rather than building their own fabs? The answer is not cultural or historical: it is mathematical.</p>
-<p>Every actor in the semiconductor network is trying to maximise a utility function: get the maximum benefit from being connected to other nodes, while spending as little as possible on the direct links. Building a leading-edge semiconductor fab costs approximately $20 billion and takes 5–7 years. Signing a manufacturing contract with TSMC costs a fraction of that. The math decisively favours the contract.</p>
-
-<h3>Formal definition</h3>
-<div class="eq">
-  <div class="eq-label">Equation 2 — Network Formation Utility (Jackson &amp; Wolinsky 1996)</div>
-  <div id="eq-nfg"></div>
-</div>
-
-<table>
-  <tr><th>Symbol</th><th>Meaning in this study</th></tr>
-  <tr><td>\(U_i(g)\)</td><td>Total utility (profit + supply security) for actor \(i\) in network \(g\). Every state and every firm is trying to maximise this simultaneously.</td></tr>
-  <tr><td>\(f(d_{ij})\)</td><td>Benefit of accessing node \(j\). This benefit decays as \(d_{ij}\) increases — having a direct fab contract (distance 1) is more valuable than routing through two intermediaries (distance 2 or 3).</td></tr>
-  <tr><td>\(c_{ij}\)</td><td>Cost of maintaining a direct link to \(j\). For fabrication, this is ~$20 billion to build a fab, or a fraction of that for a supply contract. The gap between these two costs is why the star equilibrium forms.</td></tr>
-</table>
-
-<!-- STAR EQUILIBRIUM -->
-<h2 id="math-star">Mathematical Framework III: Pairwise Stability &amp; The Star Equilibrium</h2>
-
-<h3>Why decoupling is mathematically hard — plain English</h3>
-<p>A network is <strong>pairwise stable</strong> when: (1) no existing link is costly enough that one party wants to cut it, and (2) no two unconnected parties both want to add a new link. This is the equilibrium concept for strategic network formation.</p>
-<p>When the cost of building a direct link \(c_{ij}\) is sufficiently high — specifically, when \(c_{ij} > f(1) - f(2)\), the benefit of a direct link over an indirect one — the equilibrium network topology is a <strong>star</strong>: one hub connected to all other nodes, with no direct spoke-to-spoke links.</p>
-<p>This is empirically what we observe. TSMC is the hub. The US, China, Japan, South Korea, and Europe are the spokes. No spoke independently builds a direct link to another spoke (i.e. no country builds its own leading-edge fab to supply other countries) because the math says it is cheaper to route through the hub.</p>
-<p>The only way to escape a star equilibrium is for a state actor to artificially subsidise \(c_{ij}\) — to reduce the cost of a direct link until the math changes. This is, precisely, what the US CHIPS Act ($52B), the EU Chips Act (€43B), and Japan's semiconductor investment programme ($6.8B) are doing. They are mathematical interventions, not just industrial policy.</p>
-
-<div class="callout warning">
-  <div class="callout-label">Policy Implication</div>
-  <p>Total decoupling from the TSMC star is not individually rational for any actor under current cost structures. The star equilibrium breaks only when domestic fab costs fall below the threshold \(c_{ij} &lt; f(1) - f(2)\). State subsidies are the mechanism — not trade policy, not diplomatic pressure.</p>
-</div>
-
-<!-- EDGE CONSTRUCTION -->
-<h2 id="edge-construction">Edge Construction: Biproportional Inference</h2>
-<p>Comtrade provides <em>reporter-to-World</em> aggregates: each country reports its total exports and total imports to/from the world, but does not always provide bilateral (country-to-country) breakdowns in the format we need.</p>
-<p>To reconstruct bilateral edges from these marginal totals, we use <strong>biproportional inference</strong> (also called the RAS method or gravity model), which is standard practice in international economics for this exact problem:</p>
-
-<div class="eq">
-  <div class="eq-label">Equation 3 — Biproportional Edge Weight</div>
-  <div id="eq-bip"></div>
-</div>
-
-<p>Where \(s_i^X\) is country \(i\)'s share of world exports in that HS code, and \(s_j^M\) is country \(j\)'s share of world imports. The product \(s_i^X \cdot s_j^M\) is then normalised so the maximum edge weight = 1.</p>
-<p>This means: a country that exports 40% of world semiconductor equipment (Netherlands/ASML) connecting to a country that imports 30% of world semiconductor equipment (Taiwan) gets a weight of 0.12 before normalisation — and after normalisation, relative to the strongest edge in the layer.</p>
-
-<pre><code>exporters &lt;- df %>% filter(flow=="X") %>%
-  group_by(iso3) %>% summarise(val=sum(value)) %>%
-  mutate(share = val/sum(val))
-
-importers &lt;- df %>% filter(flow=="M") %>%
-  group_by(iso3) %>% summarise(val=sum(value)) %>%
-  mutate(share = val/sum(val))
-
-edges &lt;- cross_join(
-  exporters %>% select(from=iso3, e=share),
-  importers %>% select(to=iso3,   i=share)
-) %>%
-  filter(from != to) %>%
-  mutate(weight_norm = (e * i) / max(e * i))</code></pre>
-
-<div class="callout warning">
-  <div class="callout-label">Limitation</div>
-  <p>Biproportional weights assume that each exporter supplies all importers in proportion to their import shares. This is an approximation. It will overweight edges between large exporters and large importers even when no direct relationship exists. Bilateral Comtrade data, where available, would be more precise.</p>
-</div>
-
-<!-- DEGREE FILTER -->
-<h2 id="degree-filter">Degree Centrality Filter: Passive Consumer Pruning</h2>
-<p>Not every country in the world is a structural participant in the semiconductor supply chain. Many countries import chips inside consumer electronics (laptops, phones) without playing any role in production, design, or distribution. Including these nodes adds noise without adding analytical signal.</p>
-<p>We apply a simple rule: any node with <strong>in-degree ≥ 2 and out-degree = 0</strong> across all layers combined is classified as a <em>passive consumer</em> and removed from the network.</p>
-
-<pre><code>passive &lt;- degree_tbl %>%
-  filter(in_deg >= 2, out_deg == 0) %>%
-  pull(iso3)
-# Removed: TWN, POL, AUS, ESP, BRA, HUN</code></pre>
-
-<div class="callout note">
-  <div class="callout-label">The Taiwan Case</div>
-  <p>Taiwan (TWN) is removed as a passive consumer at the country level. This is not an error — it reflects the structure of Comtrade data. TSMC's output registers as corporate revenue, not sovereign HS 8542 exports. Taiwan's structural importance is correctly captured by the TSMC firm node (BC = 0.95 in Fabrication). We document this explicitly as the "Taiwan Paradox" in our findings.</p>
-</div>
-
-<!-- HHI -->
-<h2 id="hhi">Concentration Measurement: Herfindahl-Hirschman Index</h2>
-<p>To quantify how concentrated structural power is within each layer, we compute the Herfindahl-Hirschman Index (HHI) on betweenness centrality shares:</p>
-
-<div class="eq">
-  <div class="eq-label">Equation 4 — HHI on Betweenness Shares</div>
-  <div id="eq-hhi"></div>
-</div>
-
-<p>Where \(s_i\) is node \(i\)'s share of total betweenness in the layer. HHI = 1 indicates complete monopoly; HHI approaching 0 indicates perfect dispersion.</p>
-
-<div style="margin:20px 0 28px">
-  <div class="hhi-row"><div class="hhi-label" style="color:var(--l1)">Layer 1 · Raw Extraction</div><div class="hhi-bar-wrap"><div class="hhi-bar" style="background:var(--l1);width:68%"></div></div><div class="hhi-val">0.680</div></div>
-  <div class="hhi-row"><div class="hhi-label" style="color:var(--l2)">Layer 2 · Refined Materials</div><div class="hhi-bar-wrap"><div class="hhi-bar" style="background:var(--l2);width:43.3%"></div></div><div class="hhi-val">0.433</div></div>
-  <div class="hhi-row"><div class="hhi-label" style="color:var(--l3)">Layer 3 · Equipment</div><div class="hhi-bar-wrap"><div class="hhi-bar" style="background:var(--l3);width:15.3%"></div></div><div class="hhi-val">0.153</div></div>
-  <div class="hhi-row"><div class="hhi-label" style="color:var(--l4)">Layer 4 · Design &amp; IP</div><div class="hhi-bar-wrap"><div class="hhi-bar" style="background:var(--l4);width:15%"></div></div><div class="hhi-val">0.150</div></div>
-  <div class="hhi-row"><div class="hhi-label" style="color:var(--l5)">Layer 5 · Fabrication</div><div class="hhi-bar-wrap"><div class="hhi-bar" style="background:var(--l5);width:16.4%"></div></div><div class="hhi-val">0.164</div></div>
-  <div class="hhi-row"><div class="hhi-label" style="color:var(--l6)">Layer 6 · Assembly</div><div class="hhi-bar-wrap"><div class="hhi-bar" style="background:var(--l6);width:39.1%"></div></div><div class="hhi-val">0.391</div></div>
-</div>
-
-<p>Raw Extraction (HHI 0.680) is near-monopoly — China controls 99% of primary gallium. Assembly (HHI 0.391) is highly concentrated around China's OSAT capacity. Equipment and Design & IP appear relatively dispersed, but this understates concentration: those layers are dominated by a handful of US-headquartered firms that, as a portfolio, constitute a near-monopoly position for the United States.</p>
-
-<!-- LIMITATIONS -->
-<h2 id="limitations">Limitations</h2>
-<p>We document these explicitly so the analysis can be properly evaluated and extended.</p>
-<dl>
-  <div class="gloss"><dt>1. Reporter-to-World Comtrade data</dt><dd>Our Comtrade files contain each country's exports/imports to the World, not bilateral pairs. Biproportional inference approximates bilateral flows. This is a known limitation: it will produce non-zero edges between pairs with no direct relationship.</dd></div>
-  <div class="gloss"><dt>2. Firm-level betweenness is a proxy</dt><dd>TSMC, ASML, and other firm nodes have betweenness scores derived from market-share literature rather than computed from bilateral trade data. These are well-documented figures from reputable sources, but they are not computed from the same pipeline as country-level scores.</dd></div>
-  <div class="gloss"><dt>3. Single time period</dt><dd>Trade data is from 2022, TiVA from 2020. The network is a snapshot. It does not capture post-2022 restructuring driven by US export controls, the CHIPS Act, or China's domestic semiconductor investment programme.</dd></div>
-  <div class="gloss"><dt>4. Taiwan pruning</dt><dd>Taiwan's country node is removed by the passive consumer filter, which is methodologically correct given Comtrade data structure, but requires explicit disclosure. TSMC as a firm node compensates but is not fully equivalent.</dd></div>
-  <div class="gloss"><dt>5. Layer 2 is structural, not empirical</dt><dd>Refined Materials edges are based on published industry literature rather than a single authoritative data source. The HS codes that cover photoresists, silicon wafers, and specialty gases are scattered across multiple product categories.</dd></div>
-</dl>
-
-<!-- REPLICATION -->
-<h2 id="replication">Replication Instructions</h2>
-<p>To reproduce this analysis from scratch:</p>
-
-<pre><code># 1. Clone the repository
-git clone https://github.com/technodharma/semiconductor-supply-chain
-cd semiconductor-supply-chain
-
-# 2. Download raw data files to data/Raw/
-#    See README.md for exact URLs and filenames
-
-# 3. Install R dependencies (run once in RStudio)
-install.packages(c("tidyverse", "readxl", "jsonlite", "igraph"))
-
-# 4. Run the pipeline
-#    Open scripts/01_network_pipeline.R in RStudio
-#    Hit Ctrl+Shift+S (Source)
-#    Outputs write to data/Processed/
-
-# 5. Serve the frontend
-cd web/
-python -m http.server 8000
-# Open http://localhost:8000</code></pre>
-
-<p>All raw data files are either freely downloadable from public sources (USGS, OECD, UN Comtrade) or derived from publicly available literature. The full list of download URLs is in <code>README.md</code>.</p>
-
-<!-- GLOSSARY -->
-<h2 id="glossary">Glossary</h2>
-<dl>
-  <div class="gloss"><dt>Betweenness Centrality C_B(i)</dt><dd>The fraction of all shortest weighted paths in a network that pass through node i. Used here as a measure of structural chokepoint power.</dd></div>
-  <div class="gloss"><dt>Biproportional Inference (RAS)</dt><dd>A method for estimating bilateral flows from marginal totals. Standard in international trade economics for reconstructing trade matrices.</dd></div>
-  <div class="gloss"><dt>DVA (Domestic Value Added)</dt><dd>The portion of a country's gross exports that represents value actually created domestically, after subtracting imported inputs. From OECD TiVA.</dd></div>
-  <div class="gloss"><dt>Ego-network</dt><dd>The subgraph consisting of a selected node and all edges directly connecting to it. When you click a node on the map, the visualisation isolates its ego-network.</dd></div>
-  <div class="gloss"><dt>HHI (Herfindahl-Hirschman Index)</dt><dd>Sum of squared market shares. Ranges 0–1; values above 0.25 indicate high concentration. Used here on betweenness shares per layer.</dd></div>
-  <div class="gloss"><dt>HS Code</dt><dd>Harmonized System commodity code, the international standard for classifying traded goods. HS 8542 = integrated circuits; HS 8486 = semiconductor manufacturing equipment.</dd></div>
-  <div class="gloss"><dt>OSAT</dt><dd>Outsourced Semiconductor Assembly and Test. The packaging and testing stage, dominated by Taiwanese firms (ASE Group) and Malaysian facilities.</dd></div>
-  <div class="gloss"><dt>Pairwise Stability</dt><dd>A network equilibrium concept: no actor wants to delete an existing link, and no two actors mutually want to add a new one.</dd></div>
-  <div class="gloss"><dt>Passive Consumer</dt><dd>A node with in-degree ≥ 2 and out-degree = 0. Imports goods but plays no structural supply role. Pruned from the network to reduce noise.</dd></div>
-  <div class="gloss"><dt>Star Equilibrium</dt><dd>A network topology where one hub node connects to all others, with no direct spoke-to-spoke links. Emerges when direct link costs exceed the marginal benefit of bypassing the hub.</dd></div>
-  <div class="gloss"><dt>TiVA</dt><dd>Trade in Value Added — OECD database measuring the domestic value content of gross exports, correcting for double-counting in standard trade statistics.</dd></div>
-</dl>
-
-</main>
-</div>
+</footer>
 
 <script>
-// Render KaTeX equations
-document.addEventListener('DOMContentLoaded', () => {
-  const opts = { throwOnError:false, displayMode:true };
-  katex.render(String.raw`C_B(i) = \sum_{s \neq i \neq t} \frac{\sigma_{st}(i)}{\sigma_{st}}`,
-    document.getElementById('eq-bc'), opts);
-  katex.render(String.raw`U_i(g) = \sum_{j \neq i} f(d_{ij}) - \sum_{j:\,ij \in g} c_{ij}`,
-    document.getElementById('eq-nfg'), opts);
-  katex.render(String.raw`w_{ij} = s_i^{\,X} \cdot s_j^{\,M} \;/\; \max_{k,l}\left(s_k^{\,X} \cdot s_l^{\,M}\right)`,
-    document.getElementById('eq-bip'), opts);
-  katex.render(String.raw`\text{HHI} = \sum_{i=1}^{n} s_i^{\,2}`,
-    document.getElementById('eq-hhi'), opts);
-});
+katex.render("C_B(i) = \\sum_{s \\neq i \\neq t} \\frac{\\sigma_{st}(i)}{\\sigma_{st}}", document.getElementById('eq-bc'), {throwOnError:false, displayMode:true});
+katex.render("\\sigma_{st}", document.getElementById('eq-inline-1'), {throwOnError:false});
+katex.render("\\sigma_{st}(i)", document.getElementById('eq-inline-2'), {throwOnError:false});
+katex.render("HHI_\\ell = \\sum_i s_i^2", document.getElementById('eq-hhi'), {throwOnError:false, displayMode:true});
+katex.render("O_i = \\sum_{\\alpha=1}^{L} C_B^{\\alpha}(i)", document.getElementById('eq-omc'), {throwOnError:false, displayMode:true});
+katex.render("P_i = \\frac{L}{L-1}\\left(1 - \\sum_{\\alpha=1}^{L} \\left(\\frac{C_B^{\\alpha}(i)}{O_i}\\right)^2 \\right)", document.getElementById('eq-participation'), {throwOnError:false, displayMode:true});
+katex.render("C_B^{\\alpha}(i)", document.getElementById('eq-inline-3'), {throwOnError:false});
 </script>
 </body>
 </html>
