@@ -21,11 +21,14 @@
 <header id="masthead">
   <div class="wp-badge">Working Paper · 2026</div>
   <h1>The Toll-Booths of the Chip Stack</h1>
-  <p class="dek">Global trade statistics measure how much moves through the semiconductor supply chain. They say almost nothing about who owns the chokepoints. This working paper maps the chain as a six-layer network and finds that the real structural power sits with a small number of corporations, not states.</p>
-  <div class="byline"><strong>Sahasrik Ragani</strong> · Ahmedabad University · </div>
+  <p class="dek">Trade statistics count how many chips cross a border. They are silent on who could stop them from crossing at all. This paper rebuilds the global semiconductor supply chain as a six-layer network and finds its chokepoints held not by states, but by a couple of dozen firms most people have never heard of.</p>
+  <div class="byline"><strong>Sahasrik Ragani</strong> · Ahmedabad University · Supervised by Dr. Neelanjan Sircar</div>
+  <div class="masthead-cta">
+    <a href="#sandbox-intro" class="jump-to-map">Skip straight to the interactive map ↓</a>
+  </div>
   <div class="scroll-cue">
     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
-    Scroll to begin
+    Or scroll to read the argument first
   </div>
 </header>
 <div id="scrolly">
@@ -84,6 +87,7 @@
             <div class="mini-chart-title">Overall Multiplex Centrality vs. Participation</div>
             <div class="mini-chart-sub">Breadth (spread across layers) vs. depth (aggregate betweenness)</div>
             <div id="participation-chart"></div>
+            <div class="panel-source" id="participation-rest"></div>
           </div>
         </div>
       </div>
@@ -94,39 +98,43 @@
     <section class="story" data-panel="1">
       <div class="kicker eyebrow">I · The Evolution</div>
       <h2>From the integrated giant to the hyper-specialised web</h2>
-      <p>The semiconductor industry did not start out distributed. Early Intel designed, fabricated, and packaged its own chips end to end — an integrated device manufacturer (IDM) with sovereign control of its own supply chain. Over four decades that model fractured into dozens of hyper-specialised firms, each holding a narrow, defensible position in one layer of a six-stage global chain.</p>
-      <p>That fracture created enormous value — and enormous concentration. Nvidia alone is worth more than the GDP of every country in this dataset combined. TSMC and ASML, meanwhile, sit at valuations that dwarf the countries whose trade statistics economists actually track.</p>
+      <p>Intel used to do everything itself: design a chip, etch it, package it, ship it. That vertical empire has since splintered into a supply chain so specialised that no single firm could rebuild it alone even if it wanted to — each link defensible precisely because it does the one thing nobody else can.</p>
+      <p>Splintering paid extraordinarily well. Nvidia is now worth more than the combined economic output of every country in this network. TSMC and ASML — a foundry and a lithography firm most of the public still couldn't place on a map — are worth more than the trade flows of the nations whose GDP economists spend their careers tracking.</p>
       <p class="stat-line">Nvidia's market cap: ≈$5.1T. Combined DVA of every country in this network: ≈$0.9T.</p>
     </section>
 
     <section class="story" data-panel="2">
       <div class="kicker eyebrow">II · The Reality of Monopolisation</div>
       <h2>Trade volume hides power. Concentration reveals it.</h2>
-      <p>Gross trade statistics double-count. A wafer that crosses three borders on its way from sand to smartphone appears three times in the numbers — inflating the apparent diversity of the supply base and obscuring how narrow it actually is at each stage.</p>
-      <p>The Herfindahl-Hirschman Index corrects for this by measuring concentration directly — the sum of squared export shares within a layer. One layer spikes into outright monopoly territory: Raw Extraction, where China alone accounts for 72% of source-side flow, chiefly primary gallium. Nothing else comes close.</p>
-      <p>Equipment and Design & IP look dispersed by this measure — but that undercounts the truth. Both are led by the United States at only ~21–22% of source share, yet dominated in substance by a small handful of US-headquartered firms whose combined national portfolio is a far tighter chokepoint than the country-level number implies.</p>
+      <p>Gross trade figures have a counting problem. A wafer that crosses three borders between sand and smartphone gets counted three times, and every crossing makes the supply base look a little more diverse than it actually is.</p>
+      <p>The Herfindahl-Hirschman Index — economists' usual instrument for spotting a monopoly — cuts through that. One layer scores as an outright cartel: Raw Extraction, where China supplies 72% of everything that moves, almost entirely primary gallium. Nothing else in the chain comes close.</p>
+      <p>Equipment and Design & IP score as competitive on the same measure, led by the United States at a modest 21–22%. Don't be fooled. That leading country is a short, familiar list of American firms in disguise — and their combined grip is far tighter than any single national statistic lets on.</p>
     </section>
 
     <section class="story" data-panel="3">
       <div class="kicker eyebrow">III · Graph Theory in Plain English</div>
-      <h2>Think of it as a highway system, not a trade ledger</h2>
-      <p>Picture the supply chain as a system of international highways. We are not measuring how much cargo moves on them. We are measuring who owns the toll-booth on the shortest route between any two points.</p>
-      <p>Betweenness centrality counts, for every possible origin and destination, how many of the shortest paths between them are forced through a given node. A node with high betweenness is a highway interchange: close it, and traffic across the entire system backs up. That is why we call it the toll-booth parameter — it is a direct measure of how much rent a node can extract, and how catastrophic its disruption would be.</p>
+      <h2>A map of motorways, not a trade ledger</h2>
+      <p>Picture the supply chain as a map of motorways rather than a ledger of cargo. The question worth asking isn't how much traffic moves — it's who owns the tollbooth that traffic has no way around.</p>
+      <p>Betweenness centrality answers exactly that: for every possible origin and destination, what share of shortest routes between them has no choice but to pass through a given node. Score high, and you are not a supplier among many — you are the interchange. Shut you down, and the system doesn't reroute. It stops.</p>
     </section>
 
     <section class="story" data-panel="3b">
       <div class="kicker eyebrow">III·B · Network Analysis, as a Secondary Layer</div>
-      <h2>What the topology adds once the conventional numbers are on the table</h2>
-      <p>Two supporting tests, run against the same 47-node network. First: what happens if you actually remove the chokepoints? Targeted removal of the highest-betweenness node, recalculated at every step, collapses the network's giant component below half its size after just <strong>17% of nodes</strong> are gone. Random failure — the kind trade shocks and natural disasters usually cause — takes removing <strong>47%</strong> of nodes to do the same damage. That gap is the fragility the valuation chart hints at, made explicit.</p>
-      <p>Second: power is not held the same way by every actor. Using a multiplex participation coefficient, we can separate nodes that are powerful in one layer only from nodes that are powerful across several. Almost every marquee firm — ASML, TSMC, Arm, Cadence/Synopsys — is a pure single-layer specialist: enormous depth, zero cross-layer reach. China is the one outlier with genuine breadth, active across four of six layers at once.</p>
+      <h2>What the topology adds once you've seen the price tags</h2>
+      <p>Two stress tests on the same 47-node network make the case harder to dismiss as valuation theatre. Pull out the highest-betweenness node, recompute, repeat — and the giant component falls below half its size after losing just <strong>17%</strong> of nodes. Force the same collapse at random, the way an earthquake or a shipping crisis would, and it takes <strong>47%</strong>. That gap is the entire argument for why chokepoints matter more than any diversification slide suggests.</p>
+      <p>Power, it turns out, isn't distributed evenly even among the powerful. A multiplex participation score separates nodes that matter in one layer from nodes that matter everywhere. ASML, TSMC, Arm, Cadence and Synopsys are all the former — immense within their lane, invisible outside it. Only one node in the network is powerful almost everywhere at once: China, active across four of six layers. Depth is common. Breadth is not.</p>
     </section>
   </div>
+</div>
+
+<div class="pull-quote-block">
+  <blockquote>&ldquo;Depth is common. Breadth is not.&rdquo;</blockquote>
 </div>
 <section id="sankey-section">
   <div class="section-head">
     <div class="kicker eyebrow">Companion Figure · Separate Data Lineage</div>
     <h2>Who Pays Whom</h2>
-    <p>The network above is built from country-level trade aggregates. This figure is a different kind of evidence: a supplier-spend-weighted snapshot of specific corporate relationships, from raw materials through equipment through foundries to the fabless companies that ultimately pay for all of it.</p>
+    <p>Everything above is built from country-level trade aggregates — useful for spotting structural patterns, useless for answering the question any executive actually asks: who, specifically, pays whom? This figure answers that instead, tracing real supplier-spend relationships from raw materials through equipment and foundries to the fabless companies footing the bill.</p>
   </div>
   <div id="sankey-chart"></div>
   <div class="sankey-credit">
@@ -135,11 +143,11 @@
     <ul class="sankey-sources" id="sankey-sources-list"></ul>
   </div>
 </section>
-<div class="sankey-tooltip" id="sankey-tt"></div>
+<div class="chart-tooltip" id="chart-tt"></div>
 <section id="sandbox-intro">
   <div class="kicker">IV · The Strategic Sandbox</div>
-  <h2>Now that you understand the moats, explore the network yourself</h2>
-  <p>Everything above is a guided argument. What follows is the underlying instrument: the full 47-node, 513-edge network, filterable by layer, switchable between betweenness and trade-value framings, with every node's structural moat — including the multiplex breadth measure from Figure 4 — one click away.</p>
+  <h2>Now that you've seen the moats, go argue with the map</h2>
+  <p>Everything above made a case. What follows is the evidence, unmediated: the full 47-node, 513-edge network, filterable by layer, switchable between betweenness and trade value, every node's moat — including the breadth measure from Figure 4 — a click away.</p>
 </section>
 <div id="app">
   <div id="loading">
@@ -267,14 +275,14 @@
 <footer id="site-footer">
   <div class="foot-inner">
     <h3>Global Semiconductor Supply Chain</h3>
-    <p>An interactive network analysis modelling the chip stack as a six-layer directed graph, applying betweenness centrality, HHI concentration, percolation analysis, and multiplex participation to argue that structural chokepoints — not diplomatic relationships — are where geopolitical power in the system actually resides.</p>
+    <p>The chip stack modelled as a six-layer directed graph — betweenness centrality, HHI concentration, percolation, and multiplex participation, all pointed at one argument: the geopolitics of semiconductors runs through corporate chokepoints, not just capitals.</p>
     <div class="foot-links">
       <a href="methodology.html">↗ Full Methodology</a>
-      <a href="https://github.com/chromadharma/semicondvaluechain">↗ GitHub Repository</a>
+      <a href="https://github.com/chromadharma/semiconvaluechain">↗ GitHub Repository</a>
       <a href="findings.md">↗ Findings Paper</a>
     </div>
     <div class="colophon">
-      Sahasrik Ragani · Ahmedabad University · Working Paper, 2026.
+      Sahasrik Ragani · Ahmedabad University · Supervised by Dr. Neelanjan Sircar · Working Paper, 2026.
       Code: MIT License. Data: derived from public sources, see methodology for citations. Analysis and written content: CC BY 4.0.
     </div>
   </div>
@@ -325,10 +333,10 @@ function buildBarChart() {
 
   const max = weighted[0].val;
   const host = document.getElementById('bar-chart');
-  host.innerHTML = weighted.map(d => {
+  host.innerHTML = weighted.map((d,i) => {
     const pct = Math.max(2, (d.val / max) * 100);
     const displayVal = d.val >= 1000 ? `$${(d.val/1000).toFixed(2)}T` : `$${d.val.toFixed(0)}B`;
-    return `<div class="bar-row">
+    return `<div class="bar-row" data-i="${i}">
       <div class="bar-label">${d.label}</div>
       <div class="bar-track"><div class="bar-fill ${d.isFirm?'firm':'country'}" style="width:0%" data-w="${pct}"></div></div>
       <div class="bar-val tabular">${displayVal}</div>
@@ -336,6 +344,12 @@ function buildBarChart() {
   }).join('');
   requestAnimationFrame(() => {
     host.querySelectorAll('.bar-fill').forEach(b => b.style.width = b.dataset.w + '%');
+  });
+  host.querySelectorAll('.bar-row').forEach(row => {
+    const d = weighted[+row.dataset.i];
+    const metricLabel = d.isFirm ? 'Market capitalisation' : 'Domestic value-added (exports)';
+    row.addEventListener('mousemove', (ev) => showChartTT(ev, d.label, metricLabel, d.val >= 1000 ? `$${(d.val/1000).toFixed(2)} trillion` : `$${d.val.toFixed(1)} billion`));
+    row.addEventListener('mouseleave', hideChartTT);
   });
 }
 
@@ -352,7 +366,7 @@ function buildHHIChart() {
     const v = hhi[l.id] || 0;
     const pct = (v / maxHHI) * 100;
     const threshPct = (0.25 / maxHHI) * 100;
-    return `<div class="hhi-row">
+    return `<div class="hhi-row" data-lid="${l.id}">
       <div class="hhi-label">${l.name}</div>
       <div class="hhi-track">
         <div class="hhi-fill" style="width:0%;background:${layerColor[l.id]}" data-w="${pct}"></div>
@@ -363,6 +377,13 @@ function buildHHIChart() {
   }).join('');
   requestAnimationFrame(() => {
     host.querySelectorAll('.hhi-fill').forEach(b => b.style.width = b.dataset.w + '%');
+  });
+  host.querySelectorAll('.hhi-row').forEach(row => {
+    const l = layers.find(x => x.id == row.dataset.lid);
+    const v = hhi[l.id] || 0;
+    const tier = v >= 0.25 ? 'High concentration' : v >= 0.15 ? 'Moderate concentration' : 'Competitive';
+    row.addEventListener('mousemove', (ev) => showChartTT(ev, l.name, `HHI ${v.toFixed(3)} — ${tier}`, l.source));
+    row.addEventListener('mouseleave', hideChartTT);
   });
 }
 
@@ -406,27 +427,38 @@ function buildToyNetwork() {
 // ══════════════════════════════════════════════════════════════════
 function buildPercolationChart() {
   const { targeted, random } = StoryData.percolation;
-  const W = 460, H = 200, PAD = 28;
+  const W = 460, H = 230, PADL = 34, PADR = 14, PADT = 14, PADB = 32;
   const host = document.getElementById('percolation-chart');
   const svg = el('svg', { viewBox:`0 0 ${W} ${H}`, width:'100%', height:'auto' });
+  const plotW = W - PADL - PADR, plotH = H - PADT - PADB;
 
-  const x = f => PAD + f * (W - PAD*1.4);
-  const y = g => (H - PAD) - g * (H - PAD*1.6);
+  const x = f => PADL + f * plotW;
+  const y = g => PADT + (1 - g) * plotH;
 
-  // axes
-  el('line', { x1:PAD, y1:H-PAD, x2:W-PAD*0.4, y2:H-PAD, stroke:'var(--rule-strong)', 'stroke-width':1 }, svg);
-  el('line', { x1:PAD, y1:PAD*0.6, x2:PAD, y2:H-PAD, stroke:'var(--rule-strong)', 'stroke-width':1 }, svg);
-  el('text', { x:PAD, y:H-8, 'font-family':'Work Sans', 'font-size':9, fill:'var(--faint)' }, svg).textContent = '0%';
-  el('text', { x:W-PAD*0.4-24, y:H-8, 'font-family':'Work Sans', 'font-size':9, fill:'var(--faint)' }, svg).textContent = 'nodes removed';
+  [0, .25, .5, .75, 1].forEach(t => {
+    el('line', { x1:PADL, y1:y(t), x2:W-PADR, y2:y(t), stroke:'var(--rule)', 'stroke-width':1 }, svg);
+    el('text', { x:PADL-6, y:y(t)+3, 'text-anchor':'end', 'font-family':'Work Sans', 'font-size':8.5, fill:'var(--faint)' }, svg).textContent = Math.round(t*100)+'%';
+    el('line', { x1:x(t), y1:PADT, x2:x(t), y2:H-PADB, stroke:'var(--rule)', 'stroke-width':1 }, svg);
+    el('text', { x:x(t), y:H-PADB+13, 'text-anchor':'middle', 'font-family':'Work Sans', 'font-size':8.5, fill:'var(--faint)' }, svg).textContent = Math.round(t*100)+'%';
+  });
+  el('text', { x:W-PADR, y:H-6, 'text-anchor':'end', 'font-family':'Work Sans', 'font-size':9, fill:'var(--muted)', 'font-weight':600 }, svg).textContent = '% of nodes removed';
+  el('text', { x:10, y:PADT-2, 'text-anchor':'start', 'font-family':'Work Sans', 'font-size':9, fill:'var(--muted)', 'font-weight':600 }, svg).textContent = 'giant component';
+
   const line = (data, color) => {
     const pts = data.map(d => `${x(d.frac_removed)},${y(d.giant_frac)}`).join(' ');
-    el('polyline', { points:pts, class:'sankey-link', stroke:color, 'stroke-width':2, fill:'none' }, svg);
+    el('polyline', { points:pts, class:'chart-line', stroke:color, 'stroke-width':2.25, fill:'none' }, svg);
   };
   line(random, 'var(--faint)');
   line(targeted, 'var(--oxblood)');
 
-  // 50% reference line
-  el('line', { x1:PAD, y1:y(0.5), x2:W-PAD*0.4, y2:y(0.5), stroke:'var(--rule)', 'stroke-dasharray':'2,3' }, svg);
+  const annotate = (frac, label, color, dy) => {
+    const cx = x(frac), cy = y(0.5);
+    el('circle', { cx, cy, r:3, fill:color }, svg);
+    el('line', { x1:cx, y1:cy, x2:cx, y2:cy+dy, stroke:color, 'stroke-width':1, 'stroke-dasharray':'2,2' }, svg);
+    el('text', { x:cx, y:cy+dy+(dy>0?10:-5), 'text-anchor':'middle', 'font-family':'Work Sans', 'font-size':9.5, fill:color, 'font-weight':600 }, svg).textContent = label;
+  };
+  annotate(0.170, '17%', 'var(--oxblood)', 26);
+  annotate(0.468, '47%', 'var(--faint)', -22);
 
   host.innerHTML = '';
   host.appendChild(svg);
@@ -436,34 +468,56 @@ function buildPercolationChart() {
 // FIGURE 4b — Multiplex participation scatter
 // ══════════════════════════════════════════════════════════════════
 function buildParticipationChart() {
-  const nodes = StoryData.nodes.filter(n => (n.omc||0) > 0);
-  const W = 460, H = 220, PAD = 30;
+  const nodes = StoryData.nodes.filter(n => (n.omc||0) > 0).sort((a,b) => b.omc - a.omc);
+  const W = 460, H = 240, PADL = 34, PADR = 40, PADT = 30, PADB = 34;
   const host = document.getElementById('participation-chart');
   const svg = el('svg', { viewBox:`0 0 ${W} ${H}`, width:'100%', height:'auto' });
+  const plotW = W - PADL - PADR, plotH = H - PADT - PADB;
 
-  const maxOMC = Math.max(...nodes.map(n=>n.omc));
-  const x = v => PAD + (v/maxOMC) * (W - PAD*1.6);
-  const y = v => (H - PAD) - v * (H - PAD*1.6);
+  const maxOMC = Math.max(...nodes.map(n=>n.omc)) * 1.08; // headroom so the max point never clips
+  const x = v => PADL + (v/maxOMC) * plotW;
+  const y = v => PADT + (1 - v) * plotH;
 
-  el('line', { x1:PAD, y1:H-PAD, x2:W-PAD*0.4, y2:H-PAD, stroke:'var(--rule-strong)' }, svg);
-  el('line', { x1:PAD, y1:PAD*0.6, x2:PAD, y2:H-PAD, stroke:'var(--rule-strong)' }, svg);
-  el('text', { x:W-PAD*1.5, y:H-8, 'font-family':'Work Sans', 'font-size':9, fill:'var(--faint)' }, svg).textContent = 'centrality →';
-  el('text', { x:6, y:PAD, 'font-family':'Work Sans', 'font-size':9, fill:'var(--faint)' }, svg).textContent = 'breadth';
+  // gridlines
+  [0,.25,.5,.75,1].forEach(t => {
+    el('line', { x1:PADL, y1:y(t), x2:W-PADR, y2:y(t), stroke:'var(--rule)', 'stroke-width':1 }, svg);
+  });
+  el('text', { x:PADL-6, y:y(0)+3, 'text-anchor':'end', 'font-family':'Work Sans', 'font-size':8.5, fill:'var(--faint)' }, svg).textContent = '0';
+  el('text', { x:PADL-6, y:y(1)+3, 'text-anchor':'end', 'font-family':'Work Sans', 'font-size':8.5, fill:'var(--faint)' }, svg).textContent = '1';
+  el('text', { x:10, y:PADT-10, 'font-family':'Work Sans', 'font-size':9, fill:'var(--muted)', 'font-weight':600 }, svg).textContent = 'participation (breadth)';
+  el('text', { x:W-PADR, y:H-PADB+22, 'text-anchor':'end', 'font-family':'Work Sans', 'font-size':9, fill:'var(--muted)', 'font-weight':600 }, svg).textContent = 'overall multiplex centrality →';
 
-  const labelThese = ['CHN','ASML','TSMC','NVIDIA','USA','SAMSUNGF'];
+  // De-overlap the specialist cluster: nodes with participation===0 get a small
+  // deterministic vertical jitter (rank-based, not random) purely for legibility.
+  // True value for all of them is exactly 0 — flagged below the chart.
+  const zeroNodes = nodes.filter(n => (n.participation||0) === 0);
+  const jitterOf = {};
+  zeroNodes.forEach((n,i) => { jitterOf[n.id] = (i % 4) * 0.028; });
+
+  const labelThese = new Set(['CHN','ASML','TSMC','NVIDIA','USA','SAMSUNGF']);
+  const tooltipData = [];
   nodes.forEach(n => {
-    const cx = x(n.omc), cy = y(n.participation||0);
+    const py = (n.participation||0) + (jitterOf[n.id]||0);
+    const cx = x(n.omc), cy = y(py);
     const isFirm = n.node_type === 'firm';
-    el('circle', { cx, cy, r: isFirm?4:5,
-      fill: isFirm ? 'var(--oxblood)' : 'var(--link)', 'fill-opacity':0.8 }, svg);
-    if (labelThese.includes(n.id)) {
-      const t = el('text', { x:cx+7, y:cy+3, 'font-family':'Work Sans', 'font-size':9.5, fill:'var(--ink)' }, svg);
-      t.textContent = n.label;
+    const dot = el('circle', { cx, cy, r: isFirm?4:5.5,
+      fill: isFirm ? 'var(--oxblood)' : 'var(--link)', 'fill-opacity':0.82, style:'cursor:pointer' }, svg);
+    dot.addEventListener('mousemove', (ev) => showChartTT(ev, n.label,
+      `OMC ${n.omc.toFixed(2)} · Participation ${(n.participation||0).toFixed(2)}`,
+      n.n_layers_active>1 ? `Active in ${n.n_layers_active} of 6 layers` : 'Single-layer specialist'));
+    dot.addEventListener('mouseleave', hideChartTT);
+    if (labelThese.has(n.id)) {
+      el('text', { x:cx+8, y:cy+3, 'font-family':'Work Sans', 'font-size':10, fill:'var(--ink)', 'font-weight':600 }, svg).textContent = n.label;
     }
   });
 
   host.innerHTML = '';
   host.appendChild(svg);
+
+  // Compact list of the rest — avoids on-chart label collision entirely
+  const rest = nodes.filter(n => !labelThese.has(n.id) && (n.participation||0)===0).map(n=>n.label);
+  const listHost = document.getElementById('participation-rest');
+  if (listHost) listHost.textContent = 'Also single-layer only (participation = 0): ' + rest.join(', ') + '.';
 }
 
 // ══════════════════════════════════════════════════════════════════
@@ -521,15 +575,16 @@ function buildSankey() {
     const xm = (x0+x1)/2;
     const path = `M${x0},${y0a} C${xm},${y0a} ${xm},${y1a} ${x1},${y1a}
                   L${x1},${y1b} C${xm},${y1b} ${xm},${y0b} ${x0},${y0b} Z`;
-    const p = el('path', { d:path, fill:linkColor(l.basis), 'fill-opacity': l.basis==='disclosed'?0.35:0.5, class:'sankey-link' }, g);
-    p.addEventListener('mousemove', (ev) => showSankeyTT(ev, `${s.name} → ${t.name}`, `$${l.value}B/yr · ${l.basis}`, l.note));
-    p.addEventListener('mouseleave', hideSankeyTT);
+    const p = el('path', { d:path, fill:linkColor(l.basis), 'fill-opacity': l.basis==='disclosed'?0.35:0.5, class:'sankey-ribbon' }, g);
+    p.addEventListener('mousemove', (ev) => showChartTT(ev, `${s.name} → ${t.name}`, `$${l.value}B/yr · ${l.basis}`, l.note));
+    p.addEventListener('mouseleave', hideChartTT);
   });
 
   nodes.forEach(n => {
     if (n._h === undefined) return;
-    el('rect', { x:n._x, y:n._y, width:NODEW, height:n._h, fill:'var(--ink)' }, g)
-      .addEventListener('mousemove', (ev) => showSankeyTT(ev, n.name, `$${n._val}B/yr through-flow`, n.note));
+    const rect = el('rect', { x:n._x, y:n._y, width:NODEW, height:n._h, fill:'var(--ink)', style:'cursor:pointer;transition:fill .15s ease;' }, g);
+    rect.addEventListener('mousemove', (ev) => { showChartTT(ev, n.name, `$${n._val}B/yr through-flow`, n.note); rect.setAttribute('fill', 'var(--oxblood)'); });
+    rect.addEventListener('mouseleave', () => { hideChartTT(); rect.setAttribute('fill', 'var(--ink)'); });
     const isLeftHalf = n.layer < 2;
     const t = el('text', {
       x: isLeftHalf ? n._x - 6 : n._x + NODEW + 6,
@@ -547,20 +602,22 @@ function buildSankey() {
 
   host.innerHTML = '';
   host.appendChild(svg);
+  // safety net: if the mouse leaves the whole chart area between elements, always hide the tooltip
+  host.addEventListener('mouseleave', hideChartTT);
 
   // sources list
   document.getElementById('sankey-sources-list').innerHTML =
     meta.sources.map(s => `<li>${s}</li>`).join('') + `<li style="margin-top:6px;">${meta.disclaimer}</li>`;
 }
 
-function showSankeyTT(ev, name, sub, note) {
-  const tt = document.getElementById('sankey-tt');
+function showChartTT(ev, name, sub, note) {
+  const tt = document.getElementById('chart-tt');
   tt.innerHTML = `<b>${name}</b>${sub}${note ? '<br>'+note : ''}`;
   tt.style.display = 'block';
   tt.style.left = (ev.clientX + 14) + 'px';
   tt.style.top = (ev.clientY + 14) + 'px';
 }
-function hideSankeyTT() { document.getElementById('sankey-tt').style.display = 'none'; }
+function hideChartTT() { document.getElementById('chart-tt').style.display = 'none'; }
 
 // ══════════════════════════════════════════════════════════════════
 // DATA & STATE
@@ -679,7 +736,7 @@ function buildDeckLayers() {
     greatCircle: false,   // direction controlled via unwrapped lon
     pickable: true,
     autoHighlight: true,
-    highlightColor: [255,255,255,200],
+    highlightColor: [26,26,26,220],
     onHover: onArcHover,
     parameters: {
       // Additive blending so overlapping arcs glow
@@ -717,7 +774,7 @@ function buildDeckLayers() {
     filled: true,
     pickable: true,
     autoHighlight: true,
-    highlightColor: [255,255,255,255],
+    highlightColor: [166,27,27,255],
     onHover: onNodeHover,
     onClick: ({ object }) => object && selectNode(object),
     updateTriggers: { getRadius:[bcKey,viewMode,activeLayer], getFillColor:[bcKey,viewMode,activeLayer] }
@@ -748,14 +805,14 @@ function buildDeckLayers() {
     radiusUnits: 'pixels',
     radiusMinPixels: 4,
     radiusMaxPixels: 22,
-    getFillColor: n => [0, 255, 255, 230],
-    getLineColor: [0, 255, 255, 50],
+    getFillColor: [166, 27, 27, 235],
+    getLineColor: [122, 16, 16, 90],
     lineWidthMinPixels: 8,
     stroked: true,
     filled: true,
     pickable: true,
     autoHighlight: true,
-    highlightColor: [255,255,255,255],
+    highlightColor: [26,26,26,255],
     onHover: onNodeHover,
     onClick: ({ object }) => object && selectNode(object),
     updateTriggers: { getRadius:[bcKey,viewMode,activeLayer] }
@@ -769,7 +826,7 @@ function buildDeckLayers() {
     radiusUnits: 'pixels',
     radiusMinPixels: 8,
     radiusMaxPixels: 44,
-    getFillColor: [0, 255, 255, 12],
+    getFillColor: [166, 27, 27, 22],
     stroked: false,
     filled: true,
     pickable: false,
@@ -787,13 +844,16 @@ function buildDeckLayers() {
       const base = n.node_type==='firm' ? 11 : 10;
       return Math.max(base, bc * 12 + base);
     },
-    getColor: n => n.node_type === 'firm' ? [0,255,255,210] : [255,255,255,190],
+    getColor: n => n.node_type === 'firm' ? [122,16,16,235] : [26,26,26,210],
     getPixelOffset: [0, -20],
-    fontFamily: 'Inconsolata, monospace',
+    fontFamily: 'Work Sans, sans-serif',
     fontWeight: '400',
     sizeScale: 1,
     characterSet: 'auto',
     pickable: false,
+    background: true,
+    getBackgroundColor: [251,250,248,190],
+    backgroundPadding: [3,1],
     updateTriggers: { getSize:[bcKey,viewMode,activeLayer], getColor:[] }
   });
 
